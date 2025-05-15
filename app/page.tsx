@@ -1,49 +1,33 @@
 "use client";
-import React, { useRef, useEffect } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import GitHubHeatmap from "../components/GitHubHeatmap";
+import { fetchGitHubHeatmap } from "../lib/github";
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-// Fade-in on scroll animation
-function useFadeInOnScroll() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-          }
-        });
-      },
-      { threshold: 0.08 }
-    );
-    document.querySelectorAll(".fade-in-section").forEach((el) => {
-      el.classList.add("opacity-0", "translate-y-8", "transition", "duration-700");
-      observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-}
+// Client-side scroll/fade logic is moved to a subcomponent if needed
 
-export default function Home() {
-  useFadeInOnScroll();
-  const contactRef = useRef<HTMLDivElement>(null);
-
-  const handleContactScroll = () => {
-    contactRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+export default async function Home() {
+  const heatmapData = await fetchGitHubHeatmap();
 
   return (
     <div className="bg-black min-h-screen flex flex-col font-sans">
       <Header />
       <main className="flex-1 flex flex-col pt-20">
-        <Hero onContactClick={handleContactScroll} />
+        <Hero onContactClick={() => {
+          // Scroll to contact section (client-side, best handled in Hero or a client component)
+          if (typeof window !== "undefined") {
+            const el = document.getElementById("contact");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+        }} />
+        <GitHubHeatmap data={heatmapData} />
         <About />
         <Projects />
-        <div ref={contactRef}>
+        <div id="contact">
           <Contact />
         </div>
       </main>

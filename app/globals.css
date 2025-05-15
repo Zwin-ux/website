@@ -47,3 +47,23 @@ body {
   70% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
   100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
 }
+
+/* Heatmap glow for high activity */
+.animate-heatmap-glow {
+  animation: heatmap-glow 1.2s infinite alternate;
+  box-shadow: 0 0 8px 2px #f87171, 0 0 24px 2px #f8717133;
+}
+@keyframes heatmap-glow {
+  0% { box-shadow: 0 0 8px 2px #f87171, 0 0 24px 2px #f8717133; }
+  100% { box-shadow: 0 0 16px 4px #f87171, 0 0 32px 8px #f8717144; }
+}
+
+/* Pulse for new activity */
+.pulse-on-activity {
+  animation: pulse-activity 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes pulse-activity {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
