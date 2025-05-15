@@ -24,10 +24,10 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 px-6 bg-black text-white fade-in-section">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+    <section id="projects" className="py-8 px-4 bg-black text-white">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
