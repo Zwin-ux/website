@@ -4,12 +4,13 @@ import Hero from "../components/Hero";
 import TeamHighlight from "../components/TeamHighlight";
 import ServiceCards from "../components/ServiceCards";
 import Projects from "../components/Projects";
+import Commissions from "../components/Commissions";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 // Client-side scroll/fade logic is moved to a subcomponent if needed
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="bg-black min-h-screen flex flex-col font-sans">
       <Header />
@@ -22,6 +23,7 @@ export default async function Home() {
         }} />
         <TeamHighlight />
         <Projects />
+        <Commissions />
         <ServiceCards />
         <div id="contact">
           <Contact />
