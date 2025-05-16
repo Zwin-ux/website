@@ -18,10 +18,6 @@ export const metadata: Metadata = {
     "Bonelli Labs is a creative tech group. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
   openGraph: {
     title: "Bonelli Labs — Creative Tech Group",
-    description:
-      "Bonelli Labs is a creative tech group. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
-    url: "https://bonelli-labs.vercel.app/",
-    siteName: "Bonelli Labs",
     images: [
       {
         url: "/favicon.ico",
@@ -30,26 +26,30 @@ export const metadata: Metadata = {
         alt: "Bonelli Labs Favicon",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
-  icons: {
-    icon: "/favicon.ico",
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bonelli Labs',
+    description: 'Affordable, futuristic web and marketing services',
   },
-};
+  robots: {
+    index: true,
+    follow: true,
+  }
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-black text-white min-h-screen antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
-  );
+  )
 }

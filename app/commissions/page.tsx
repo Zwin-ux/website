@@ -9,6 +9,8 @@ import OrderForm, { OrderFormData } from "../../components/OrderForm";
 import OrderSuccessModal from "../../components/OrderSuccessModal";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import PageTransition from "../../components/PageTransition";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const FILTERS = ["All", "Web", "Marketing", "Custom"] as const;
 type FilterType = typeof FILTERS[number];
@@ -64,13 +66,14 @@ export default function CommissionsPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans flex flex-col">
       <Header />
-      <main className="flex-1 pt-20">
+      <PageTransition>
+        <main className="flex-1 pt-20">
       {/* Header + Subnav */}
       <section className="w-full max-w-5xl mx-auto pt-12 pb-6 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Commissions</h1>
-        <p className="text-zinc-400 mb-6 max-w-2xl">Browse our futuristic, affordable services—websites, custom projects, and meme-fueled marketing campaigns. Select a category below to filter.</p>
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-center md:text-left">Commissions</h1>
+        <p className="text-zinc-400 mb-6 max-w-2xl mx-auto md:mx-0 text-center md:text-left">Browse our futuristic, affordable services—websites, custom projects, and meme-fueled marketing campaigns. Select a category below to filter.</p>
         {/* Sub-navigation */}
-        <nav className="flex gap-3 mb-8">
+        <nav className="flex gap-3 mb-8 justify-center md:justify-start flex-wrap">
           {FILTERS.map((cat) => (
             <button
               key={cat}
@@ -148,7 +151,9 @@ export default function CommissionsPage() {
         </div>
       </section>
       </main>
+      </PageTransition>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
