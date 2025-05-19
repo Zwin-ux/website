@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Header from "../components/Header";
 import BotBotHome from "../components/BotBotHome";
+import EchoMarkets from "../components/EchoMarkets";
 import Nimbus8Project from "../components/Nimbus8Project";
 import AboutSection from "../components/AboutSection";
 import ScrollToTop from "../components/ScrollToTop";
@@ -60,6 +61,9 @@ export default function Home() {
         {/* Products Section */}
         <section id="products" className="py-16">
           <BotBotHome />
+          <div className="border-t border-zinc-800 mt-16">
+            <EchoMarkets />
+          </div>
           <div className="border-t border-zinc-800 mt-16">
             <Nimbus8Project />
           </div>

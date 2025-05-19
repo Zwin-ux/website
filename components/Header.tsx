@@ -18,7 +18,15 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Link href="/" className="group">
-            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="
+              text-xl md:text-2xl font-bold 
+              bg-gradient-to-r from-purple-400 to-blue-500 
+              bg-clip-text text-transparent 
+              animate-fadeInUp
+              transition-all duration-200
+              hover:opacity-90
+              cursor-pointer
+            ">
               Bonelli
             </span>
           </Link>
