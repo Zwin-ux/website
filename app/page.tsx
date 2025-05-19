@@ -5,6 +5,7 @@ import BotBotHome from "../components/BotBotHome";
 import EchoMarkets from "../components/EchoMarkets";
 import Nimbus8Project from "../components/Nimbus8Project";
 import AboutSection from "../components/AboutSection";
+import Commissions from "../components/Commissions";
 import ScrollToTop from "../components/ScrollToTop";
 
 export default function Home() {
@@ -70,25 +71,14 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <AboutSection />
-
-        {/* Commissions Section */}
-        <section id="commissions" className="py-20 bg-zinc-900">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-              Custom Commissions
-            </h2>
-            <p className="text-xl text-zinc-300 mb-8 max-w-2xl mx-auto">
-              Need something custom? We've got you covered.
-            </p>
-            <a 
-              href="mailto:groupbonelli@gmail.com" 
-              className="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:opacity-90 transition-opacity"
-            >
-              Contact Us
-            </a>
+        <section id="about" className="py-20">
+          <AboutSection />
+          <div className="my-16 flex justify-center">
+            <Commissions />
           </div>
+
         </section>
+
       </main>
       <ScrollToTop />
       

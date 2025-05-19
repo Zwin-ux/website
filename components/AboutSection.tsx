@@ -13,11 +13,13 @@ export default function AboutSection() {
         
         <div className="space-y-6 text-zinc-400 text-left max-w-2xl mx-auto">
           <p>
-            We're a small group of designers and creators (11+)who believe in building things that matter.
+            We're a small group of designers and creators (11+) who believe in building things that are cool and fun.
           </p>
           <p>
-            Whether it's a new product, a creative experiment, or a solution to a tricky problem,
-            We most likely got it....
+            Whether it's a new product, a creative experiment, or a solution to a tricky problem, we usually find a way.
+          </p>
+          <p>
+            We're also working on an Esports Team Documentry and collaborating with many artists from different backgrounds. It's early days, but we are really  excited about where it could go.  
           </p>
         </div>
         
