@@ -75,7 +75,7 @@ const EchoMarkets = () => {
       <div className="mt-24 text-center">
         <h3 className="text-2xl font-bold text-white mb-6">Why We Care</h3>
         <p className="text-zinc-400 max-w-3xl mx-auto">
-          Good design can teach millions.  
+          We have big plans for this .  
           If you want to help, try things out, or just follow along, you’re invited.
         </p>
       </div>
