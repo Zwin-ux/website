@@ -5,44 +5,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Commissions", href: "/commissions" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Products", href: "#products" },
+  { label: "Commissions", href: "#commissions" },
+  { label: "About Us", href: "#about" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return pathname === "/";
-    return pathname.startsWith(href);
-  };
-
   return (
-    <header className="fixed top-0 left-0 w-full bg-black bg-opacity-90 backdrop-blur-sm z-50 shadow-md border-b border-zinc-800/50">
-      <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="group">
-          <span className="font-bold text-xl tracking-wide text-white group-hover:text-purple-400 transition-colors duration-200">Bonelli Labs</span>
-        </Link>
-        <ul className="flex space-x-2 sm:space-x-6">
-          {navLinks.map((link) => {
-            const active = isActive(link.href);
-            return (
+    <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-sm z-50 border-b border-zinc-800/50">
+      <nav className="max-w-6xl mx-auto px-4 py-3">
+        <div className="flex justify-between items-center">
+          <Link href="/" className="group">
+            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+              Bonelli
+            </span>
+          </Link>
+          
+          <ul className="flex space-x-1 md:space-x-3">
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`px-3 py-2 rounded-md text-sm sm:text-base transition-all duration-200 font-medium ${active 
-                    ? "text-white bg-zinc-800 border-b-2 border-purple-500" 
-                    : "text-zinc-300 hover:text-white hover:bg-zinc-900/60"}`}
+                  className="px-3 py-1.5 text-xs md:text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/30 rounded-md transition-all"
                 >
                   {link.label}
                 </Link>
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   );
