@@ -103,7 +103,7 @@ export default function BotBotHome() {
               Add to Discord
             </a>
             <a
-              href="https://github.com/your-org/botbot"
+              href="https://github.com/Zwin-ux/botbot"
               className="px-8 py-3 border-2 border-zinc-600 hover:border-zinc-400 text-white font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/20"
               target="_blank"
               rel="noopener noreferrer"
