@@ -1,4 +1,5 @@
 import React from 'react';
+import UpcomingProjects from './UpcomingProjects';
 
 export default function AboutSection() {
   return (
@@ -7,20 +8,8 @@ export default function AboutSection() {
         <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
           About Us
         </h2>
-        <p className="text-xl text-zinc-300 mb-8">
-          Small team, big ideas. We focus on building tools that solve real problems.
-        </p>
-        
-        <div className="space-y-6 text-zinc-400 text-left max-w-2xl mx-auto">
-          <p>
-            We're a small group of designers and creators (11+) who believe in building things that are cool and fun.
-          </p>
-          <p>
-            Whether it's a new product, a creative experiment, or a solution to a tricky problem, we usually find a way.
-          </p>
-          <p>
-            We're also working on an Esports Team Documentry and collaborating with many artists from different backgrounds. It's early days, but we are really  excited about where it could go.  
-          </p>
+        <div className="mb-10">
+          <UpcomingProjects />
         </div>
         
         <div className="mt-12 space-y-8">
