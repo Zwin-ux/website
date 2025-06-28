@@ -3,18 +3,27 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Commissions", href: "#commissions" },
-  { label: "About Us", href: "#about" },
+const mainNavLinks = [
+  { label: "Services", href: "#services" },
+  // { label: "Portfolio", href: "#portfolio" }, // Uncomment when portfolio section is ready
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "mailto:groupbonelli@gmail.com" }, // Or a contact form page
+];
+
+const serviceSubLinks = [
+  { label: "Custom Sites", href: "#custom-sites" },
+  { label: "Tech Consulting", href: "#tech-consulting" },
+  { label: "Creative Marketing", href: "#creative-marketing" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const [servicesOpen, setServicesOpen] = useState(false);
   
   return (
-    <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-sm z-50 border-b border-zinc-800/50">
+    <header className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-zinc-800/70">
       <nav className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Link href="/" className="group">
@@ -31,18 +40,55 @@ export default function Header() {
             </span>
           </Link>
           
-          <ul className="flex space-x-1 md:space-x-3">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="px-3 py-1.5 text-xs md:text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/30 rounded-md transition-all"
-                >
-                  {link.label}
-                </Link>
+          <ul className="hidden md:flex space-x-2">
+            {mainNavLinks.map((link) => (
+              <li key={link.label} className="relative group">
+                {link.label === "Services" ? (
+                  <>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      onMouseEnter={() => setServicesOpen(true)}
+                      onMouseLeave={() => setServicesOpen(false)}
+                      className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-all"
+                    >
+                      {link.label}
+                    </button>
+                    {servicesOpen && (
+                      <div
+                        onMouseEnter={() => setServicesOpen(true)}
+                        onMouseLeave={() => setServicesOpen(false)}
+                        className="absolute top-full left-0 mt-1 w-48 bg-zinc-800/90 backdrop-blur-md rounded-md shadow-lg py-1 z-20"
+                      >
+                        {serviceSubLinks.map(subLink => (
+                          <Link
+                            key={subLink.label}
+                            href={subLink.href}
+                            onClick={() => setServicesOpen(false)}
+                            className="block px-4 py-2 text-sm text-zinc-300 hover:bg-purple-600 hover:text-white transition-colors"
+                          >
+                            {subLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-all"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
+          {/* Mobile Menu Button (basic placeholder) */}
+          <div className="md:hidden">
+            <button className="text-zinc-300 hover:text-white">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+          </div>
         </div>
       </nav>
     </header>
