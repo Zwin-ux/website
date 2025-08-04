@@ -21,7 +21,7 @@ export default function Commissions() {
               <p className="text-zinc-400 mb-6 flex-1">{c.description}</p>
               <div className="mt-auto w-full flex justify-center">
                 <a
-                  href={`mailto:groupbonelli@gmail.com?subject=Commission%20Order:%20${encodeURIComponent(c.title)}`}
+                  href={`mailto:mzwin3545@gmail.com?subject=Commission%20Order:%20${encodeURIComponent(c.title)}`}
                   className="px-5 py-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 text-white font-bold shadow hover:opacity-90 transition-all w-full max-w-[160px]"
                 >
                   Order Now

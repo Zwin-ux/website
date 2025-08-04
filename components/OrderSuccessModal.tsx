@@ -39,7 +39,7 @@ export default function OrderSuccessModal({ isOpen, onClose, serviceTitle }: Ord
                 Your request for <span className="font-semibold text-purple-300">{serviceTitle}</span> has been prepared. Your email client should open automatically.
               </p>
               <p className="text-zinc-400 text-sm mb-6">
-                If your email didn't open, please email us directly at <span className="text-purple-300">groupbonelli@gmail.com</span> with your request details.
+                If your email didn't open, please email us directly at <span className="text-purple-300">mzwin3545@gmail.com</span> with your request details.
               </p>
               
               <button

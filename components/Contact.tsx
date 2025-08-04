@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-const EMAIL = "groupbonelli@gmail.com";
+const EMAIL = "mzwin3545@gmail.com";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);

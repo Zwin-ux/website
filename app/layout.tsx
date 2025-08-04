@@ -13,24 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bonelli Labs — Creative Tech Group",
+  title: "Bonelli Labs - Full-Stack Development & Technical Consulting",
   description:
-    "Bonelli Labs is a creative tech group. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
+    "Full-stack development team and technical consultants specializing in modern web applications, custom software solutions, and technical consulting. Portfolio, projects, and contact info.",
   openGraph: {
-    title: "Bonelli Labs — Creative Tech Group",
+    title: "Bonelli Labs - Full-Stack Development & Technical Consulting",
     images: [
       {
         url: "/favicon.ico",
         width: 256,
         height: 256,
-        alt: "Bonelli Labs Favicon",
+        alt: "Bonelli Labs - Full-Stack Development & Technical Consulting",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bonelli Labs',
-    description: 'Affordable, futuristic web and marketing services',
+    title: 'Bonelli Labs - Full-Stack Development & Technical Consulting',
+    description: 'Full-stack development team and technical consultants specializing in modern web applications and custom software solutions',
   },
   robots: {
     index: true,

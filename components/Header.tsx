@@ -4,12 +4,13 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 const mainNavLinks = [
   { label: "Services", href: "#services" },
-  // { label: "Portfolio", href: "#portfolio" }, // Uncomment when portfolio section is ready
+  { label: "Portfolio", href: "#portfolio" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "mailto:groupbonelli@gmail.com" }, // Or a contact form page
+  { label: "Contact", href: "mailto:mzwin3545@gmail.com" }, // Or a contact form page
 ];
 
 const serviceSubLinks = [
@@ -26,17 +27,28 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-zinc-800/70">
       <nav className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <Link href="/" className="group">
+          <Link href="/" className="group flex items-center space-x-2">
+            <div className="relative h-8 w-8 md:h-10 md:w-10">
+              <Image
+                src="/Stylized Tree Logo Design.png"
+                alt="Bonelli Labs Logo"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 2rem, 2.5rem"
+                priority
+              />
+            </div>
             <span className="
               text-xl md:text-2xl font-bold 
-              bg-gradient-to-r from-purple-400 to-blue-500 
+              bg-gradient-to-r from-orange-400 to-yellow-300 
               bg-clip-text text-transparent 
               animate-fadeInUp
               transition-all duration-200
               hover:opacity-90
               cursor-pointer
+              flex items-center
             ">
-              Bonelli
+              Bonelli Labs
             </span>
           </Link>
           

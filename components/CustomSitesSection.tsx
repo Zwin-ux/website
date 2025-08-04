@@ -29,13 +29,11 @@ const CustomSitesSection = () => {
           ))}
         </div>
 
-        {/* Placeholder for an image or visual element */}
+        {/* Clean visual element */}
         <div className="mt-8 md:mt-0 h-64 md:h-auto bg-gradient-to-br from-purple-600 to-blue-700 rounded-xl flex items-center justify-center p-8 shadow-2xl">
-          {/* Replace with an actual image or a more sophisticated graphic */}
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-24 h-24 text-white opacity-50">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
           </svg>
-          <p className="text-white opacity-75 ml-4 text-lg">Visual representation of a sleek web app.</p>
         </div>
       </div>
     </section>

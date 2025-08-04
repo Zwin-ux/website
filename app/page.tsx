@@ -10,6 +10,7 @@ import ScrollToTop from "../components/ScrollToTop";
 import CustomSitesSection from "../components/CustomSitesSection";
 import TechConsultingSection from "../components/TechConsultingSection";
 import CreativeMarketingSection from "../components/CreativeMarketingSection";
+import GitHubPortfolio from "../components/GitHubPortfolio";
 
 export default function Home() {
   useEffect(() => {
@@ -28,8 +29,36 @@ export default function Home() {
       }
     };
 
+    // Handle fade-in animations
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all fade-in sections
+    const fadeInSections = document.querySelectorAll('.fade-in-section');
+    fadeInSections.forEach((section) => observer.observe(section));
+
+    // Immediately show the hero section since it's above the fold
+    const heroSection = document.querySelector('.fade-in-section');
+    if (heroSection) {
+      heroSection.classList.add('opacity-100', 'translate-y-0');
+    }
+
     document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
+    
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -47,15 +76,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Placeholder for Projects/Portfolio Section */}
-        {/*
+        {/* GitHub Portfolio Section */}
         <section id="portfolio" className="py-16 md:py-24 bg-black">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">Our Work</h2>
-            <Projects />
+            <GitHubPortfolio />
           </div>
         </section>
-        */}
 
         <section id="about" className="py-16 md:py-24 bg-zinc-900">
           <AboutSection />
