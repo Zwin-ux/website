@@ -115,8 +115,7 @@ export default function AboutSection() {
         
         <div className="text-center space-y-8">
           <div className="max-w-2xl mx-auto">
-            <h3 className="text-xl font-medium text-zinc-200 mb-4">MY PLAYLIST</h3>
-            <p className="text-zinc-400 text-sm mb-4">Music that fuels my coding sessions</p>
+            <h3 className="text-xl font-medium text-zinc-200 mb-4">OUR PLAYLIST</h3>
             <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-lg">
               <iframe 
                 src="https://open.spotify.com/embed/playlist/41svkVH46zY2N1ZhdG4OhA" 

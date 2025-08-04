@@ -9,9 +9,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center items-center text-center py-20 px-6 bg-gradient-to-b from-black to-zinc-900 text-white fade-in-section opacity-100 translate-y-0">
+    <section className="min-h-[80vh] flex flex-col justify-center items-center text-center py-20 px-6 bg-black text-white fade-in-section opacity-100 translate-y-0">
       <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-yellow-300">
+        <span className="text-blue-400">
           Full-Stack Development & Technical Consulting
         </span>
       </h1>
@@ -20,7 +20,7 @@ export default function Hero() {
       </p>
       <button
         onClick={scrollToServices}
-        className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold rounded-lg text-lg hover:opacity-90 transition-all shadow-lg transform hover:scale-105"
+        className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-lg transition-all shadow-lg transform hover:scale-105"
       >
         View Our Work
       </button>

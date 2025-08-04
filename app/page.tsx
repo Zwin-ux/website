@@ -11,6 +11,7 @@ import CustomSitesSection from "../components/CustomSitesSection";
 import TechConsultingSection from "../components/TechConsultingSection";
 import CreativeMarketingSection from "../components/CreativeMarketingSection";
 import GitHubPortfolio from "../components/GitHubPortfolio";
+import SnakeGame from "../components/SnakeGame";
 
 export default function Home() {
   useEffect(() => {
@@ -85,6 +86,11 @@ export default function Home() {
 
         <section id="about" className="py-16 md:py-24 bg-zinc-900">
           <AboutSection />
+        </section>
+
+        {/* Snake Game Section */}
+        <section className="bg-black">
+          <SnakeGame />
         </section>
       </main>
       <ScrollToTop />
