@@ -20,8 +20,8 @@ export default function ReactionGame() {
   const [currentEmoji, setCurrentEmoji] = useState(emojis[0]);
   const [round, setRound] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
-  const [soundEnabled, setSoundEnabled] = useState(true);
-  const [goofyMode, setGoofyMode] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+  const [goofyMode, setGoofyMode] = useState(false);
   const [bursts, setBursts] = useState<Array<{ id: number; x: number; y: number; emoji: string }>>([]);
   const [mascot, setMascot] = useState('😸');
   const gameAreaRef = useRef<HTMLDivElement>(null);
@@ -72,9 +72,9 @@ export default function ReactionGame() {
     setCurrentEmoji(getRandomEmoji());
     setMascot('🫨');
     
-    // Much shorter random delay - gets faster each round!
-    const baseDelay = Math.max(500, 2000 - (round * 150)); // Starts at 2s, gets down to 500ms
-    const randomVariation = Math.random() * 1000; // 0-1s variation
+    // Slightly longer delay and gentler ramp to reduce intensity
+    const baseDelay = Math.max(900, 2200 - (round * 50)); // Starts ~2.2s, not faster than 900ms
+    const randomVariation = Math.random() * 800; // 0-0.8s variation
     const delay = baseDelay + randomVariation;
     
     timeoutRef.current = setTimeout(() => {
@@ -140,17 +140,17 @@ export default function ReactionGame() {
       const newRound = round + 1;
       setRound(newRound);
       
-      if (newRound >= 10) { // Increased to 10 rounds!
+      if (newRound >= 5) { // Shorter game: 5 rounds
         setGameState('finished');
         if (newScore > bestScore) {
           setBestScore(newScore);
           try { localStorage.setItem('reaction_best', String(newScore)); } catch {}
         }
       } else {
-        // Much faster next round - barely any pause!
+        // Slightly longer pause between rounds
         setTimeout(() => {
           startRound();
-        }, 600); // Reduced from 1500ms to 600ms
+        }, 1200);
       }
     } else if (gameState === 'waiting') {
       startRound();
@@ -168,7 +168,6 @@ export default function ReactionGame() {
     const gameArea = gameAreaRef.current;
     if (gameArea) {
       gameArea.addEventListener('keydown', handleKeyPress);
-      gameArea.focus();
       return () => gameArea.removeEventListener('keydown', handleKeyPress);
     }
   }, [handleKeyPress]);
@@ -227,7 +226,7 @@ export default function ReactionGame() {
               <div className="text-sm text-zinc-400">Best</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">{round}/10</div>
+              <div className="text-2xl font-bold text-white">{round}/5</div>
               <div className="text-sm text-zinc-400">Round</div>
             </div>
           </div>
@@ -281,9 +280,9 @@ export default function ReactionGame() {
                       <div className="text-6xl mb-4 animate-bounce">🏆</div>
                       <div className="text-blue-400 text-xl font-bold">Game Complete!</div>
                       <div className="text-white text-lg">Final Score: <span className="text-cyan-400 font-bold">{score}</span></div>
-                      {round >= 10 && (
+                      {round >= 5 && (
                         <div className="text-zinc-400 text-sm mt-2">
-                          Avg: <span className="text-blue-300">{Math.round(totalTime / 10)}ms</span>
+                          Avg: <span className="text-blue-300">{Math.round(totalTime / 5)}ms</span>
                         </div>
                       )}
                       <div className="text-blue-300 text-sm mt-1 font-semibold">

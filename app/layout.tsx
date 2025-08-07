@@ -16,11 +16,16 @@ export const metadata: Metadata = {
   title: "Bonelli Labs - Full-Stack Development & Technical Consulting",
   description:
     "Full-stack development team and technical consultants specializing in modern web applications, custom software solutions, and technical consulting. Portfolio, projects, and contact info.",
+  icons: {
+    icon: [
+      { url: "/Stylized Tree Logo Design.png", type: "image/png", sizes: "any" },
+    ],
+  },
   openGraph: {
     title: "Bonelli Labs - Full-Stack Development & Technical Consulting",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/Stylized Tree Logo Design.png",
         width: 256,
         height: 256,
         alt: "Bonelli Labs - Full-Stack Development & Technical Consulting",
