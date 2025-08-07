@@ -163,7 +163,22 @@ export default function GitHubPortfolio({
       setLoading(true);
       setError(null);
       const repos = await fetchUserRepositories(username, maxRepos);
-      setRepositories(repos);
+      // Curated featured order (user preference): include 'cryptic' and exclude 'website'
+      const curatedOrder = [
+        'RealText',
+        'RedditScraper',
+        'botbot',
+        'rete-demo',
+        'cryptic',
+        'P-V-NP',
+      ];
+
+      const curated = curatedOrder
+        .map(name => repos.find(r => r.name.toLowerCase() === name.toLowerCase()))
+        .filter((r): r is GitHubRepository => Boolean(r));
+
+      const finalList = (curated.length > 0 ? curated : repos).slice(0, maxRepos);
+      setRepositories(finalList);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
       console.error('Error loading repositories:', err);

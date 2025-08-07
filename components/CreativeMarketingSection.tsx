@@ -6,34 +6,34 @@ const CreativeMarketingSection = () => {
       <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-500">
-            Creative Marketing & Strategy
+            Marketing & Content
           </span>
         </h2>
         <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto">
-          We bridge code and culture — making marketing that moves people and metrics.
+          Practical help with content, brand basics, and simple growth tactics.
         </p>
       </div>
 
       <div className="space-y-8">
         {[
           {
-            title: "Visual Storytelling",
-            description: "Crafting compelling narratives with conversion in mind. Your brand's story, beautifully told.",
+            title: "Clear Messaging",
+            description: "Say what you do and why it helps — plain and simple.",
             bgColor: "bg-gradient-to-br from-amber-600 to-orange-700"
           },
           {
-            title: "Brand Systems, Not Just Assets",
-            description: "Building cohesive brand identities that resonate across all touchpoints.",
+            title: "Brand Basics",
+            description: "Clean logo use, colors, and type so everything matches.",
             bgColor: "bg-gradient-to-br from-orange-600 to-yellow-700"
           },
           {
-            title: "Data-Driven Growth Tools",
-            description: "Leveraging A/B testing, funnel design, smart copy, and influencer ops to achieve measurable results.",
+            title: "Simple Growth",
+            description: "Basic landing pages, email capture, and light A/B testing.",
             bgColor: "bg-gradient-to-br from-yellow-600 to-amber-700"
           },
           {
-            title: "Human-Centric Social Content",
-            description: "Creating social media content that doesn’t feel corporate — it feels authentic and engaging.",
+            title: "Social Content",
+            description: "Short posts and visuals that feel human, not corporate.",
             bgColor: "bg-gradient-to-br from-amber-600 to-yellow-700"
           }
         ].map((item, index) => (
@@ -42,11 +42,6 @@ const CreativeMarketingSection = () => {
             <p className="text-md opacity-90">{item.description}</p>
           </div>
         ))}
-      </div>
-
-      {/* Optional: Add a small gallery or visual element here */}
-      <div className="mt-12 text-center">
-        <p className="text-zinc-400 italic">Let's make your brand unforgettable.</p>
       </div>
     </section>
   );

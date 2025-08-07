@@ -12,6 +12,8 @@ import TechConsultingSection from "../components/TechConsultingSection";
 import CreativeMarketingSection from "../components/CreativeMarketingSection";
 import GitHubPortfolio from "../components/GitHubPortfolio";
 import SnakeGame from "../components/SnakeGame";
+import BusinessWebsiteSetupSection from "../components/BusinessWebsiteSetupSection";
+import Contact from "../components/Contact";
 
 export default function Home() {
   useEffect(() => {
@@ -71,6 +73,7 @@ export default function Home() {
         {/* Services Section Wrapper */}
         <section id="services" className="py-16 md:py-24 bg-zinc-900">
           <div className="max-w-6xl mx-auto px-6 space-y-16 md:space-y-24">
+            <BusinessWebsiteSetupSection />
             <CustomSitesSection />
             <TechConsultingSection />
             <CreativeMarketingSection />
@@ -91,6 +94,11 @@ export default function Home() {
         {/* Snake Game Section */}
         <section className="bg-black">
           <SnakeGame />
+        </section>
+
+        {/* Contact Section */}
+        <section className="bg-zinc-900">
+          <Contact />
         </section>
       </main>
       <ScrollToTop />

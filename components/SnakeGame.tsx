@@ -20,12 +20,39 @@ export default function ReactionGame() {
   const [currentEmoji, setCurrentEmoji] = useState(emojis[0]);
   const [round, setRound] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [goofyMode, setGoofyMode] = useState(true);
+  const [bursts, setBursts] = useState<Array<{ id: number; x: number; y: number; emoji: string }>>([]);
+  const [mascot, setMascot] = useState('😸');
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const startTimeRef = useRef<number>(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const burstIdRef = useRef(0);
 
   const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
   const getRandomEmoji = () => emojis[Math.floor(Math.random() * emojis.length)];
+
+  // Tiny synth beeps using WebAudio (no assets)
+  const playBeep = useCallback((type: 'start' | 'success' | 'fail') => {
+    if (!soundEnabled || typeof window === 'undefined') return;
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.connect(g);
+    g.connect(ctx.destination);
+    const now = ctx.currentTime;
+    const conf = {
+      start: { f: 520, d: 0.08 },
+      success: { f: 880, d: 0.12 },
+      fail: { f: 220, d: 0.18 },
+    }[type];
+    o.frequency.setValueAtTime(conf.f, now);
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(0.3, now + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + conf.d);
+    o.start(now);
+    o.stop(now + conf.d + 0.01);
+  }, [soundEnabled]);
 
   const resetGame = () => {
     setGameState('waiting');
@@ -33,6 +60,7 @@ export default function ReactionGame() {
     setReactionTime(null);
     setRound(0);
     setTotalTime(0);
+    setMascot('😸');
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
@@ -42,6 +70,7 @@ export default function ReactionGame() {
     setGameState('ready');
     setCurrentColor(getRandomColor());
     setCurrentEmoji(getRandomEmoji());
+    setMascot('🫨');
     
     // Much shorter random delay - gets faster each round!
     const baseDelay = Math.max(500, 2000 - (round * 150)); // Starts at 2s, gets down to 500ms
@@ -51,6 +80,8 @@ export default function ReactionGame() {
     timeoutRef.current = setTimeout(() => {
       setGameState('go');
       startTimeRef.current = performance.now();
+      setMascot('🤩');
+      playBeep('start');
     }, delay);
   };
 
@@ -59,6 +90,8 @@ export default function ReactionGame() {
       // Too early!
       setGameState('finished');
       setReactionTime(-1);
+      setMascot('😿');
+      playBeep('fail');
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
@@ -83,6 +116,27 @@ export default function ReactionGame() {
       setScore(newScore);
       setTotalTime(totalTime + reaction);
       
+      // Mascot reacts to speed
+      setMascot(reaction < 200 ? '😻' : reaction < 320 ? '😸' : '🙂');
+      playBeep('success');
+
+      // Goofy emoji bursts
+      if (goofyMode) {
+        const centerX = 0; // relative to container
+        const centerY = 0;
+        const burstItems = Array.from({ length: 8 }, () => ({
+          id: ++burstIdRef.current,
+          x: (Math.random() - 0.5) * 160, // -80..80
+          y: (Math.random() - 0.5) * 160, // -80..80
+          emoji: getRandomEmoji(),
+        }));
+        setBursts((prev) => [...prev, ...burstItems]);
+        // Clean up after a short time
+        setTimeout(() => {
+          setBursts((prev) => prev.filter(b => !burstItems.some(x => x.id === b.id)));
+        }, 800);
+      }
+
       const newRound = round + 1;
       setRound(newRound);
       
@@ -90,6 +144,7 @@ export default function ReactionGame() {
         setGameState('finished');
         if (newScore > bestScore) {
           setBestScore(newScore);
+          try { localStorage.setItem('reaction_best', String(newScore)); } catch {}
         }
       } else {
         // Much faster next round - barely any pause!
@@ -113,6 +168,7 @@ export default function ReactionGame() {
     const gameArea = gameAreaRef.current;
     if (gameArea) {
       gameArea.addEventListener('keydown', handleKeyPress);
+      gameArea.focus();
       return () => gameArea.removeEventListener('keydown', handleKeyPress);
     }
   }, [handleKeyPress]);
@@ -125,6 +181,14 @@ export default function ReactionGame() {
     };
   }, []);
 
+  // Load best score from localStorage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('reaction_best');
+      if (stored) setBestScore(Number(stored));
+    } catch {}
+  }, []);
+
   return (
     <div className="bg-zinc-900 py-16 px-4">
       <div 
@@ -133,9 +197,24 @@ export default function ReactionGame() {
         tabIndex={0}
         onClick={handleClick}
       >
-        <h2 className="text-3xl font-bold text-white mb-8">
-          <span className="text-blue-400">⚡</span> Reaction Time Challenge
+        <h2 className="text-3xl font-bold text-white mb-2">
+          <span className="text-blue-400">🎉</span> Bonelli Buddy Reaction Party
         </h2>
+        <div className="mb-6 flex items-center justify-center gap-3 text-zinc-300">
+          <span className="text-2xl">{mascot}</span>
+          <button
+            onClick={(e) => { e.stopPropagation(); setSoundEnabled(s => !s); }}
+            className={`px-3 py-1 rounded-lg text-sm border ${soundEnabled ? 'bg-blue-600 text-white border-blue-500' : 'bg-zinc-800 border-zinc-700 text-zinc-300'}`}
+          >
+            {soundEnabled ? 'Sound: On' : 'Sound: Off'}
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); setGoofyMode(g => !g); }}
+            className={`px-3 py-1 rounded-lg text-sm border ${goofyMode ? 'bg-pink-600 text-white border-pink-500' : 'bg-zinc-800 border-zinc-700 text-zinc-300'}`}
+          >
+            {goofyMode ? 'Goofy Mode: On' : 'Goofy Mode: Off'}
+          </button>
+        </div>
         
         <div className="mb-6 space-y-4">
           <div className="flex justify-center space-x-8 text-white">
@@ -154,7 +233,7 @@ export default function ReactionGame() {
           </div>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8 relative">
           <div 
             className={`
               w-80 h-80 rounded-2xl border-4 flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-lg
@@ -216,6 +295,21 @@ export default function ReactionGame() {
               )}
             </div>
           </div>
+
+          {/* Goofy emoji bursts */}
+          {goofyMode && bursts.length > 0 && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              {bursts.map(b => (
+                <div
+                  key={b.id}
+                  className="absolute text-2xl md:text-3xl select-none"
+                  style={{ transform: `translate(${b.x}px, ${b.y}px)` }}
+                >
+                  <span className="inline-block animate-bounce" style={{ animationDuration: `${400 + Math.random()*300}ms` }}>{b.emoji}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {reactionTime !== null && reactionTime > 0 && gameState !== 'finished' && (
@@ -246,9 +340,9 @@ export default function ReactionGame() {
         )}
 
         <div className="mt-8 text-zinc-400 text-sm space-y-1">
-          <div className="md:hidden">Tap the circle when it changes color!</div>
-          <div className="hidden md:block">Click or press SPACE when the circle changes color!</div>
-          <div>React as fast as you can • 10 rounds • Gets faster each round • Speed bonuses!</div>
+          <div className="md:hidden">Tap when the color changes!</div>
+          <div className="hidden md:block">Click or press SPACE when the color changes!</div>
+          <div>10 rounds • gets faster • silly sound beeps • goofy emoji bursts</div>
           <div className="text-xs mt-1 text-blue-300">
             &lt;200ms: <span className="text-cyan-400">⚡+500</span> • &lt;300ms: <span className="text-blue-400">🔥+200</span> • &lt;400ms: <span className="text-sky-400">💨+100</span> • Streak: <span className="text-blue-300">+{round * 50}</span>
           </div>
