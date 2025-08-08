@@ -57,14 +57,19 @@ export default function UpcomingAndShow() {
                     <>
                       <video
                         className="absolute inset-0 h-full w-full object-cover"
-                        src="/IMG_2527%20(1).mov"
                         muted
                         loop
                         autoPlay
                         playsInline
                         preload="metadata"
+                        poster="/mazen-ep1-poster.jpg"
                         aria-label="The Mazen Show teaser"
-                      />
+                      >
+                        <source src="/IMG_2527%20(2).mp4" type="video/mp4" />
+                        {/* Fallback for very old browsers */}
+                        Your browser does not support the video tag. 
+                        <a href="/IMG_2527%20(2).mp4" className="underline">Download teaser</a>.
+                      </video>
                       <div className="absolute bottom-0 left-0 right-0 p-3 text-sm text-zinc-100 bg-black/40 backdrop-blur-sm">
                         Episode 1 — Teaser
                       </div>
