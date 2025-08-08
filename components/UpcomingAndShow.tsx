@@ -2,17 +2,6 @@
 
 import React, { useRef } from "react";
 
-type UpcomingItem = {
-  title: string;
-  blurb?: string;
-  tag?: string;
-};
-
-const upcoming: UpcomingItem[] = [
-  { title: "RealText v2", blurb: "Cleaner UI, better detectors", tag: "extension" },
-  { title: "RedditScraper Dashboard", blurb: "Charts + alerts", tag: "tooling" },
-  { title: "cryptic MVP", blurb: "Lightweight crypto playground", tag: "product" },
-];
 
 export default function UpcomingAndShow() {
   const railRef = useRef<HTMLDivElement>(null);
@@ -28,27 +17,6 @@ export default function UpcomingAndShow() {
   return (
     <section className="py-16 md:py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 space-y-16">
-        {/* Upcoming Projects */}
-        <div className="fade-in-section opacity-100 translate-y-0">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Upcoming Projects</h2>
-          <p className="text-zinc-300 mb-8">A peek at what’s cooking. Subject to change, shipped when ready.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {upcoming.map((item) => (
-              <div key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
-                <div className="flex items-center gap-2 mb-3">
-                  {item.tag && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 uppercase tracking-wide">
-                      {item.tag}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                {item.blurb && <p className="text-zinc-300 mt-2 text-sm">{item.blurb}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* The Mazen Show - simple carousel */}
         <div className="fade-in-section opacity-100 translate-y-0">
           <div className="flex items-end justify-between mb-4">
