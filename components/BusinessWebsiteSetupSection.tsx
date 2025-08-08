@@ -5,7 +5,7 @@ const BusinessWebsiteSetupSection = () => {
     <section id="business-websites" className="py-12 md:py-16">
       <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
-          <span className="text-blue-400">Business Website Setup (Affordable)</span>
+          <span className="text-blue-400">Business Website Setup</span>
         </h2>
         <p className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto">
           Need a clean, professional site without the hassle? We set up a simple business website quickly and at a fair price.

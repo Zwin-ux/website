@@ -67,16 +67,17 @@ export default function UpcomingAndShow() {
                         loop
                         autoPlay
                         playsInline
+                        controls
                         preload="metadata"
                         aria-label="The Mazen Show teaser"
                         onCanPlay={() => setEp1Ready(true)}
                         onLoadedData={() => setEp1Ready(true)}
                         onError={() => setEp1Ready(true)}
                       >
-                        <source src="/IMG_2527%20(2).mp4" type="video/mp4" />
+                        <source src="/mazen-ep1.mp4" type="video/mp4" />
                         {/* Fallback for very old browsers */}
                         Your browser does not support the video tag. 
-                        <a href="/IMG_2527%20(2).mp4" className="underline">Download teaser</a>.
+                        <a href="/mazen-ep1.mp4" className="underline">Download teaser</a>.
                       </video>
                       <div className="absolute bottom-0 left-0 right-0 p-3 text-sm text-zinc-100 bg-black/40 backdrop-blur-sm">
                         Episode 1 — Teaser
