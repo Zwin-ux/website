@@ -53,12 +53,32 @@ export default function UpcomingAndShow() {
                   data-card
                   className="snap-start shrink-0 w-[260px] md:w-[320px] h-[180px] md:h-[220px] rounded-xl border border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-900 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="text-6xl md:text-7xl">?</div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3 text-sm text-zinc-300 bg-black/30 backdrop-blur-sm">
-                    Episode {i + 1} — Coming soon
-                  </div>
+                  {i === 0 ? (
+                    <>
+                      <video
+                        className="absolute inset-0 h-full w-full object-cover"
+                        src="/IMG_2527%20(1).mov"
+                        muted
+                        loop
+                        autoPlay
+                        playsInline
+                        preload="metadata"
+                        aria-label="The Mazen Show teaser"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-3 text-sm text-zinc-100 bg-black/40 backdrop-blur-sm">
+                        Episode 1 — Teaser
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 grid place-items-center">
+                        <div className="text-6xl md:text-7xl">?</div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-3 text-sm text-zinc-300 bg-black/30 backdrop-blur-sm">
+                        Episode {i + 1} — Coming soon
+                      </div>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
