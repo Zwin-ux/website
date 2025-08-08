@@ -14,6 +14,7 @@ import GitHubPortfolio from "../components/GitHubPortfolio";
 import SnakeGame from "../components/SnakeGame";
 import BusinessWebsiteSetupSection from "../components/BusinessWebsiteSetupSection";
 import Contact from "../components/Contact";
+import UpcomingAndShow from "../components/UpcomingAndShow";
 
 export default function Home() {
   useEffect(() => {
@@ -85,6 +86,11 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6">
             <GitHubPortfolio />
           </div>
+        </section>
+
+        {/* Upcoming + Mazen Show Section */}
+        <section id="upcoming" className="bg-zinc-900">
+          <UpcomingAndShow />
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-zinc-900">
