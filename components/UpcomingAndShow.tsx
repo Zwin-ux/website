@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 
 export default function UpcomingAndShow() {
   const railRef = useRef<HTMLDivElement>(null);
+  const [ep1Ready, setEp1Ready] = useState(false);
 
   const scrollByCards = (dir: 1 | -1) => {
     const rail = railRef.current;
@@ -22,7 +23,6 @@ export default function UpcomingAndShow() {
           <div className="flex items-end justify-between mb-4">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">The Mazen Show</h2>
-              <p className="text-zinc-300">Teaser carousel. Episodes TBD <span className="font-semibold">?</span></p>
             </div>
             <div className="hidden sm:flex gap-2">
               <button
@@ -55,6 +55,12 @@ export default function UpcomingAndShow() {
                 >
                   {i === 0 ? (
                     <>
+                      {/* Loading overlay */}
+                      {!ep1Ready && (
+                        <div className="absolute inset-0 grid place-items-center bg-black/20">
+                          <span className="text-zinc-200 text-sm">Loading…</span>
+                        </div>
+                      )}
                       <video
                         className="absolute inset-0 h-full w-full object-cover"
                         muted
@@ -62,8 +68,10 @@ export default function UpcomingAndShow() {
                         autoPlay
                         playsInline
                         preload="metadata"
-                        poster="/mazen-ep1-poster.jpg"
                         aria-label="The Mazen Show teaser"
+                        onCanPlay={() => setEp1Ready(true)}
+                        onLoadedData={() => setEp1Ready(true)}
+                        onError={() => setEp1Ready(true)}
                       >
                         <source src="/IMG_2527%20(2).mp4" type="video/mp4" />
                         {/* Fallback for very old browsers */}
