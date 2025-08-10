@@ -14,6 +14,8 @@ export interface GitHubRepository {
   language: string | null;
   stargazers_count: number;
   forks_count: number;
+  homepage?: string | null;
+  has_pages?: boolean;
   created_at: string;
   updated_at: string;
   topics: string[];

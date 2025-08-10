@@ -44,6 +44,25 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
     return colors[language || ''] || '#6b7280';
   };
 
+  // Compute a live demo URL for GitHub Pages projects
+  const liveDemoOverrides: Record<string, string> = {
+    'P-V-NP': 'https://zwin-ux.github.io/P-V-NP/',
+  };
+
+  const derivePagesUrl = () => {
+    if (!repository.full_name) return null;
+    const [owner, repo] = repository.full_name.split('/');
+    if (!owner || !repo) return null;
+    return `https://${owner}.github.io/${repo}/`;
+  };
+
+  const liveDemoUrl =
+    (repository as any).homepage && (repository as any).homepage.trim() !== ''
+      ? (repository as any).homepage
+      : (repository as any).has_pages
+        ? derivePagesUrl()
+        : liveDemoOverrides[repository.name] || null;
+
   return (
     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-lg">
       <div className="flex items-start justify-between mb-3">
@@ -76,7 +95,32 @@ const RepositoryCard = ({ repository }: RepositoryCardProps) => {
       <p className="text-gray-300 text-sm mb-4 line-clamp-2 min-h-[2.5rem]">
         {repository.description || 'No description available'}
       </p>
-      
+       
+      {(repository.html_url || liveDemoUrl) && (
+        <div className="flex items-center gap-3 mb-4">
+          {repository.html_url && (
+            <a
+              href={repository.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-sm rounded-md transition-colors"
+            >
+              View Repo
+            </a>
+          )}
+          {liveDemoUrl && (
+            <a
+              href={liveDemoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-sm rounded-md transition-colors"
+            >
+              Live Demo
+            </a>
+          )}
+        </div>
+      )}
+
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           {repository.language && (
