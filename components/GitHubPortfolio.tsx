@@ -196,7 +196,7 @@ const ErrorState = ({ onRetry }: { onRetry: () => void }) => (
 
 export default function GitHubPortfolio({ 
   username = GITHUB_USERNAME, 
-  maxRepos = 6 
+  maxRepos = 8 
 }: GitHubPortfolioProps) {
   const [repositories, setRepositories] = useState<GitHubRepository[]>([]);
   const [loading, setLoading] = useState(true);
@@ -207,14 +207,16 @@ export default function GitHubPortfolio({
       setLoading(true);
       setError(null);
       const repos = await fetchUserRepositories(username, maxRepos);
-      // Curated featured order (user preference): include 'cryptic' and exclude 'website'
+      // Curated featured order (user preference)
       const curatedOrder = [
+        'P-V-NP',
+        'cifar10-ai-project',
+        'Sputnik-',
+        'botbot',
+        'echo-markets',
         'RealText',
         'RedditScraper',
-        'botbot',
         'rete-demo',
-        'cryptic',
-        'P-V-NP',
       ];
 
       const curated = curatedOrder
