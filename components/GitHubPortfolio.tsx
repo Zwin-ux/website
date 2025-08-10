@@ -215,7 +215,6 @@ export default function GitHubPortfolio({
         'botbot',
         'echo-markets',
         'RealText',
-        'RedditScraper',
         'rete-demo',
       ];
 
