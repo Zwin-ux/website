@@ -25,8 +25,8 @@ export default function Footer() {
             <Link href="/#projects" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
               Projects
             </Link>
-            <Link href="/commissions" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-              Commissions
+            <Link href="/#commission-form" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
+              Start a Project
             </Link>
             <Link href="/#contact" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
               Contact

@@ -3,35 +3,27 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
-    title: "Custom Sites & Apps",
-    description: "Modern, mobile-first builds using Next.js and Tailwind. Fast, SEO-friendly, and easy to maintain.",
+    title: "Website Refresh",
+    description:
+      "We take your existing site (or create one if you don’t have it) and make sure it’s fast, mobile-friendly, and optimized so people can actually find you on Google. Better visibility, a smoother phone experience, and a more professional look.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 4.5h18M3 9.75h18M3 15h18M3 19.5h18" />
       </svg>
     ),
-    color: "from-orange-500 to-yellow-400"
+    color: "from-orange-500 to-yellow-400",
   },
   {
-    title: "Tech Consulting",
-    description: "From startup tech stacks to sensible automation. Make the right calls early and avoid rework.",
+    title: "Local Automation Setup",
+    description:
+      "Small changes that save you hours. Online booking for your services, automated customer reminders, and simple order systems — so you can focus on running your business instead of chasing calls or messages.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3v3.75m4.5-3.75V6.75M4.5 9.75h15M6 12.75h12M8.25 15.75H16.5M5.25 6.75h13.5a1.5 1.5 0 011.5 1.5V18a3 3 0 01-3 3H6.75a3 3 0 01-3-3V8.25a1.5 1.5 0 011.5-1.5z" />
       </svg>
     ),
-    color: "from-yellow-500 to-amber-400"
+    color: "from-yellow-500 to-amber-400",
   },
-  {
-    title: "Creative Strategy",
-    description: "Brand basics, clear messaging, and simple content plans that actually ship.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-      </svg>
-    ),
-    color: "from-amber-500 to-orange-400"
-  }
 ];
 
 const WhatWeDo = () => {
@@ -51,11 +43,12 @@ const WhatWeDo = () => {
             </span>
           </h2>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Practical design, solid engineering, and straightforward advice.
+            Bonelli helps local businesses get ahead with simple, effective tech upgrades. We focus on tools and improvements that actually make a difference in your day-to-day — not gimmicks or bloated software you’ll never use.
           </p>
+          <p className="text-zinc-500 mt-2">We keep it simple. Two main services to start:</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -70,12 +63,15 @@ const WhatWeDo = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
               <p className="text-zinc-400 mb-6">{service.description}</p>
-              <div className="flex items-center text-orange-400 group-hover:text-yellow-300 transition-colors duration-300">
-                <span className="mr-2 font-medium">Learn more</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <a
+                href="#commission-form"
+                className="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold shadow hover:shadow-lg transition-all duration-200"
+              >
+                Get started
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>

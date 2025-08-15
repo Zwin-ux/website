@@ -15,6 +15,9 @@ import SnakeGame from "../components/SnakeGame";
 import BusinessWebsiteSetupSection from "../components/BusinessWebsiteSetupSection";
 import Contact from "../components/Contact";
 import UpcomingAndShow from "../components/UpcomingAndShow";
+import WhatWeDo from "@/components/WhatWeDo";
+import LaunchOffer from "@/components/LaunchOffer";
+import CommissionForm from "@/components/CommissionForm";
 
 export default function Home() {
   useEffect(() => {
@@ -71,7 +74,12 @@ export default function Home() {
       <main className="flex-1 flex flex-col text-white">
         <Hero />
 
-        {/* Services Section Wrapper */}
+        {/* Bonelli Services & Offer */}
+        <WhatWeDo />
+        <LaunchOffer />
+        <CommissionForm />
+
+        {/* Existing Services Section Wrapper */}
         <section id="services" className="py-16 md:py-24 bg-zinc-900">
           <div className="max-w-6xl mx-auto px-6 space-y-16 md:space-y-24">
             <BusinessWebsiteSetupSection />

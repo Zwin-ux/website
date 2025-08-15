@@ -11,12 +11,9 @@ export default function AboutSection() {
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-zinc-300 mb-8 leading-relaxed">
               I'm Mazen Zwin, a passionate full-stack developer and technical consultant with a love for creating innovative digital solutions. 
-              With expertise spanning modern web technologies, I help businesses and individuals bring their ideas to life through clean, 
-              efficient, and scalable code.
             </p>
             <p className="text-zinc-400 mb-12">
               My journey in software development has led me to work on diverse projects, from custom web applications to complex technical integrations. 
-              I believe in writing code that not only works but is maintainable, performant, and user-focused.
             </p>
           </div>
         </div>
