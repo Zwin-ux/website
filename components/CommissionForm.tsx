@@ -45,30 +45,26 @@ const CommissionForm = () => {
     setSubmitStatus(null);
 
     try {
-      // Replace with your form submission logic
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+      const res = await fetch('/api/commission', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data?.ok) {
+        throw new Error(data?.error || 'Failed to send');
+      }
+
       setSubmitStatus({
         success: true,
-        message: 'Your message has been sent! We\'ll get back to you soon.'
+        message: "Your message has been sent! We'll get back to you soon.",
       });
-      
+
       // Reset form on success
-      setFormData({
-        name: '',
-        email: '',
-        projectType: '',
-        budget: '',
-        message: ''
-      });
+      setFormData({ name: '', email: '', projectType: '', budget: '', message: '' });
     } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message: 'Something went wrong. Please try again later.'
-      });
+      setSubmitStatus({ success: false, message: 'Something went wrong. Please try again later.' });
     } finally {
       setIsSubmitting(false);
     }
