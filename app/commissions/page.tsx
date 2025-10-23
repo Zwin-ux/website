@@ -7,7 +7,6 @@ import { commissions, Commission } from "../../lib/commissions";
 import Link from "next/link";
 import OrderForm, { OrderFormData } from "../../components/OrderForm";
 import OrderSuccessModal from "../../components/OrderSuccessModal";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import PageTransition from "../../components/PageTransition";
 import ScrollToTop from "../../components/ScrollToTop";
@@ -65,13 +64,24 @@ export default function CommissionsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans flex flex-col">
-      <Header />
       <PageTransition>
-        <main className="flex-1 pt-20">
-      {/* Header + Subnav */}
-      <section className="w-full max-w-5xl mx-auto pt-12 pb-6 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-center md:text-left">Commissions</h1>
-        <p className="text-zinc-400 mb-6 max-w-2xl mx-auto md:mx-0 text-center md:text-left">Browse our futuristic, affordable services—websites, custom projects, and meme-fueled marketing campaigns. Select a category below to filter.</p>
+        <main className="flex-1 py-20">
+          {/* Back to Home Link */}
+          <div className="w-full max-w-5xl mx-auto px-4 mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Home
+            </Link>
+          </div>
+
+          {/* Header + Subnav */}
+          <section className="w-full max-w-5xl mx-auto pb-6 px-4">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-center">Commissions</h1>
+            <p className="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto text-center">
+              Need a site, app, or creative system? Commission a project directly from Bonelli Labs.
+            </p>
         {/* Sub-navigation */}
         <nav className="flex gap-3 mb-8 justify-center md:justify-start flex-wrap">
           {FILTERS.map((cat) => (

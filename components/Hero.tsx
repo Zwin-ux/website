@@ -1,29 +1,59 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById("services");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: "smooth" });
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center py-20 px-6 bg-black text-white fade-in-section">
-      <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-          Design. Build. Scale.
-        </span>
-      </h1>
-      <p className="text-xl md:text-3xl mb-10 max-w-3xl mx-auto font-medium text-zinc-300">
-        We craft bespoke digital experiences, provide expert tech guidance, and create marketing that resonates.
-      </p>
-      <button
-        onClick={scrollToServices}
-        className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg transform hover:scale-105"
-      >
-        Explore Our Services
-      </button>
+    <section className="relative isolate min-h-[280px] py-12 md:py-16 flex flex-col items-center text-center px-6 bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 fade-in-section overflow-hidden">
+      {/* Animated overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 animate-gradient-shift"></div>
+
+      <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
+        {/* Tree Logo */}
+        <div className="mb-4">
+          <Image
+            src="/stylized-tree-logo.png"
+            alt="Bonelli Labs Logo"
+            width={80}
+            height={80}
+            className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
+            priority
+          />
+        </div>
+
+        {/* Bonelli.Dev Heading */}
+        <h1 className="text-4xl md:text-6xl font-black mb-3 tracking-tight text-white drop-shadow-lg">
+          Bonelli.Dev
+        </h1>
+
+        {/* Tagline */}
+        <p className="text-sm md:text-base mb-6 text-white/90 font-light drop-shadow-md">
+          Websites and Consulting, Done Right
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 items-center">
+          <button
+            onClick={scrollToProjects}
+            className="px-6 py-2.5 bg-white text-purple-600 font-semibold rounded-lg text-sm hover:bg-white/90 transition-all shadow-lg transform hover:scale-105"
+          >
+            View Projects
+          </button>
+          <Link
+            href="/commissions"
+            className="px-6 py-2.5 bg-white/20 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg text-sm hover:bg-white/30 transition-all shadow-lg transform hover:scale-105"
+          >
+            Commission Work
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
