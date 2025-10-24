@@ -3,44 +3,40 @@ import Image from "next/image";
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="py-16 md:py-24 bg-zinc-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-          Featured Projects
+    <section id="projects" className="py-20 md:py-32 bg-black">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
+          Projects
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {/* Sunny - SOON Teaser */}
-          <div className="group relative bg-zinc-800/50 rounded-2xl p-6 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300">
-            {/* Logo Container with Gradient Background */}
-            <div className="relative mb-6 mx-auto w-52 h-52 rounded-2xl overflow-hidden bg-gradient-to-r from-yellow-400 to-orange-500 p-6 flex items-center justify-center animate-pulse-light">
-              {/* Gradient border glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/20 to-transparent"></div>
-
+          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
+            {/* Logo Container */}
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#f5a623] to-[#e67e22] p-4 flex items-center justify-center">
               {/* Clay Sun Image */}
               <Image
                 src="/Smiling Clay Sun Character.png"
                 alt="Sunny - Clay Sun Character"
-                width={200}
-                height={200}
-                className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+                width={140}
+                height={140}
+                className="relative z-10 w-full h-full object-contain"
               />
 
               {/* SOON text overlay */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="relative inline-block text-5xl font-black tracking-wider text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-                  <span className="relative z-10">SOON</span>
-                  <span className="pointer-events-none absolute inset-0 -skew-x-6 animate-shine bg-gradient-to-r from-transparent via-white/60 to-transparent"></span>
+                <div className="text-3xl font-bold tracking-wide text-white drop-shadow-lg">
+                  SOON
                 </div>
               </div>
             </div>
 
             {/* Project Info */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 Sunny
               </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
+              <p className="text-white/50 text-sm leading-relaxed">
                 An open-source AI teaching companion - Coming Soon
               </p>
             </div>
@@ -51,35 +47,32 @@ export default function FeaturedProjects() {
             href="https://github.com/Zwin-ux/botbot/tree/main"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-zinc-800/50 rounded-2xl p-6 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-600 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer transform hover:scale-105"
+            className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer"
           >
-            {/* Logo Container with Gradient Background */}
-            <div className="relative mb-6 mx-auto w-52 h-52 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-400 to-green-500 p-6 flex items-center justify-center animate-rotate-halo">
-              {/* Gradient border glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/20 to-transparent"></div>
-
+            {/* Logo Container */}
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#4a9d9c] to-[#2ecc71] p-4 flex items-center justify-center">
               <Image
                 src="/transparent.png"
                 alt="Bot Logo"
-                width={200}
-                height={200}
-                className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+                width={140}
+                height={140}
+                className="relative z-10 w-full h-full object-contain"
               />
             </div>
 
             {/* Project Info */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <h3 className="text-2xl font-bold text-white">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h3 className="text-xl font-semibold text-white">
                   Bot
                 </h3>
                 {/* External link icon */}
-                <svg className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                A friendly personal assistant that organizes, reminds, and learns with you — your online companion for creativity and structure.
+              <p className="text-white/50 text-sm leading-relaxed">
+                An online Companion that works with you in multiple platforms (0.4 version is done)
               </p>
             </div>
           </a>
@@ -89,35 +82,32 @@ export default function FeaturedProjects() {
             href="https://hexology.me/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-zinc-800/50 rounded-2xl p-6 backdrop-blur-sm border border-zinc-700/50 hover:border-zinc-600 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer transform hover:scale-105"
+            className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer"
           >
-            {/* Logo Container with Gradient Background */}
-            <div className="relative mb-6 mx-auto w-52 h-52 rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-600 to-orange-600 p-6 flex items-center justify-center hover:animate-shimmer">
-              {/* Gradient border glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/20 to-transparent"></div>
-
+            {/* Logo Container */}
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#d68910] to-[#e67e22] p-4 flex items-center justify-center">
               <Image
                 src="/ChatGPT Image Oct 22, 2025, 04_48_00 PM.png"
                 alt="Hexology Logo"
-                width={200}
-                height={200}
-                className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+                width={140}
+                height={140}
+                className="relative z-10 w-full h-full object-contain"
               />
             </div>
 
             {/* Project Info */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <h3 className="text-2xl font-bold text-white">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h3 className="text-xl font-semibold text-white">
                   Hexology
                 </h3>
                 {/* External link icon */}
-                <svg className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                A digital revival of the 1920s board game Hex — strategy, geometry, and AI combined into a sleek multiplayer platform.
+              <p className="text-white/50 text-sm leading-relaxed">
+                An online Platform to play Hex
               </p>
             </div>
           </a>

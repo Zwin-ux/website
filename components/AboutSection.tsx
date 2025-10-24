@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function AboutSection() {
   return (
-    <section className="py-16 md:py-20 bg-[#0f1115]">
-      <div className="max-w-2xl mx-auto px-6">
-        <div className="aspect-video bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+    <section className="py-20 md:py-32 bg-black border-t border-white/5">
+      <div className="max-w-3xl mx-auto px-6 md:px-12">
+        <div className="aspect-video bg-black rounded-xl overflow-hidden border border-white/10">
           <iframe
             src="https://open.spotify.com/embed/playlist/41svkVH46zY2N1ZhdG4OhA"
             width="100%"

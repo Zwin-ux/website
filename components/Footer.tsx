@@ -2,18 +2,18 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-8 px-4 bg-[#0f1115] border-t border-zinc-800">
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="text-zinc-400 text-sm mb-4">
+    <footer className="w-full py-12 md:py-16 px-6 bg-black border-t border-white/5">
+      <div className="max-w-7xl mx-auto text-center">
+        <p className="text-white/40 text-sm mb-6">
           Bonelli.dev — Built by Mazen Zwin.
         </p>
 
-        <div className="flex justify-center items-center gap-6">
+        <div className="flex justify-center items-center gap-8">
           <a
             href="https://github.com/Zwin-ux"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+            className="text-white/40 hover:text-white/70 transition-colors text-sm flex items-center gap-2"
             aria-label="GitHub"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@ export default function Footer() {
 
           <a
             href="mailto:groupbonelli@gmail.com"
-            className="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+            className="text-white/40 hover:text-white/70 transition-colors text-sm flex items-center gap-2"
             aria-label="Email"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
