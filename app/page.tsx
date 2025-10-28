@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-black">
       {/* Bonelli Logo Header */}
-      <div className="bg-black py-16 md:py-20 flex justify-center border-b border-white/5">
+      <div className="bg-black py-16 md:py-20 flex flex-col items-center border-b border-white/5">
         <div className="bg-[#2a2e1f] p-6 rounded-lg">
           <Image
             src="/stylized-tree-logo.png"
@@ -40,6 +40,9 @@ export default function Home() {
             className="object-contain"
           />
         </div>
+        <p className="mt-6 text-white font-bold text-lg md:text-xl tracking-wide">
+          Movie by End of 2025 btw 
+        </p>
       </div>
       
       <main className="flex-1 flex flex-col">
