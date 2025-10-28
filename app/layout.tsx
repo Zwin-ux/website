@@ -45,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-[#121317] text-neutral-100 antialiased`}>
+    <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-[#121317] text-neutral-100 antialiased`} suppressHydrationWarning>
         <Header />
         <div className="flex flex-col min-h-screen">
           {children}
