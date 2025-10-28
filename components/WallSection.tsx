@@ -16,14 +16,8 @@ export default function WallSection() {
             <p>
               A public digital wall with exactly 100 slots.
             </p>
-            <p>
-              Each slot is a permanent mark from a human.
-            </p>
-            <p>
-              Each human gets one mark total, ever.
-            </p>
-            <p>
-              When the wall is full, it locks, becomes archived, and displays "Wall One: Sealed."
+            <p className="text-white">
+              Closes November 10th.
             </p>
           </div>
 
