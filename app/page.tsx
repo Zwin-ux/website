@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import FeaturedProjects from "../components/FeaturedProjects";
 import Research from "../components/Research";
-import WallSection from "../components/WallSection";
 import AboutSection from "../components/AboutSection";
 import Footer from "../components/Footer";
 
@@ -49,7 +48,6 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         <FeaturedProjects />
         <Research />
-        <WallSection />
         <AboutSection />
       </main>
       <Footer />

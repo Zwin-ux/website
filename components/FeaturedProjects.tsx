@@ -9,7 +9,7 @@ export default function FeaturedProjects() {
           Projects
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Sunny - SOON Teaser */}
           <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
             {/* Logo Container */}
@@ -111,6 +111,34 @@ export default function FeaturedProjects() {
               </p>
             </div>
           </a>
+
+          {/* MMO Stock Simulator - In Development */}
+          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
+            {/* Logo Container */}
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#2ecc71] to-[#27ae60] p-4 flex items-center justify-center">
+              {/* Stock chart icon */}
+              <svg className="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+              </svg>
+
+              {/* IN DEVELOPMENT text overlay */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="text-lg font-bold tracking-wide text-white drop-shadow-lg">
+                  IN DEV
+                </div>
+              </div>
+            </div>
+
+            {/* Project Info */}
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-white mb-2">
+                Stock Simulator
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                MMO browser-based stock market simulator game
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

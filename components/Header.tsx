@@ -11,21 +11,13 @@ export default function Header() {
             bonelli.dev
           </Link>
 
-          {/* Navigation Links */}
-          <div className="flex items-center gap-6">
-            <Link
-              href="/wall"
-              className="text-neutral-100 font-mono text-sm tracking-wider hover:text-neutral-300 transition-colors"
-            >
-              THE WALL
-            </Link>
-            <a
-              href="mailto:mzwin3545@gmail.com"
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg text-sm hover:opacity-90 hover:shadow-purple-500/50 transition-all shadow-lg transform hover:scale-105"
-            >
-              Contact
-            </a>
-          </div>
+          {/* Contact Button */}
+          <a
+            href="mailto:mzwin3545@gmail.com"
+            className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg text-sm hover:opacity-90 hover:shadow-purple-500/50 transition-all shadow-lg transform hover:scale-105"
+          >
+            Contact
+          </a>
         </nav>
       </div>
     </header>
