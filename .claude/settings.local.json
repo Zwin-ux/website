@@ -8,7 +8,8 @@
       "Bash(timeout:*)",
       "Bash(git add:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nAdd The Wall feature - permanent digital mark board\n\nImplemented a new feature called \"The Wall\" where users can leave permanent marks.\nKey features:\n- 100 total slots with one mark per user (enforced via IP+UA hashing)\n- Text or image marks (max 140 chars, max 200KB images)\n- 2000x2000 canvas with zoom/pan functionality\n- Mobile-responsive design with compact header\n- Content moderation with flag system\n- Seals when full and displays \"Wall One: Sealed\"\n\nTechnical implementation:\n- Supabase backend with PostgreSQL + Row Level Security\n- Server-side image processing with Sharp\n- Profanity filtering with bad-words\n- Zustand state management\n- react-zoom-pan-pinch for canvas interactions\n\nLayout updates:\n- Added \"THE WALL\" navigation link to header\n- Created new WallSection on homepage explaining the feature\n- Fixed hydration warnings with suppressHydrationWarning\n\nFiles added:\n- Complete API routes for wall, marks, and flagging\n- Frontend components: WallCanvas, WallSidebar, MarkModal, MarkBlock\n- Server utilities for IP hashing, coordinates, content filtering\n- Supabase client/server setup\n- Database migration SQL\n\nDocumentation:\n- SUPABASE_SETUP.md - Complete setup instructions\n- WALL_README.md - Full feature documentation\n- WALL_FIXES_APPLIED.md - Implementation details\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
