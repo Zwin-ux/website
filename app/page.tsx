@@ -40,9 +40,6 @@ export default function Home() {
             className="object-contain"
           />
         </div>
-        <p className="mt-6 text-white font-bold text-lg md:text-xl tracking-wide">
-          Movie by End of 2025 btw 
-        </p>
       </div>
       
       <main className="flex-1 flex flex-col">
