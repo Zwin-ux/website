@@ -43,8 +43,8 @@ export default function Home() {
       </div>
       
       <main className="flex-1 flex flex-col">
-        <FeaturedProjects />
         <Research />
+        <FeaturedProjects />
         <AboutSection />
       </main>
       <Footer />
