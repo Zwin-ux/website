@@ -3,6 +3,12 @@ import ProjectCard, { Project } from "./ProjectCard";
 
 const projects: Project[] = [
   {
+    title: "Quantum Signals",
+    description: "Interactive Quantum Mechanics Learning",
+    tags: ["quantum", "education"],
+    link: "https://zwin-ux.github.io/quantum/",
+  },
+  {
     title: "Echo Markets",
     description: "A fake stock market MMO",
     tags: ["game", "chaos"],
