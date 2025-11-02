@@ -45,7 +45,7 @@ export default function Research() {
           </a>
 
           <a
-            href="https://zwin-ux.github.io/godel-mirror-prompts/"
+            href="https://zwin-ux.github.io/godel/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
