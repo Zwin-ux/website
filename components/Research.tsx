@@ -45,6 +45,29 @@ export default function Research() {
           </a>
 
           <a
+            href="https://zwin-ux.github.io/godel-mirror-prompts/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    Gödel's Mirror — Interactive Logic Exploration
+                  </h3>
+                  <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+                <p className="text-white/50 leading-relaxed text-sm md:text-base">
+                  An interactive exploration of formal logic and incompleteness through reflective prompt-based constructions.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <a
             href="https://parabola-sand.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
