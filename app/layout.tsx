@@ -17,14 +17,19 @@ export const metadata: Metadata = {
   title: "Bonelli Labs — Creative Tech Group",
   description:
     "Bonelli Labs is a creative tech group. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
+  icons: {
+    icon: "/stylized-tree-logo.png",
+    shortcut: "/stylized-tree-logo.png",
+    apple: "/stylized-tree-logo.png",
+  },
   openGraph: {
     title: "Bonelli Labs — Creative Tech Group",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/stylized-tree-logo.png",
         width: 256,
         height: 256,
-        alt: "Bonelli Labs Favicon",
+        alt: "Bonelli Labs Logo",
       },
     ],
   },
