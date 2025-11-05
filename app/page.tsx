@@ -4,6 +4,7 @@ import Image from "next/image";
 import FeaturedProjects from "../components/FeaturedProjects";
 import Research from "../components/Research";
 import AboutSection from "../components/AboutSection";
+import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
         <Research />
         <FeaturedProjects />
         <AboutSection />
+        <Hackathons />
       </main>
       <Footer />
     </div>

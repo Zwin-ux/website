@@ -84,23 +84,6 @@ body {
 
 /* Featured Projects Animations - Subtle and Professional */
 
-/* Sunny - Gentle pulsing light animation */
-.animate-pulse-light {
-  animation: pulse-light 3s ease-in-out infinite;
-}
-@keyframes pulse-light {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4),
-                0 0 40px rgba(249, 115, 22, 0.2);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6),
-                0 0 60px rgba(249, 115, 22, 0.3);
-    transform: scale(1.02);
-  }
-}
-
 /* Bot - Slow rotating halo effect */
 .animate-rotate-halo {
   position: relative;
@@ -154,11 +137,3 @@ body {
   50% { opacity: 0.5; }
 }
 
-/* Shine animation for Sunny "SOON" teaser */
-.animate-shine {
-  animation: shine 1.8s ease-in-out infinite;
-}
-@keyframes shine {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
-}
