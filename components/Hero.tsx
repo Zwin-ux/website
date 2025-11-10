@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative isolate min-h-[280px] py-12 md:py-16 flex flex-col items-center text-center px-6 bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 fade-in-section overflow-hidden">
+    <section className="relative isolate min-h-[280px] py-12 md:py-16 flex flex-col items-center text-center px-6 bg-gradient-to-br from-purple-600 via-blue-600 to-purple-700 overflow-hidden">
       {/* Animated overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 animate-gradient-shift"></div>
 
@@ -35,7 +35,7 @@ export default function Hero() {
 
         {/* Tagline */}
         <p className="text-sm md:text-base mb-6 text-white/90 font-light drop-shadow-md">
-          Websites and Consulting, Done Right
+          Turning experimental computation into usable culture
         </p>
 
         {/* CTAs */}

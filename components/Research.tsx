@@ -5,6 +5,11 @@ export default function Research() {
   return (
     <section id="research" className="py-20 md:py-32 bg-black border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
+        {/* Casual site definition shown above the Research heading */}
+        <p className="text-center text-sm md:text-base text-white/90 mb-6">
+          Turning experimental computation into usable culture. We are Researchers and Innovators and Creatives.
+          Based in LA
+        </p>
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
           Research
         </h2>
