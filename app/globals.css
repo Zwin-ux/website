@@ -48,118 +48,58 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
 }
 
+/* Staggered Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Smooth Fade In Up */
 @keyframes fadeInUp {
   from {
-    opacity: 0.5;
-    transform: translateY(4px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .animate-fadeInUp {
-  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Heatmap glow for high activity */
-.animate-heatmap-glow {
-  animation: heatmap-glow 1.2s infinite alternate;
-  box-shadow: 0 0 8px 2px #f87171, 0 0 24px 2px #f8717133;
+/* Premium Hover Glow */
+.hover-glow {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-@keyframes heatmap-glow {
-  0% { box-shadow: 0 0 8px 2px #f87171, 0 0 24px 2px #f8717133; }
-  100% { box-shadow: 0 0 16px 4px #f87171, 0 0 32px 8px #f8717144; }
-}
-
-/* Pulse for new activity */
-.pulse-on-activity {
-  animation: pulse-activity 0.8s cubic-bezier(0.4,0,0.2,1);
-}
-@keyframes pulse-activity {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.25); }
-  100% { transform: scale(1); }
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Featured Projects Animations - Subtle and Professional */
-
-/* Sunny - Gentle pulsing light animation */
-.animate-pulse-light {
-  animation: pulse-light 3s ease-in-out infinite;
-}
-@keyframes pulse-light {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4),
-                0 0 40px rgba(249, 115, 22, 0.2);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6),
-                0 0 60px rgba(249, 115, 22, 0.3);
-    transform: scale(1.02);
-  }
-}
-
-/* Bot - Slow rotating halo effect */
-.animate-rotate-halo {
-  position: relative;
-}
-.animate-rotate-halo::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  background: linear-gradient(45deg, transparent 20%, rgba(96, 165, 250, 0.3), transparent 80%);
-  animation: rotate-halo 6s linear infinite;
-  opacity: 0.6;
-  z-index: -1;
-}
-@keyframes rotate-halo {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Hexology - Subtle shimmer animation on hover */
-.animate-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-.animate-shimmer::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
+/* Text Gradient Animation */
+.animate-text-shimmer {
   background: linear-gradient(
     to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
+    #ffffff 0%,
+    #a5a5a5 50%,
+    #ffffff 100%
   );
-  animation: shimmer 2.5s ease-in-out;
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-/* Hero background gradient shift */
-.animate-gradient-shift {
-  animation: gradient-shift 15s ease infinite;
-}
-@keyframes gradient-shift {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShimmer 3s linear infinite;
 }
 
-/* Shine animation for Sunny "SOON" teaser */
-.animate-shine {
-  animation: shine 1.8s ease-in-out infinite;
-}
-@keyframes shine {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(120%); }
+@keyframes textShimmer {
+  to {
+    background-position: 200% center;
+  }
 }
 

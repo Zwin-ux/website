@@ -42,12 +42,20 @@ export default function Home() {
           />
         </div>
       </div>
-      
+
       <main className="flex-1 flex flex-col">
-        <Research />
-        <FeaturedProjects />
-        <AboutSection />
-        <Hackathons />
+        <div className="animate-fadeInUp delay-100">
+          <Research />
+        </div>
+        <div className="animate-fadeInUp delay-200">
+          <FeaturedProjects />
+        </div>
+        <div className="animate-fadeInUp delay-300">
+          <AboutSection />
+        </div>
+        <div className="animate-fadeInUp delay-400">
+          <Hackathons />
+        </div>
       </main>
       <Footer />
     </div>

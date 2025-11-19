@@ -19,7 +19,7 @@ export default function Research() {
             href="https://zwin-ux.github.io/P-V-NP/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover-glow cursor-pointer block"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -53,7 +53,7 @@ export default function Research() {
             href="https://zwin-ux.github.io/godel/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover-glow cursor-pointer block"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
@@ -76,7 +76,7 @@ export default function Research() {
             href="https://parabola-sand.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover-glow cursor-pointer block"
           >
             <div className="flex items-start justify-between gap-6">
               <div className="flex-1">
@@ -121,7 +121,7 @@ export default function Research() {
             href="https://zwin-ux.github.io/quantum/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover-glow cursor-pointer block"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
