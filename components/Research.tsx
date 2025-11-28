@@ -11,8 +11,7 @@ export default function Research() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Casual site definition shown above the Research heading */}
         <p className="text-center text-sm md:text-base text-white/90 mb-6">
-          Turning experimental computation into usable culture. We are Researchers and Innovators and Creatives.
-          Based in LA
+          Turning experimental computation into usable culture. Based in LA
         </p>
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
           Research
@@ -20,10 +19,10 @@ export default function Research() {
 
         <div className="max-w-4xl mx-auto space-y-6">
           <ResearchCard
-            title="P vs NP — An Intuitive Guide"
-            description="An accessible exploration of one of computer science's most fundamental questions: can every problem whose solution can be quickly verified also be quickly solved?"
-            href="https://zwin-ux.github.io/P-V-NP/"
-            icon={<PvsNPIcon />}
+            title="Parabola"
+            description="A research initiative exploring mathematical modeling and data visualization through parabolic functions and geometric analysis."
+            href="https://parabola-sand.vercel.app/"
+            icon={<ParabolaIcon />}
           />
 
           <ResearchCard
@@ -34,17 +33,17 @@ export default function Research() {
           />
 
           <ResearchCard
-            title="Parabola"
-            description="A research initiative exploring mathematical modeling and data visualization through parabolic functions and geometric analysis."
-            href="https://parabola-sand.vercel.app/"
-            icon={<ParabolaIcon />}
-          />
-
-          <ResearchCard
             title="Quantum Signals"
             description="Exploring quantum computing principles and their practical applications."
             href="https://zwin-ux.github.io/quantum/"
             icon={<QuantumIcon />}
+          />
+
+          <ResearchCard
+            title="Theorem Proving Practice"
+            description="An accessible exploration of one of computer science's most fundamental questions: can every problem whose solution can be quickly verified also be quickly solved?"
+            href="https://zwin-ux.github.io/P-V-NP/"
+            icon={<PvsNPIcon />}
           />
         </div>
       </div>

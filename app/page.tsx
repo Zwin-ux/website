@@ -53,6 +53,14 @@ export default function Home() {
         <div className="animate-fadeInUp delay-300">
           <AboutSection />
         </div>
+
+        {/* Music Video Status */}
+        <div className="animate-fadeInUp delay-350 py-10 text-center">
+          <p className="text-white/50 text-sm md:text-base">
+            Our first music video is in production
+          </p>
+        </div>
+
         <div className="animate-fadeInUp delay-400">
           <Hackathons />
         </div>

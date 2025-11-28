@@ -11,16 +11,19 @@ export default function FeaturedProjects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Mystery Project - Coming Soon */}
-          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
+          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden">
+            {/* Hover Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
             {/* Logo Container */}
-            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-zinc-900 p-4 flex items-center justify-center border border-white/5">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-zinc-900 p-4 flex items-center justify-center border border-white/5 z-10">
               <div className="text-6xl text-white/20 font-thin">
                 ?
               </div>
             </div>
 
             {/* Project Info */}
-            <div className="text-center">
+            <div className="text-center relative z-10">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <h3 className="text-xl font-semibold text-white">
                   ?
@@ -37,10 +40,13 @@ export default function FeaturedProjects() {
             href="https://github.com/Zwin-ux/botbot/tree/main"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-8 border border-white/10 hover-glow cursor-pointer"
+            className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer overflow-hidden"
           >
+            {/* Hover Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
             {/* Logo Container */}
-            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#4a9d9c] to-[#2ecc71] p-4 flex items-center justify-center">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#4a9d9c] to-[#2ecc71] p-4 flex items-center justify-center z-10">
               <Image
                 src="/transparent.png"
                 alt="Bot Logo"
@@ -51,17 +57,17 @@ export default function FeaturedProjects() {
             </div>
 
             {/* Project Info */}
-            <div className="text-center">
+            <div className="text-center relative z-10">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-white group-hover:text-white/90 transition-colors">
                   Bot
                 </h3>
                 {/* External link icon */}
-                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <p className="text-white/50 text-sm leading-relaxed">
+              <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
                 An online Companion that works with you in multiple platforms (0.4 version is done)
               </p>
             </div>
@@ -72,10 +78,13 @@ export default function FeaturedProjects() {
             href="https://hexology.me/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-8 border border-white/10 hover-glow cursor-pointer"
+            className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer overflow-hidden"
           >
+            {/* Hover Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
             {/* Logo Container */}
-            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#d68910] to-[#e67e22] p-4 flex items-center justify-center">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#d68910] to-[#e67e22] p-4 flex items-center justify-center z-10">
               <Image
                 src="/ChatGPT Image Oct 22, 2025, 04_48_00 PM.png"
                 alt="Hexology Logo"
@@ -86,26 +95,29 @@ export default function FeaturedProjects() {
             </div>
 
             {/* Project Info */}
-            <div className="text-center">
+            <div className="text-center relative z-10">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-white group-hover:text-white/90 transition-colors">
                   Hexology
                 </h3>
                 {/* External link icon */}
-                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              <p className="text-white/50 text-sm leading-relaxed">
+              <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
                 An online Platform to play Hex
               </p>
             </div>
           </a>
 
           {/* Lattice - In Development */}
-          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
+          <div className="group relative bg-black rounded-xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden">
+            {/* Hover Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
             {/* Logo Container */}
-            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#00d9c0] to-[#00a896] p-4 flex items-center justify-center">
+            <div className="relative mb-8 mx-auto w-40 h-40 rounded-xl overflow-hidden bg-gradient-to-br from-[#00d9c0] to-[#00a896] p-4 flex items-center justify-center z-10">
               <Image
                 src="/ChatGPT Image Oct 29, 2025, 07_01_39 AM.png"
                 alt="Lattice Logo"
@@ -123,7 +135,7 @@ export default function FeaturedProjects() {
             </div>
 
             {/* Project Info */}
-            <div className="text-center">
+            <div className="text-center relative z-10">
               <h3 className="text-xl font-semibold text-white mb-2">
                 Lattice
               </h3>
