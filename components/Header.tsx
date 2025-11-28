@@ -4,10 +4,13 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="sticky top-0 z-50">
-      <div className="bg-[#1a1c23]/80 backdrop-blur-md border-b border-white/10">
+      <div className="bg-gradient-to-b from-black to-[#0a0a0a]/80 backdrop-blur-md border-t border-b border-white/10 shadow-md transition-colors duration-300 ease-in-out py-5">
+
+
         <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="text-neutral-100 font-semibold text-lg hover:text-neutral-300 transition-colors">
+          <Link href="/" className="text-white font-semibold text-lg hover:text-gray-300 transition-colors">
+
             bonelli.dev
           </Link>
 
