@@ -35,7 +35,7 @@ export default function Research() {
           <ResearchCard
             title="Quantum Signals"
             description="Exploring quantum computing principles and their practical applications."
-            href="https://zwin-ux.github.io/quantum/"
+            href="https://quantum-five-topaz.vercel.app/"
             icon={<QuantumIcon />}
           />
 
