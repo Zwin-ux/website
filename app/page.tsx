@@ -32,7 +32,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col font-sans bg-black">
       {/* Bonelli Logo Header */}
       <div className="bg-black py-16 md:py-20 flex flex-col items-center border-b border-white/5">
-        <div className="bg-[#2a2e1f] p-6 rounded-lg">
+        <div className="bg-[#2a2e1f] p-6 rounded-lg mb-8">
           <Image
             src="/stylized-tree-logo.png"
             alt="Bonelli Logo"
@@ -40,6 +40,23 @@ export default function Home() {
             height={140}
             className="object-contain"
           />
+        </div>
+
+        <div className="text-center max-w-xl px-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+            BONELLI IS NOW PUBLIC
+          </h1>
+          <p className="text-zinc-400 mb-6">
+            We are allowing guests to join to observe us for the news.
+          </p>
+          <a
+            href="https://discord.gg/WJw8ypD9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium rounded-lg transition-colors"
+          >
+            Join Discord
+          </a>
         </div>
       </div>
 
