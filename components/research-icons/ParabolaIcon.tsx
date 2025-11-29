@@ -19,14 +19,16 @@ export default function ParabolaIcon() {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     className="opacity-50"
+                    style={{
+                        offsetPath: "path('M8 8C8 8 24 48 40 8')",
+                    }}
                 />
 
                 {/* Scanning Point */}
                 <motion.circle
                     r="3"
                     fill="currentColor"
-                    initial={{ offsetDistance: "0%" }}
-                    animate={{ offsetDistance: ["0%", "100%", "0%"] }}
+                    animate={{ "offset-distance": ["0%", "100%", "0%"] }}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
@@ -43,8 +45,8 @@ export default function ParabolaIcon() {
                     x1="-6" y1="0" x2="6" y2="0"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    initial={{ offsetDistance: "0%", opacity: 0 }}
-                    animate={{ offsetDistance: ["0%", "100%", "0%"], opacity: [0, 1, 0] }}
+                    initial={{ opacity: 0 }}
+                    animate={{ "offset-distance": ["0%", "100%", "0%"], opacity: [0, 1, 0] }}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
