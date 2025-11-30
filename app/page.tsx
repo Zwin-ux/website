@@ -50,12 +50,10 @@ export default function Home() {
             We are allowing guests to join to observe us for the news.
           </p>
           <a
-            href="https://discord.gg/WJw8ypD9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#5865F2] hover:bg-[#4752C4] text-white font-medium rounded-lg transition-colors"
+            href="mailto:groupbonelli@gmail.com?subject=Request%20Invitation"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-colors"
           >
-            Join Discord
+            Request Invitation
           </a>
         </div>
       </div>
