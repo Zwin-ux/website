@@ -11,7 +11,7 @@ export default function Research() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Casual site definition shown above the Research heading */}
         <p className="text-center text-sm md:text-base text-white/90 mb-6">
-          Turning experimental computation into usable culture. Based in LA
+          Technology as a collaborative medium
         </p>
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
           Research
