@@ -51,10 +51,14 @@ export default function Home() {
           </p>
           <a
             href="mailto:groupbonelli@gmail.com?subject=Request%20Invitation"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-colors mb-8"
           >
             Request Invitation
           </a>
+          
+          <p className="text-sm md:text-base text-white/90 font-light">
+            Technology as a collaborative medium
+          </p>
         </div>
       </div>
 
