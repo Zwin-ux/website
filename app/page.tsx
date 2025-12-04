@@ -7,6 +7,7 @@ import AboutSection from "../components/AboutSection";
 import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
+import CastReveal from "../components/CastReveal";
 
 export default function Home() {
   useEffect(() => {
@@ -59,24 +60,30 @@ export default function Home() {
       </div>
 
       <main className="flex-1 flex flex-col">
-        <div className="animate-fadeInUp delay-100">
+        <div>
           <Research />
         </div>
-        <div className="animate-fadeInUp delay-200">
+        <div>
           <FeaturedProjects />
         </div>
-        <div className="animate-fadeInUp delay-300">
+        
+        {/* Cast Reveal Section */}
+        <div>
+          <CastReveal />
+        </div>
+
+        <div>
           <AboutSection />
         </div>
 
         {/* Music Video Status */}
-        <div className="animate-fadeInUp delay-350 py-10 text-center">
+        <div className="py-10 text-center">
           <p className="text-white/50 text-sm md:text-base">
             Our first music video is in production
           </p>
         </div>
 
-        <div className="animate-fadeInUp delay-400">
+        <div>
           <Hackathons />
         </div>
       </main>

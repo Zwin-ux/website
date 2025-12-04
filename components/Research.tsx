@@ -10,11 +10,16 @@ export default function Research() {
   return (
     <section id="research" className="py-20 md:py-32 bg-black border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
+        {/* Casual site definition shown above the Research heading */}
+        <p className="text-center text-sm md:text-base text-white/90 mb-6">
+          Technology as a collaborative medium
+        </p>
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
           Research
         </h2>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        {/* Changed from space-y-6 to a grid to save vertical space and look more like a collection */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           <ResearchCard
             title="Parabola"
             description="A research initiative exploring mathematical modeling and data visualization through parabolic functions and geometric analysis."
@@ -23,7 +28,7 @@ export default function Research() {
           />
 
           <ResearchCard
-            title="Gödel's Mirror — Interactive Logic Exploration"
+            title="Gödel's Mirror"
             description="An interactive exploration of formal logic and incompleteness through reflective prompt-based constructions."
             href="https://zwin-ux.github.io/godel/"
             icon={<GodelIcon />}
@@ -37,15 +42,15 @@ export default function Research() {
           />
 
           <ResearchCard
-            title="Theorem Proving Practice"
-            description="An accessible exploration of one of computer science's most fundamental questions: can every problem whose solution can be quickly verified also be quickly solved?"
+            title="Theorem Proving"
+            description="An accessible exploration of one of computer science's most fundamental questions: P vs NP."
             href="https://zwin-ux.github.io/P-V-NP/"
             icon={<PvsNPIcon />}
           />
 
           <ResearchCard
             title="Funny Cam"
-            description="A real-time image classification experiment using TensorFlow.js to identify objects through your camera with a humorous twist."
+            description="An experimental image classification project using TensorFlow to identify objects with a humorous twist."
             href="https://quick-jw3c.onrender.com/"
             icon={<FunnyCamIcon />}
           />
