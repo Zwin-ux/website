@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function ChatGPTLink() {
+export default function ChatGPTLink({ className = "" }: { className?: string }) {
     return (
-        <div className="w-full max-w-3xl mx-auto mt-16 mb-24 space-y-8">
+        <div className={`w-full max-w-3xl mx-auto ${className} space-y-8`}>
             {/* Discord Link */}
             <a
                 href="https://discord.gg/Fq4gbktgNJ"
