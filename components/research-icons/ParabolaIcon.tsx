@@ -28,7 +28,7 @@ export default function ParabolaIcon() {
                 <motion.circle
                     r="3"
                     fill="currentColor"
-                    animate={{ "offset-distance": ["0%", "100%", "0%"] }}
+                    animate={{ offsetDistance: ["0%", "100%", "0%"] }}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
@@ -46,7 +46,7 @@ export default function ParabolaIcon() {
                     stroke="currentColor"
                     strokeWidth="1.5"
                     initial={{ opacity: 0 }}
-                    animate={{ "offset-distance": ["0%", "100%", "0%"], opacity: [0, 1, 0] }}
+                    animate={{ offsetDistance: ["0%", "100%", "0%"], opacity: [0, 1, 0] }}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
