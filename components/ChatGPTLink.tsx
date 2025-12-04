@@ -55,7 +55,7 @@ export default function ChatGPTLink({ className = "" }: { className?: string }) 
                             JOIN THE GROUP CHAT
                         </h2>
                         <p className="mt-2 text-xs md:text-sm text-zinc-500 font-mono uppercase tracking-wider group-hover:text-zinc-400 transition-colors">
-                            This is the shared layer
+                            Community Chat
                         </p>
                     </div>
 
