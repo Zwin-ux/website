@@ -4,6 +4,7 @@ import PvsNPIcon from "./research-icons/PvsNPIcon";
 import GodelIcon from "./research-icons/GodelIcon";
 import ParabolaIcon from "./research-icons/ParabolaIcon";
 import QuantumIcon from "./research-icons/QuantumIcon";
+import FunnyCamIcon from "./research-icons/FunnyCamIcon";
 
 export default function Research() {
   return (
@@ -40,6 +41,13 @@ export default function Research() {
             description="An accessible exploration of one of computer science's most fundamental questions: can every problem whose solution can be quickly verified also be quickly solved?"
             href="https://zwin-ux.github.io/P-V-NP/"
             icon={<PvsNPIcon />}
+          />
+
+          <ResearchCard
+            title="Funny Cam"
+            description="A real-time image classification experiment using TensorFlow.js to identify objects through your camera with a humorous twist."
+            href="https://quick-jw3c.onrender.com/"
+            icon={<FunnyCamIcon />}
           />
         </div>
       </div>

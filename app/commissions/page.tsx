@@ -10,6 +10,7 @@ import OrderSuccessModal from "../../components/OrderSuccessModal";
 import Footer from "../../components/Footer";
 import PageTransition from "../../components/PageTransition";
 import ScrollToTop from "../../components/ScrollToTop";
+import ChatGPTLink from "../../components/ChatGPTLink";
 
 const FILTERS = ["All", "Web", "Marketing", "Custom"] as const;
 type FilterType = typeof FILTERS[number];
@@ -25,17 +26,17 @@ export default function CommissionsPage() {
     filter === "All"
       ? commissions
       : commissions.filter((c) => c.tag === filter);
-      
+
   const handleOrderClick = (commission: Commission) => {
     setSelectedCommission(commission);
     setShowOrderForm(true);
   };
-  
+
   const handleCancelOrder = () => {
     setShowOrderForm(false);
     setSelectedCommission(null);
   };
-  
+
   const handleOrderSubmit = (formData: OrderFormData) => {
     if (selectedCommission) {
       // Prepare email content
@@ -51,12 +52,12 @@ export default function CommissionsPage() {
         `Email: ${formData.email}\n\n` +
         `Looking forward to working with you!`
       );
-      
+
       // Close order form and show success modal
       setShowOrderForm(false);
       setLastOrderedService(selectedCommission.title);
       setShowSuccessModal(true);
-      
+
       // Open email client
       window.open(`mailto:groupbonelli@gmail.com?subject=${subject}&body=${body}`);
     }
@@ -82,85 +83,65 @@ export default function CommissionsPage() {
             <p className="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto text-center">
               Need a site, app, or creative system? Commission a project directly from Bonelli Labs.
             </p>
-        {/* Sub-navigation */}
-        <nav className="flex gap-3 mb-8 justify-center md:justify-start flex-wrap">
-          {FILTERS.map((cat) => (
-            <button
-              key={cat}
-              className={`px-4 py-1 rounded-full text-sm font-semibold border transition-all duration-150 select-none ${
-                filter === cat
-                  ? "bg-gradient-to-r from-purple-400 to-pink-600 text-white border-purple-500 shadow"
-                  : "bg-zinc-900 text-zinc-300 border-zinc-800 hover:border-purple-400 hover:text-white"
-              }`}
-              onClick={() => setFilter(cat)}
+            {/* Sub-navigation */}
+            <nav className="flex gap-3 mb-8 justify-center md:justify-start flex-wrap">
+              {FILTERS.map((cat) => (
+                <button
+                  key={cat}
+                  className={`px-4 py-1 rounded-full text-sm font-semibold border transition-all duration-150 select-none ${filter === cat
+                    ? "bg-gradient-to-r from-purple-400 to-pink-600 text-white border-purple-500 shadow"
+                    : "bg-zinc-900 text-zinc-300 border-zinc-800 hover:border-purple-400 hover:text-white"
+                    }`}
+                  onClick={() => setFilter(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
+            </nav>
+          </section>
+
+          {/* Cards Grid */}
+          <section className="w-full max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="contents"
             >
-              {cat}
-            </button>
-          ))}
-        </nav>
-      </section>
+              {filteredCommissions.map((c) => (
+                <CommissionCard
+                  key={c.title}
+                  {...c}
+                  onClick={() => handleOrderClick(c)}
+                />
+              ))}
+            </motion.div>
+          </section>
 
-      {/* Cards Grid */}
-      <section className="w-full max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="contents"
-        >
-          {filteredCommissions.map((c) => (
-            <CommissionCard
-              key={c.title}
-              {...c}
-              onClick={() => handleOrderClick(c)}
-            />
-          ))}
-        </motion.div>
-      </section>
+          {/* Order Form Modal */}
+          <AnimatePresence>
+            {showOrderForm && selectedCommission && (
+              <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+                <OrderForm
+                  commission={selectedCommission}
+                  onSubmit={handleOrderSubmit}
+                  onCancel={handleCancelOrder}
+                />
+              </div>
+            )}
+          </AnimatePresence>
 
-      {/* Order Form Modal */}
-      <AnimatePresence>
-        {showOrderForm && selectedCommission && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <OrderForm 
-              commission={selectedCommission}
-              onSubmit={handleOrderSubmit}
-              onCancel={handleCancelOrder}
-            />
-          </div>
-        )}
-      </AnimatePresence>
-      
-      {/* Success Modal */}
-      <OrderSuccessModal 
-        isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
-        serviceTitle={lastOrderedService}
-      />
+          {/* Success Modal */}
+          <OrderSuccessModal
+            isOpen={showSuccessModal}
+            onClose={() => setShowSuccessModal(false)}
+            serviceTitle={lastOrderedService}
+          />
 
-      {/* CTA Section */}
-      <section className="w-full max-w-3xl mx-auto px-4 pb-24">
-        <div className="bg-zinc-900 rounded-2xl p-8 flex flex-col items-center border border-zinc-800 shadow-lg mt-8">
-          <h2 className="text-2xl font-bold mb-2">Got a unique idea?</h2>
-          <p className="text-zinc-400 mb-4 text-center">If you have a special request or want to discuss a bespoke project, reach out directly via Discord or our contact form.</p>
-          <div className="flex gap-4">
-            <a
-              href="https://discord.gg/bonelli"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2 rounded-lg bg-gradient-to-r from-purple-400 to-pink-600 text-white font-bold shadow hover:shadow-lg hover:from-pink-600 hover:to-purple-400 transition-all duration-150 border border-transparent hover:border-purple-300"
-            >
-              Join Discord
-            </a>
-            <Link href="/contact">
-              <span className="px-5 py-2 rounded-lg bg-zinc-800 text-zinc-200 font-medium border border-zinc-700 hover:border-purple-400 transition-colors duration-150 cursor-pointer">
-                Contact Form
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-      </main>
+          {/* CTA Section */}
+          {/* ChatGPT Portal Link */}
+          <ChatGPTLink />
+        </main>
       </PageTransition>
       <Footer />
       <ScrollToTop />
