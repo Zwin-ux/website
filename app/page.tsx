@@ -54,7 +54,7 @@ export default function Home() {
           <ChatGPTLink className="mt-8 mb-12" />
 
           <p className="text-sm md:text-base text-white/90 font-light">
-            Technology as a collaborative medium
+            Production Company
           </p>
         </div>
       </div>
