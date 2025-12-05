@@ -15,16 +15,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bonellilabs.com"),
-  title: "Bonelli Labs — Creative Tech Group",
+  title: "Bonelli Labs — Production Company",
   description:
-    "Turning experimental computation into usable culture — Bonelli Labs builds experiments, tools, and projects that shape how people create and play. Portfolio, projects, and contact info.",
+    "Bonelli Labs is a production company. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
     apple: "/transparent.png",
   },
   openGraph: {
-    title: "Bonelli Labs — Creative Tech Group",
+    title: "Bonelli Labs — Production Company",
     images: [
       {
         url: "/stylized-tree-logo.png",
