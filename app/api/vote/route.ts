@@ -3,13 +3,18 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-// Initialize Neon client
-// We use '!' because we assume DATABASE_URL is set.
-const sql = neon(process.env.DATABASE_URL!);
+// Lazy init to avoid build-time errors if env is missing
+const getSql = () => {
+    if (!process.env.DATABASE_URL) {
+        throw new Error('DATABASE_URL is not defined used in vote route');
+    }
+    return neon(process.env.DATABASE_URL);
+};
 
 // Helper to ensure table exists and get current votes
 // We do this lazily to avoid a separate migration step for the user
 async function ensureTableAndGetVotes() {
+    const sql = getSql();
     // 1. Create table if not exists
     await sql`
     CREATE TABLE IF NOT EXISTS mazen_votes (
@@ -62,14 +67,9 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Invalid vote type' }, { status: 400 });
         }
 
+        const sql = getSql();
+
         // Ensure table exists before update (just in case)
-        // In a high-traffic app, we wouldn't do this on every write, 
-        // but for this scale it's fine and ensures robustness.
-        // Optimization: We can skip this if we are confident, but let's be safe.
-        // Actually, let's just run the UPDATE. If it fails, we catch it.
-        // But if table doesn't exist, it fails. So we'll run the setup once per cold boot implicitly?
-        // No, edge functions are stateless. 
-        // Let's run the CREATE IF NOT EXISTS. Postgres is fast at checking this.
         await sql`
       CREATE TABLE IF NOT EXISTS mazen_votes (
         id TEXT PRIMARY KEY DEFAULT 'global',
