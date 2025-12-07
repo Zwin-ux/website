@@ -1,38 +1,58 @@
-import { put, list } from '@vercel/blob';
+import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-const BLOB_PATH = 'articles/votes.json';
+// Initialize Neon client
+// We use '!' because we assume DATABASE_URL is set.
+const sql = neon(process.env.DATABASE_URL!);
 
-// Helper to fetch current votes
-async function getVotes() {
-    const { blobs } = await list({ prefix: BLOB_PATH });
-    if (blobs.length === 0) {
-        return { good: 0, bad: 0 };
+// Helper to ensure table exists and get current votes
+// We do this lazily to avoid a separate migration step for the user
+async function ensureTableAndGetVotes() {
+    // 1. Create table if not exists
+    await sql`
+    CREATE TABLE IF NOT EXISTS mazen_votes (
+      id TEXT PRIMARY KEY DEFAULT 'global',
+      bad_votes BIGINT DEFAULT 0,
+      good_votes BIGINT DEFAULT 0
+    );
+  `;
+
+    // 2. Ensure the 'global' row exists
+    // We try to insert; on conflict do nothing.
+    await sql`
+    INSERT INTO mazen_votes (id, bad_votes, good_votes)
+    VALUES ('global', 0, 0)
+    ON CONFLICT (id) DO NOTHING;
+  `;
+
+    // 3. Fetch votes
+    const rows = await sql`SELECT bad_votes, good_votes FROM mazen_votes WHERE id = 'global'`;
+
+    if (rows.length > 0) {
+        return {
+            bad: Number(rows[0].bad_votes),
+            good: Number(rows[0].good_votes)
+        };
     }
 
-    // Find the exact match or the latest one
-    const blob = blobs.find(b => b.pathname === BLOB_PATH);
-
-    if (!blob) {
-        // If prefix matched but exact file didn't (unlikely with this specific path), return 0
-        return { good: 0, bad: 0 };
-    }
-
-    try {
-        const res = await fetch(blob.url, { cache: 'no-store' });
-        if (!res.ok) throw new Error('Failed to fetch blob');
-        return await res.json();
-    } catch (error) {
-        console.error('Error parsing votes:', error);
-        return { good: 0, bad: 0 };
-    }
+    return { bad: 0, good: 0 };
 }
 
 export async function GET() {
-    const votes = await getVotes();
-    return NextResponse.json(votes);
+    try {
+        const votes = await ensureTableAndGetVotes();
+        // Cache-control: no-store to ensure we always get fresh DB data
+        return NextResponse.json(votes, {
+            headers: {
+                'Cache-Control': 'no-store, max-age=0'
+            }
+        });
+    } catch (error) {
+        console.error('Database error:', error);
+        return NextResponse.json({ error: 'Database Error' }, { status: 500 });
+    }
 }
 
 export async function POST(req: Request) {
@@ -42,31 +62,57 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Invalid vote type' }, { status: 400 });
         }
 
-        const currentVotes = await getVotes();
+        // Ensure table exists before update (just in case)
+        // In a high-traffic app, we wouldn't do this on every write, 
+        // but for this scale it's fine and ensures robustness.
+        // Optimization: We can skip this if we are confident, but let's be safe.
+        // Actually, let's just run the UPDATE. If it fails, we catch it.
+        // But if table doesn't exist, it fails. So we'll run the setup once per cold boot implicitly?
+        // No, edge functions are stateless. 
+        // Let's run the CREATE IF NOT EXISTS. Postgres is fast at checking this.
+        await sql`
+      CREATE TABLE IF NOT EXISTS mazen_votes (
+        id TEXT PRIMARY KEY DEFAULT 'global',
+        bad_votes BIGINT DEFAULT 0,
+        good_votes BIGINT DEFAULT 0
+      );
+    `;
 
-        // Increment
-        const newVotes = {
-            ...currentVotes,
-            [type === 'good' ? 'good' : 'bad']: (currentVotes[type === 'good' ? 'good' : 'bad'] || 0) + 1
-        };
+        // Ensure row
+        await sql`
+      INSERT INTO mazen_votes (id, bad_votes, good_votes)
+      VALUES ('global', 0, 0)
+      ON CONFLICT (id) DO NOTHING;
+    `;
 
-        // Save back to Blob
-        // 'addRandomSuffix: false' ensures we overwrite the same file path if supported, 
-        // but Vercel Blob architecture usually creates unique URLs. 
-        // However, if we keep the pathname constant in 'put', it acts as an overwrite or we just read the latest by path logic.
-        // Actually, Vercel Blob 'put' with same path overwrites? No, it returns a new URL usually.
-        // But 'list' returns all. We need to be careful.
-        // Documentation says: "The pathname is used to identify the blob." 
-        // If we set access: 'public', it might overwrite? 
-        // Let's rely on list() returning the latest uploaded if we use a consistent path.
-        // Actually simpler: `put` will return a url.
+        // Atomic Increment
+        let rows;
+        if (type === 'bad') {
+            rows = await sql`
+        UPDATE mazen_votes 
+        SET bad_votes = bad_votes + 1 
+        WHERE id = 'global' 
+        RETURNING bad_votes, good_votes
+      `;
+        } else {
+            rows = await sql`
+        UPDATE mazen_votes 
+        SET good_votes = good_votes + 1 
+        WHERE id = 'global' 
+        RETURNING bad_votes, good_votes
+      `;
+        }
 
-        await put(BLOB_PATH, JSON.stringify(newVotes), {
-            access: 'public',
-            addRandomSuffix: false // This effectively overwrites the file at that path
+        if (rows.length === 0) {
+            // Should not happen due to INSERT above
+            return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
+        }
+
+        return NextResponse.json({
+            bad: Number(rows[0].bad_votes),
+            good: Number(rows[0].good_votes)
         });
 
-        return NextResponse.json(newVotes);
     } catch (error) {
         console.error('Vote error:', error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
