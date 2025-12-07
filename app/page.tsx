@@ -8,6 +8,7 @@ import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
 import CastReveal from "../components/CastReveal";
+import MazenComeback from "../components/MazenComeback";
 
 
 export default function Home() {
@@ -73,6 +74,9 @@ export default function Home() {
         {/* Cast Reveal Section */}
         <div>
           <CastReveal />
+        </div>
+        <div>
+          <MazenComeback />
         </div>
 
         <div>
