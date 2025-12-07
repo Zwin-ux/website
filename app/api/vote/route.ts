@@ -21,7 +21,7 @@ async function getVotes() {
     }
 
     try {
-        const res = await fetch(blob.url);
+        const res = await fetch(blob.url, { cache: 'no-store' });
         if (!res.ok) throw new Error('Failed to fetch blob');
         return await res.json();
     } catch (error) {

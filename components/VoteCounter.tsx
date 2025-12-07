@@ -52,62 +52,62 @@ export default function VoteCounter() {
     if (error) return null;
 
     return (
-        <div className="w-full max-w-2xl mx-auto my-12 p-6 border border-white/10 rounded-2xl bg-black/40 backdrop-blur-sm">
-            <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-white mb-2 tracking-wider">CIVIL JUDGMENT SYSTEM</h2>
-                <p className="text-white/50 text-sm font-mono">IS MAZEN A BAD PERSON?</p>
+        <div className="w-full max-w-2xl mx-auto my-12 p-6 border border-white/5 rounded-none bg-black">
+            <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+                <h2 className="text-sm font-bold text-white tracking-[0.2em]">PUBLIC SENTIMENT ANALYSIS</h2>
+                <div className="flex gap-2 text-[10px] text-zinc-500 font-mono">
+                    <span>STATUS: ACTIVE</span>
+                    <span className="text-green-500">●</span>
+                </div>
             </div>
 
-            <div className="flex gap-4 justify-center items-stretch h-32 mb-6">
+            <div className="grid grid-cols-2 gap-px bg-white/10 border border-white/10 mb-8">
                 {/* BAD BUTTON */}
-                <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                <button
                     onClick={() => handleVote('bad')}
-                    className="flex-1 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 transition-colors flex flex-col items-center justify-center group relative overflow-hidden"
+                    className="group relative h-32 bg-black hover:bg-zinc-900 transition-colors flex flex-col items-center justify-center"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-3xl mb-1 group-hover:scale-110 transition-transform">😈</span>
-                    <span className="font-bold text-red-400 tracking-widest text-sm">YES, ABSOLUTELY</span>
-                    <span className="text-xs text-red-400/50 mt-1 font-mono">{badVotes.toLocaleString()} VOTES</span>
-                </motion.button>
+                    <span className="text-4xl font-bold text-white mb-2 group-hover:scale-105 transition-transform">{badPercentage}%</span>
+                    <span className="text-xs text-zinc-500 tracking-widest font-mono">NEGATIVE</span>
+                    <span className="text-[10px] text-zinc-700 mt-2 font-mono">({badVotes} VOTES)</span>
+                    <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-white/20 text-[10px]">INCR +1</span>
+                    </div>
+                </button>
 
                 {/* GOOD BUTTON */}
-                <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                <button
                     onClick={() => handleVote('good')}
-                    className="flex-1 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-colors flex flex-col items-center justify-center group relative overflow-hidden"
+                    className="group relative h-32 bg-black hover:bg-zinc-900 transition-colors flex flex-col items-center justify-center"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-3xl mb-1 group-hover:scale-110 transition-transform">😇</span>
-                    <span className="font-bold text-emerald-400 tracking-widest text-sm">NO, HE'S PURE</span>
-                    <span className="text-xs text-emerald-400/50 mt-1 font-mono">{goodVotes.toLocaleString()} VOTES</span>
-                </motion.button>
+                    <span className="text-4xl font-bold text-white mb-2 group-hover:scale-105 transition-transform">{goodPercentage}%</span>
+                    <span className="text-xs text-zinc-500 tracking-widest font-mono">POSITIVE</span>
+                    <span className="text-[10px] text-zinc-700 mt-2 font-mono">({goodVotes} VOTES)</span>
+                    <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-white/20 text-[10px]">INCR +1</span>
+                    </div>
+                </button>
             </div>
 
             {/* LIVE BAR */}
-            <div className="h-4 bg-white/5 rounded-full overflow-hidden flex relative">
+            <div className="h-1 w-full bg-zinc-900 flex">
                 <motion.div
-                    className="h-full bg-red-500/50"
+                    className="h-full bg-white"
                     initial={{ width: '50%' }}
                     animate={{ width: `${badPercentage}%` }}
                     transition={{ type: 'spring', bounce: 0, duration: 0.8 }}
                 />
                 <motion.div
-                    className="h-full bg-emerald-500/50"
+                    className="h-full bg-zinc-800"
                     initial={{ width: '50%' }}
                     animate={{ width: `${goodPercentage}%` }}
                     transition={{ type: 'spring', bounce: 0, duration: 0.8 }}
                 />
-                {/* Splitter Line used to look cool */}
-                <div className="absolute inset-y-0 left-1/2 w-0.5 bg-black/20 -translate-x-1/2 z-10" />
             </div>
 
-            <div className="flex justify-between mt-2 text-[10px] text-white/30 font-mono">
-                <span>EVIL ({badPercentage}%)</span>
-                <span>LIVE DATABASE CONNECTION ACTIVE</span>
-                <span>GOOD ({goodPercentage}%)</span>
+            <div className="flex justify-between mt-3 text-[10px] text-zinc-600 font-mono tracking-widest">
+                <span>SECTOR A: NEGATIVE</span>
+                <span>SECTOR B: POSITIVE</span>
             </div>
         </div>
     );
