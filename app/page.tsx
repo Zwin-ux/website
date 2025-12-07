@@ -8,7 +8,7 @@ import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
 import CastReveal from "../components/CastReveal";
-import VoteCounter from "../components/VoteCounter";
+
 
 export default function Home() {
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </div>
 
-      <VoteCounter />
+
 
       <main className="flex-1 flex flex-col">
         <div>
