@@ -35,40 +35,26 @@ export default function Hackathons() {
             </div>
           </div>
 
-          {/* Kiroween Hackathon */}
-          <a
-            href="https://kiroween.devpost.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block"
+          {/* FIBO Hackathon - ACTIVE */}
+          <div
+            className="group relative bg-zinc-900/50 rounded-xl p-10 md:p-12 border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-500 block"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4">
                   <h3 className="text-xl md:text-2xl font-semibold text-white">
-                    Kiroween Hackathon
+                    FIBO Hackathon
                   </h3>
-                  {/* External link icon */}
-                  <svg
-                    className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
+                  <span className="bg-yellow-500/10 text-yellow-500 text-xs font-bold px-3 py-1 rounded-full border border-yellow-500/20 tracking-wide uppercase">
+                    We are doing this
+                  </span>
                 </div>
-                <p className="text-white/50 leading-relaxed text-sm md:text-base mb-3">
-                  Participating in the Kiroween hackathon hosted by DEV Community.
+                <p className="text-white/70 leading-relaxed text-sm md:text-base mb-3">
+                  Participating in the FIBO Hackathon.
                 </p>
                 <div className="flex items-center gap-2">
                   <svg
-                    className="w-4 h-4 text-white/40"
+                    className="w-4 h-4 text-emerald-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -80,13 +66,39 @@ export default function Hackathons() {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <span className="text-white/70 text-sm font-medium">
-                    Deadline: Dec 5, 2025 @ 2:00pm PST
+                  <span className="text-white/90 text-sm font-medium">
+                    Deadline: Dec 15, 2025 @ 5:00pm PST
                   </span>
                 </div>
               </div>
             </div>
-          </a>
+          </div>
+
+          {/* Kiroween Hackathon - ENDED */}
+          <div
+            className="group relative bg-black rounded-xl p-10 md:p-12 border border-white/5 opacity-50 cursor-not-allowed block"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white line-through">
+                    Kiroween Hackathon
+                  </h3>
+                </div>
+                <p className="text-white/50 leading-relaxed text-sm md:text-base mb-3 line-through">
+                  Participating in the Kiroween hackathon hosted by DEV Community.
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-white/40 text-sm font-medium line-through">
+                    Deadline: Dec 5, 2025 @ 2:00pm PST
+                  </span>
+                  <span className="text-red-400 text-sm font-bold ml-2">
+                    ENDED
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
