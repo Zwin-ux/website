@@ -12,6 +12,7 @@
     "@neondatabase/serverless": "^1.0.2",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.76.1",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.0.0",
     "bad-words": "^4.0.0",
     "date-fns": "^4.1.0",
