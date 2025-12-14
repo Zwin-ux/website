@@ -120,8 +120,28 @@ const PulseIcon = () => (
   </div>
 );
 
-const CARDS_DATA = [
-  { id: 1, icon: <AudioWaveIcon />, color: "border-purple-500/50" },
+type Card = {
+  id: number;
+  icon: React.ReactNode;
+  color: string;
+  featuredDetails?: {
+    title: string;
+    starring: string;
+    tag?: string;
+  };
+};
+
+const CARDS_DATA: Card[] = [
+  {
+    id: 1,
+    icon: <AudioWaveIcon />,
+    color: "border-cyan-400/60",
+    featuredDetails: {
+      title: "A DAY IN LA",
+      starring: "Starting Raphael",
+      tag: "Announced",
+    },
+  },
   { id: 2, icon: <OrbitIcon />, color: "border-blue-500/50" },
   { id: 3, icon: <GlitchIcon />, color: "border-green-500/50" },
   { id: 4, icon: <PulseIcon />, color: "border-pink-500/50" },
@@ -129,10 +149,74 @@ const CARDS_DATA = [
   { id: 6, icon: <CipherIcon />, color: "border-yellow-500/50" },
 ];
 
+const FEATURED_CARD_ID = 1;
+
+const FeaturedProjectReveal = ({
+  details,
+  flipped,
+}: {
+  details: NonNullable<Card["featuredDetails"]>;
+  flipped: boolean;
+}) => (
+  <div className="relative w-full h-full overflow-hidden rounded-xl" style={{ perspective: 1200 }}>
+    <motion.div
+      animate={{ rotateY: flipped ? 180 : 0 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="relative w-full h-full"
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      {/* Front */}
+      <div
+        className="absolute inset-0 rounded-xl border border-white/10 bg-zinc-950 shadow-2xl"
+        style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800 to-black opacity-80" />
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(#fff 1px, transparent 1px)",
+            backgroundSize: "10px 10px",
+          }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-12 h-16 border border-white/10 rounded flex items-center justify-center">
+            <span className="text-white/20 font-mono text-xl">?</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Back */}
+      <div
+        className="absolute inset-0 rounded-xl border border-cyan-200/30 bg-gradient-to-br from-[#0b4d59] via-[#0a3646] to-[#042234] shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
+        style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+      >
+        <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_20%_20%,rgba(120,213,255,0.25),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(142,255,255,0.2),transparent_35%)]" />
+        <div className="absolute inset-0 backdrop-blur-[1px]" />
+        <div className="relative z-10 h-full flex flex-col justify-center px-6 py-5 gap-4">
+          <div className="flex items-center gap-3 text-cyan-100/80 text-[11px] tracking-[0.24em] uppercase font-mono">
+            <span className="px-3 py-1 rounded-full border border-cyan-200/40 bg-cyan-100/5">
+              {details.tag || "Announced"}
+            </span>
+          </div>
+          <div className="space-y-3">
+            <p className="text-3xl md:text-4xl font-semibold text-cyan-50 tracking-[0.08em] font-serif">
+              {details.title}
+            </p>
+            <p className="text-sm text-cyan-100/80 font-semibold tracking-[0.18em] uppercase">
+              {details.starring}
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+);
+
 export default function CastReveal() {
-  const [shuffledCards, setShuffledCards] = useState(CARDS_DATA);
+  const [shuffledCards, setShuffledCards] = useState<Card[]>(CARDS_DATA);
   const [revealedIds, setRevealedIds] = useState<number[]>([]);
   const [isClient, setIsClient] = useState(false);
+  const [featuredFlipped, setFeaturedFlipped] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -141,6 +225,13 @@ export default function CastReveal() {
   }, []);
 
   const handleCardClick = (id: number) => {
+    if (id === FEATURED_CARD_ID) {
+      if (!revealedIds.includes(id)) {
+        setRevealedIds((prev) => [...prev, id]);
+      }
+      setFeaturedFlipped((prev) => !prev);
+      return;
+    }
     if (!revealedIds.includes(id)) {
       setRevealedIds((prev) => [...prev, id]);
     }
@@ -166,6 +257,8 @@ export default function CastReveal() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {shuffledCards.map((card) => {
               const isRevealed = revealedIds.includes(card.id);
+              const isFeatured = Boolean(card.featuredDetails);
+              const showRevealed = isFeatured ? featuredFlipped : isRevealed;
 
               return (
                 <div key={card.id} className="relative w-full flex items-center justify-center">
@@ -176,16 +269,17 @@ export default function CastReveal() {
                       relative w-full max-w-[300px] h-[240px] md:h-[270px]
                       rounded-xl border backdrop-blur-md cursor-pointer
                       transition-all duration-300
-                      ${isRevealed
+                      ${showRevealed
                         ? `bg-zinc-900/80 ${card.color} shadow-[0_0_20px_rgba(0,0,0,0.5)]`
-                        : "bg-zinc-950 border-white/10 hover:border-purple-500/50 shadow-2xl hover:scale-105"
+                        : `bg-zinc-950 ${isFeatured ? "border-white/20" : "border-white/10"} hover:border-purple-500/50 shadow-2xl hover:scale-105`
                       }
                     `}
                   >
                     {/* Card Content */}
                     <div className="w-full h-full flex flex-col items-center justify-center p-4 relative overflow-hidden">
-                      {isRevealed ? (
-                        // REVEALED FACE
+                      {isFeatured ? (
+                        <FeaturedProjectReveal details={card.featuredDetails!} flipped={featuredFlipped} />
+                      ) : showRevealed ? (
                         <motion.div
                           initial={{ opacity: 0, scale: 0.5, rotateY: 180 }}
                           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -227,6 +321,8 @@ export default function CastReveal() {
             <div className="mt-12 text-center text-zinc-500 text-sm font-mono animate-pulse">
               {revealedIds.length === 0
                 ? "Click any card to reveal"
+                : revealedIds.includes(FEATURED_CARD_ID)
+                ? "Flip A Day in LA. Keep clicking to meet the rest."
                 : "Keep clicking..."}
             </div>
           )}
