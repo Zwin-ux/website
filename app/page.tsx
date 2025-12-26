@@ -4,11 +4,8 @@ import Image from "next/image";
 import FeaturedProjects from "../components/FeaturedProjects";
 import Research from "../components/Research";
 import AboutSection from "../components/AboutSection";
-import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
-import CastReveal from "../components/CastReveal";
-import MazenComeback from "../components/MazenComeback";
 
 const TWITCH_CHANNEL = "zwintwitch";
 
@@ -56,12 +53,20 @@ export default function Home() {
 
         <div className="text-center max-w-xl px-4">
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
-            BONELLI IS NOW PUBLIC
+            WE HAVE LAUNCHED!
           </h1>
           <p className="text-zinc-400 mb-6">
             We are allowing guests to join to observe us for the news.
           </p>
           <ChatGPTLink className="mt-8 mb-12" />
+          <a
+            href="https://www.instagram.com/teambonelli/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.3em] text-white/70 hover:text-white transition"
+          >
+            Follow on Instagram
+          </a>
 
           <p className="text-sm md:text-base text-white/90 font-light">
             Production Company
@@ -128,14 +133,6 @@ export default function Home() {
           <FeaturedProjects />
         </div>
 
-        {/* Cast Reveal Section */}
-        <div>
-          <CastReveal />
-        </div>
-        <div>
-          <MazenComeback />
-        </div>
-
         <div>
           <AboutSection />
         </div>
@@ -147,9 +144,6 @@ export default function Home() {
           </p>
         </div>
 
-        <div>
-          <Hackathons />
-        </div>
       </main>
       <Footer />
     </div>
