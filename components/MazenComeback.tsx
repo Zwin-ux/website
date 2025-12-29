@@ -22,7 +22,7 @@ export default function MazenComeback() {
                         <div className="h-[2px] bg-[#3e2723] flex-grow max-w-[100px]" />
                         <div className="flex flex-col items-center">
                             <span className="text-[#fffdd0] bg-[#3e2723] px-3 py-1 font-bold text-xs tracking-widest uppercase">
-                                Will be livestreamed Dec 25th
+                                Will be livestreamed Jan 25th
                             </span>
                         </div>
                         <div className="h-[2px] bg-[#3e2723] flex-grow max-w-[100px]" />
