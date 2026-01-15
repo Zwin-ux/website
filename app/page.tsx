@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Hero from "../components/Hero";
-import FeaturedProjects from "../components/FeaturedProjects";
 import Research from "../components/Research";
 import AboutSection from "../components/AboutSection";
 import Hackathons from "../components/Hackathons";
@@ -10,14 +9,11 @@ import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
 import CreatorInvestment from "../components/CreatorInvestment";
 import MazenComeback from "../components/MazenComeback";
-import BonelliMark from "../components/BonelliMark"; 
-import Nimbus8Project from "../components/Nimbus8Project";
-import EchoMarkets from "../components/EchoMarkets";
+import CompactShowcase from "../components/CompactShowcase";
 import HexologyProject from "../components/HexologyProject";
 
 export default function Home() {
   useEffect(() => {
-    // Smooth scroll for anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLAnchorElement;
       if (target.closest('a[href^="#"]')) {
@@ -38,31 +34,28 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A0B0E] text-white selection:bg-purple-500/30">
-      <main>
+    <div className="min-h-screen bg-black text-white selection:bg-retro-blue/30 scroll-smooth">
+      <main className="crt-flicker">
         <Hero />
         
-        <div className="space-y-32 pb-32">
-          <section id="software">
-            <FeaturedProjects />
-          </section>
+        <div className="space-y-4 pb-32">
+          {/* Main Showcase: Nimbus & Echo */}
+          <CompactShowcase />
 
-          <section id="showcase">
-            <div className="max-w-7xl mx-auto px-6 space-y-32">
-              <Nimbus8Project />
-              <EchoMarkets />
-              <HexologyProject />
-            </div>
-          </section>
+          {/* Featured Highlight: Hexology */}
+          <HexologyProject />
 
+          {/* Research & Theory */}
           <section id="research">
             <Research />
           </section>
 
+          {/* Creator commitment */}
           <section id="investment">
             <CreatorInvestment />
           </section>
 
+          {/* Secondary content */}
           <section id="vision">
             <MazenComeback />
           </section>
@@ -75,7 +68,7 @@ export default function Home() {
             <AboutSection />
           </section>
 
-          <div className="flex justify-center py-20">
+          <div className="flex justify-center py-20 border-t border-white/5 bg-zinc-950/50">
             <ChatGPTLink />
           </div>
         </div>

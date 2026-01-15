@@ -3,86 +3,64 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ResearchCard from "./ResearchCard";
+import QuantumIcon from "./research-icons/QuantumIcon";
 import PvsNPIcon from "./research-icons/PvsNPIcon";
 import GodelIcon from "./research-icons/GodelIcon";
 import ParabolaIcon from "./research-icons/ParabolaIcon";
-import QuantumIcon from "./research-icons/QuantumIcon";
 import FunnyCamIcon from "./research-icons/FunnyCamIcon";
 
 export default function Research() {
   return (
-    <section id="research" className="relative py-24 md:py-32 bg-[#0A0B0E] overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-20 space-y-4">
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+    <section id="research" className="py-24 bg-black border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="mb-20 text-center space-y-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white/40 text-sm font-medium tracking-[0.2em] uppercase"
+            className="inline-block px-3 py-1 border border-retro-blue/30 bg-retro-blue/5 text-retro-blue text-[10px] font-mono uppercase tracking-[0.3em]"
           >
+            RESEARCH_DATABASE
+          </motion.div>
+          <h2 className="text-3xl md:text-5xl font-bold text-white uppercase italic tracking-tighter">
             Technical Exploration
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-white tracking-tight"
-          >
-            Research & Theory
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-neutral-500 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            Pushing the boundaries of computation, logic, and mathematical modeling 
-            to define the next era of digital culture.
-          </motion.p>
+          </h2>
+          <p className="max-w-2xl mx-auto text-zinc-500 font-mono text-xs uppercase tracking-widest">
+            Pushing the boundaries of computation, logic, and mathematical modeling to define the next era of digital culture.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ResearchCard
-            title="Parabola"
-            description="A research initiative exploring mathematical modeling and data visualization through parabolic functions and geometric analysis."
-            href="https://parabola-sand.vercel.app/"
-            icon={<ParabolaIcon />}
-          />
-
-          <ResearchCard
-            title="Gödel's Mirror"
-            description="An interactive exploration of formal logic and incompleteness through reflective prompt-based constructions."
-            href="https://zwin-ux.github.io/godel/"
-            icon={<GodelIcon />}
-          />
-
-          <ResearchCard
-            title="Quantum Signals"
-            description="Exploring quantum computing principles and their practical applications in signal processing."
-            href="https://quantum-five-topaz.vercel.app/"
+            title="Quantum Logic"
+            description="Exploring non-classical logic gates and their applications in distributed systems."
             icon={<QuantumIcon />}
           />
-
           <ResearchCard
-            title="Theorem Proving"
-            description="An accessible exploration of one of computer science's most fundamental questions: P vs NP."
-            href="https://zwin-ux.github.io/P-V-NP/"
+            title="P vs NP Theory"
+            description="Investigating heuristic approaches to complexity classes in real-world scenarios."
             icon={<PvsNPIcon />}
           />
-
-          <div className="md:col-span-2">
-            <ResearchCard
-              title="Funny Cam"
-              description="An experimental image classification project using TensorFlow to identify objects with a humorous twist, exploring the boundaries of AI-driven creative expression."
-              href="https://quick-jw3c.onrender.com/"
-              icon={<FunnyCamIcon />}
-            />
-          </div>
+          <ResearchCard
+            title="Incompleteness"
+            description="Analyzing the limits of formal systems in the context of digital governance."
+            icon={<GodelIcon />}
+          />
+          <ResearchCard
+            title="Modeling"
+            description="Synthesizing digital identity through technical and mathematical frameworks."
+            icon={<ParabolaIcon />}
+          />
+          <ResearchCard
+            title="Visual Systems"
+            description="Researching real-time video processing and spatial awareness primitives."
+            icon={<FunnyCamIcon />}
+          />
+          <ResearchCard
+            title="Logic Systems"
+            description="Formal verification of software architectures for high-reliability environments."
+            icon={<GodelIcon />}
+          />
         </div>
       </div>
     </section>

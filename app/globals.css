@@ -1,105 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --retro-green: #00ff41;
+  --retro-blue: #00e5ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-retro-green: var(--retro-green);
+  --color-retro-blue: var(--retro-blue);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Inter, Arial, Helvetica, sans-serif;
+  font-family: var(--font-mono), monospace;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Fade-in section utility */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
-}
-.fade-in-section.opacity-100 {
-  opacity: 1 !important;
-}
-.fade-in-section.translate-y-0 {
-  transform: translateY(0) !important;
-}
-
-/* Pulse on hover utility */
-.pulse-on-hover:hover {
-  animation: pulse 0.7s cubic-bezier(0.4,0,0.2,1);
-}
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
-  100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
-}
-
-/* Staggered Animation Delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-/* Smooth Fade In Up */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeInUp {
-  opacity: 0; /* Start hidden */
-  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-/* Premium Hover Glow */
-.hover-glow {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hover-glow:hover {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Text Gradient Animation */
-.animate-text-shimmer {
+/* CRT Scanline Effect */
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background: linear-gradient(
-    to right,
-    #ffffff 0%,
-    #a5a5a5 50%,
-    #ffffff 100%
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.06),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.06)
   );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: textShimmer 3s linear infinite;
+  z-index: 9999;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.15;
 }
 
-@keyframes textShimmer {
-  to {
-    background-position: 200% center;
-  }
+/* Retro CRT Flicker */
+@keyframes flicker {
+  0% { opacity: 0.99; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.99; }
+  15% { opacity: 0.91; }
+  20% { opacity: 0.99; }
+  25% { opacity: 0.95; }
+  30% { opacity: 0.99; }
+  100% { opacity: 1; }
+}
+
+.crt-flicker {
+  animation: flicker 0.1s infinite;
+}
+
+/* Retro Terminal Borders */
+.retro-border {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.retro-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+/* Pixel-style sharp buttons */
+.retro-button {
+  background: #ffffff;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.retro-button:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0px #ffffff;
+  transform: translate(-2px, -2px);
+}
+
+/* Glitch Utility */
+.glitch-hover:hover {
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
 

@@ -1,77 +1,68 @@
-import React, { ReactNode } from "react";
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 
 interface ResearchCardProps {
-    title: string;
-    description: string;
-    href?: string;
-    icon: ReactNode;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  href?: string;
+  className?: string;
 }
 
 export default function ResearchCard({
-    title,
-    description,
-    href,
-    icon,
+  title,
+  description,
+  icon,
+  href,
+  className = "",
 }: ResearchCardProps) {
-    const content = (
-        <>
-            {/* Hover Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            <div className="relative z-10 flex items-start justify-between gap-6">
-                <div className="flex-1 space-y-4">
-                    <div className="flex items-center gap-3">
-                        <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-white/90 transition-colors">
-                            {title}
-                        </h3>
-                        {/* External Link Arrow - only show if href exists */}
-                        {href && (
-                            <svg
-                                className="w-4 h-4 text-white/30 group-hover:text-white/70 transition-colors transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                />
-                            </svg>
-                        )}
-                    </div>
-                    <p className="text-white/50 leading-relaxed text-sm md:text-base max-w-xl group-hover:text-white/60 transition-colors">
-                        {description}
-                    </p>
-                </div>
-
-                {/* Animated Icon Container */}
-                <div className="flex-shrink-0 text-white/80 group-hover:text-white transition-colors duration-500">
-                    {icon}
-                </div>
-            </div>
-        </>
-    );
-
-    // If href is provided, render as clickable link
-    if (href) {
-        return (
-            <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative bg-black rounded-xl p-8 md:p-10 border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer block overflow-hidden"
-            >
-                {content}
-            </a>
-        );
-    }
-
-    // Otherwise, render as non-clickable div
-    return (
-        <div className="group relative bg-black rounded-xl p-8 md:p-10 border border-white/10 hover:border-white/20 transition-all duration-500 block overflow-hidden">
-            {content}
+  const CardContent = (
+    <div className={`group relative p-8 h-full bg-black border border-white/10 hover:border-retro-blue/50 transition-all ${className}`}>
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20 group-hover:border-retro-blue" />
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20 group-hover:border-retro-blue" />
+      
+      <div className="flex flex-col gap-6">
+        <div className="w-10 h-10 flex items-center justify-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
+          {icon}
         </div>
+        <div>
+          <h3 className="text-lg font-bold text-white uppercase tracking-tight mb-2 group-hover:text-retro-blue transition-colors">
+            {title}
+          </h3>
+          <p className="text-zinc-500 font-mono text-[10px] leading-relaxed uppercase tracking-widest group-hover:text-zinc-400 transition-colors">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        whileHover={{ x: 2 }}
+        className="block h-full"
+      >
+        {CardContent}
+      </motion.a>
     );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      className="block h-full"
+    >
+      {CardContent}
+    </motion.div>
+  );
 }
