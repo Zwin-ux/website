@@ -31,8 +31,7 @@ export default function CreatorInvestment() {
             >
               <div className="text-4xl font-bold text-retro-green">$700+</div>
               <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-widest leading-relaxed">
-                Direct capital deployed to fuel project infrastructure and development. 
-                Pure resource allocation.
+                We provide the money to help ideas grow. We don't take credit. We just want to fuel the work.
               </p>
             </motion.div>
 
@@ -42,7 +41,7 @@ export default function CreatorInvestment() {
               viewport={{ once: true }}
               className="bg-black p-8 md:p-12 space-y-4"
             >
-              <div className="text-4xl font-bold text-retro-green">0% OWN_SHIP</div>
+              <div className="text-4xl font-bold text-retro-green">0% Ownership</div>
               <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-widest leading-relaxed">
                 ZERO equity. ZERO oversight. We provide the fuel; you provide the vision.
               </p>

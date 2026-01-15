@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import ResearchCard from "./ResearchCard";
 import QuantumIcon from "./research-icons/QuantumIcon";
-import PvsNPIcon from "./research-icons/PvsNPIcon";
 import GodelIcon from "./research-icons/GodelIcon";
 import ParabolaIcon from "./research-icons/ParabolaIcon";
 import FunnyCamIcon from "./research-icons/FunnyCamIcon";
@@ -32,34 +31,28 @@ export default function Research() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ResearchCard
-            title="Quantum Logic"
-            description="Exploring non-classical logic gates and their applications in distributed systems."
-            icon={<QuantumIcon />}
-          />
-          <ResearchCard
-            title="P vs NP Theory"
-            description="Investigating heuristic approaches to complexity classes in real-world scenarios."
-            icon={<PvsNPIcon />}
-          />
-          <ResearchCard
-            title="Incompleteness"
-            description="Analyzing the limits of formal systems in the context of digital governance."
-            icon={<GodelIcon />}
-          />
-          <ResearchCard
-            title="Modeling"
-            description="Synthesizing digital identity through technical and mathematical frameworks."
+            title="Parabola"
+            description="A research initiative exploring mathematical modeling and data visualization through parabolic functions."
+            href="https://parabola-sand.vercel.app/"
             icon={<ParabolaIcon />}
           />
           <ResearchCard
-            title="Visual Systems"
-            description="Researching real-time video processing and spatial awareness primitives."
-            icon={<FunnyCamIcon />}
+            title="Gödel's Mirror"
+            description="An interactive exploration of formal logic and incompleteness through reflective prompt-based constructions."
+            href="https://zwin-ux.github.io/godel/"
+            icon={<GodelIcon />}
           />
           <ResearchCard
-            title="Logic Systems"
-            description="Formal verification of software architectures for high-reliability environments."
-            icon={<GodelIcon />}
+            title="Quantum Signals"
+            description="Exploring quantum computing principles and their practical applications in signal processing."
+            href="https://quantum-five-topaz.vercel.app/"
+            icon={<QuantumIcon />}
+          />
+          <ResearchCard
+            title="Funny Cam"
+            description="Real-time browser-based computer vision experiments and distortion effects."
+            href="https://funny-cam.vercel.app/"
+            icon={<FunnyCamIcon />}
           />
         </div>
       </div>
