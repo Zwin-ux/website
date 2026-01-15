@@ -8,7 +8,7 @@ import AboutSection from "../components/AboutSection";
 import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
-import CastReveal from "../components/CastReveal";
+import CreatorInvestment from "../components/CreatorInvestment";
 import MazenComeback from "../components/MazenComeback";
 import BonelliMark from "../components/BonelliMark"; 
 import Nimbus8Project from "../components/Nimbus8Project";
@@ -59,8 +59,8 @@ export default function Home() {
             <Research />
           </section>
 
-          <section id="team">
-            <CastReveal />
+          <section id="investment">
+            <CreatorInvestment />
           </section>
 
           <section id="vision">
