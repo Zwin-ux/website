@@ -13,6 +13,7 @@ import MazenComeback from "../components/MazenComeback";
 import BonelliMark from "../components/BonelliMark"; 
 import Nimbus8Project from "../components/Nimbus8Project";
 import EchoMarkets from "../components/EchoMarkets";
+import HexologyProject from "../components/HexologyProject";
 
 export default function Home() {
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-6 space-y-32">
               <Nimbus8Project />
               <EchoMarkets />
+              <HexologyProject />
             </div>
           </section>
 

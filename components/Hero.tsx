@@ -58,7 +58,7 @@ export default function Hero() {
             className="max-w-2xl"
           >
             <p className="text-lg md:text-xl mb-10 text-neutral-400 font-light leading-relaxed">
-              Currently supporting <span className="text-white font-medium">~4 visionary creators</span>. 
+              Currently supporting <span className="text-white font-medium">~4 creators</span>. 
               Our focus is pure investment: <span className="text-white font-medium">0 expected profit</span>. 
               We are here to fuel growth, build software, and pioneer digital excellence.
             </p>

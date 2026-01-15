@@ -29,7 +29,7 @@ export default function FeaturedProjects() {
 
           <ResearchCard
             title="Hexology"
-            description="An online Platform to play Hex"
+            description="The definitive online platform for playing Hex. Fully out and available on Discord."
             href="https://hexology.me/"
             icon={<HexologyIcon />}
           />
