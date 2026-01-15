@@ -14,7 +14,7 @@ export default function MazenComeback() {
                         Coming Also...
                     </span>
 
-                    <h2 className="text-5xl md:text-7xl font-black text-[#5C2E08] uppercase tracking-[-0.05em] mb-4 drop-shadow-sm leading-[0.9]" style={{ fontFamily: 'Futura, "Century Gothic", "Tw Cen MT", sans-serif' }}>
+                    <h2 className="text-5xl md:text-7xl font-black text-[#5C2E08] uppercase tracking-[-0.05em] mb-4 drop-shadow-sm leading-[0.9] line-through decoration-[#3e2723] decoration-4" style={{ fontFamily: 'Futura, "Century Gothic", "Tw Cen MT", sans-serif' }}>
                         The Great<br />Mazen Comeback
                     </h2>
 
@@ -22,7 +22,7 @@ export default function MazenComeback() {
                         <div className="h-[2px] bg-[#3e2723] flex-grow max-w-[100px]" />
                         <div className="flex flex-col items-center">
                             <span className="text-[#fffdd0] bg-[#3e2723] px-3 py-1 font-bold text-xs tracking-widest uppercase">
-                                Will be livestreamed Jan 25th
+                                CLIPS UPLOADED SOON
                             </span>
                         </div>
                         <div className="h-[2px] bg-[#3e2723] flex-grow max-w-[100px]" />

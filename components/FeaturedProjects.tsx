@@ -10,7 +10,7 @@ export default function FeaturedProjects() {
     <section id="projects" className="py-20 md:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20 text-white tracking-tight">
-          Products
+          Proprietary Software
         </h2>
 
         <div className="max-w-4xl mx-auto space-y-6">
