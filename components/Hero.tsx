@@ -29,14 +29,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 border border-white/10 p-4 bg-zinc-950/50 backdrop-blur-sm"
+          className="mb-12 border border-white/10 p-4 bg-zinc-950/50 backdrop-blur-sm animate-float"
         >
           <Image
             src="/stylized-tree-logo.png"
             alt="Bonelli Logo"
             width={120}
             height={120}
-            className="w-24 h-24 md:w-32 md:h-32 object-contain grayscale invert opacity-80"
+            className="w-24 h-24 md:w-32 md:h-32 object-contain grayscale invert opacity-60"
             priority
           />
         </motion.div>
@@ -46,10 +46,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white uppercase italic"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white uppercase italic text-glow"
           >
             Investing in the <br /> 
-            <span className="text-retro-blue">Future of Culture</span>
+            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Future of Culture</span>
           </motion.h1>
 
           <motion.p

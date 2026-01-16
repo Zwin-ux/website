@@ -12,7 +12,7 @@ const projects: Project[] = [
     title: "Echo Markets",
     description: "A fake stock market MMO",
     tags: ["game", "chaos"],
-    link: "https://github.com/Zwin-ux/echo-markets",
+    link: "https://github.com/Zwin-ux/Rubrix",
   },
   {
     title: "Rubrix",

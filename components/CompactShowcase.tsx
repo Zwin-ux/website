@@ -14,9 +14,9 @@ const projects = [
   {
     name: "ECHO_MARKETS",
     status: "DEV",
-    desc: "MMO stock browser game.",
-    link: "https://echomarkets.me/",
-    color: "text-retro-green"
+    desc: "Chaotic web-based economy simulator.",
+    link: "https://github.com/Zwin-ux/Rubrix",
+    color: "text-[#ff3e3e]"
   }
 ];
 
@@ -28,12 +28,13 @@ export default function CompactShowcase() {
           {projects.map((project, idx) => (
             <motion.div
               key={project.name}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group border border-white/5 bg-zinc-950/30 p-8 hover:border-white/20 transition-all flex flex-col md:flex-row md:items-center justify-between gap-8"
+              transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="group relative border border-white/5 bg-zinc-950/20 p-10 hover:border-white/20 transition-all duration-500 flex flex-col md:flex-row md:items-center justify-between gap-8 isolate overflow-hidden"
             >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
               <div className="space-y-4 max-w-2xl">
                 <div className="flex items-center gap-4">
                   <h3 className={`text-2xl font-bold uppercase italic tracking-tighter ${project.color}`}>
@@ -52,9 +53,13 @@ export default function CompactShowcase() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-white hover:text-retro-blue transition-colors border-b border-white/20 pb-1"
+                className="inline-flex items-center gap-4 text-[11px] font-mono font-black uppercase tracking-[0.25em] text-zinc-400 hover:text-white transition-all duration-300 relative group/link"
               >
-                PROCEED_TO_SOURCE »
+                <span className="relative">
+                  Proceed to Source
+                  <div className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white group-hover/link:w-full transition-all duration-500" />
+                </span>
+                <span className="text-[14px] transform group-hover/link:translate-x-1 transition-transform">→</span>
               </a>
             </motion.div>
           ))}

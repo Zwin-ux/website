@@ -51,7 +51,7 @@ export default function Research() {
           <ResearchCard
             title="Funny Cam"
             description="Real-time browser-based computer vision experiments and distortion effects."
-            href="https://funny-cam.vercel.app/"
+            href="https://quick-jw3c.onrender.com/"
             icon={<FunnyCamIcon />}
           />
         </div>

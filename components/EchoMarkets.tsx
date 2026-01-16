@@ -4,17 +4,17 @@ const EchoMarkets = () => {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <div className="text-center mb-16 relative">
-        <div className="absolute -inset-4 bg-gradient-to-r from-red-500/10 to-rose-500/10 rounded-xl blur-3xl -z-10" />
-        <div className="inline-flex items-center gap-2 mb-4">
-          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-rose-400 sm:text-5xl">
+        <div className="absolute -inset-4 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.1),transparent_70%)] rounded-xl blur-3xl -z-10 animate-pulse" />
+        <div className="inline-flex items-center gap-3 mb-6">
+          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-400 to-orange-500 sm:text-6xl tracking-[0.05em] uppercase font-mono italic">
             Echo Markets
           </h2>
-          <span className="px-3 py-1 text-xs font-medium bg-red-500/20 text-red-300 rounded-full border border-red-500/30">
+          <span className="px-3 py-1 text-[10px] font-mono font-bold bg-red-500/10 text-red-500 rounded-sm border border-red-500/20 uppercase tracking-tighter">
             Pre-Production
           </span>
         </div>
-        <p className="text-xl text-zinc-300 max-w-3xl mx-auto mt-4">
-          Exploring new ways to design digital markets.
+        <p className="text-lg text-zinc-400 max-w-2xl mx-auto mt-2 font-light leading-relaxed">
+          Exploring experimental market dynamics through a chaotic MMO stock lens.
         </p>
       </div>
 
@@ -57,15 +57,13 @@ const EchoMarkets = () => {
                 Check out our progress or share your ideas.
               </p>
               <a
-                href="https://github.com/Zwin-ux/echo-markets"
+                href="https://github.com/Zwin-ux/Rubrix"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 mt-4 text-sm font-medium text-white bg-gradient-to-r from-red-600 to-rose-600 rounded-lg hover:opacity-90 transition-opacity"
+                className="group/btn inline-flex items-center justify-center px-8 py-4 mt-6 text-xs font-mono font-bold uppercase tracking-[3px] text-white bg-zinc-950 border border-white/10 rounded-sm hover:bg-white hover:text-black transition-all duration-300 relative overflow-hidden"
               >
-                View on GitHub
-                <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.14 20.16 22 16.418 22 12.017 22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
+                <span className="relative z-10">Access Source</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
               </a>
             </div>
           </div>

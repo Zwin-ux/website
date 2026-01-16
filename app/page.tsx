@@ -11,6 +11,7 @@ import CreatorInvestment from "../components/CreatorInvestment";
 import MazenComeback from "../components/MazenComeback";
 import CompactShowcase from "../components/CompactShowcase";
 import HexologyProject from "../components/HexologyProject";
+import VisitorTicker from "../components/VisitorTicker";
 
 export default function Home() {
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-retro-blue/30 scroll-smooth">
       <main className="crt-flicker">
+        <VisitorTicker />
         <Hero />
         
         <div className="space-y-4 pb-32">
