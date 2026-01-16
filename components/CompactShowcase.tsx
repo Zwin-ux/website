@@ -14,7 +14,7 @@ const projects = [
   {
     name: "ECHO_MARKETS",
     status: "DEV",
-    desc: "Decentralized prediction primitives. Engineered for high-throughput social market logic.",
+    desc: "MMO stock browser game.",
     link: "https://echomarkets.me/",
     color: "text-retro-green"
   }

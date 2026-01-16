@@ -25,7 +25,7 @@ export default function Research() {
             Technical Exploration
           </h2>
           <p className="max-w-2xl mx-auto text-zinc-500 font-mono text-xs uppercase tracking-widest">
-            Pushing the boundaries of computation, logic, and mathematical modeling to define the next era of digital culture.
+            We aim to start an R&D lab focused on teaching and expanding on new concepts.
           </p>
         </div>
 
