@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
         <div className="w-2 h-2 rounded-full bg-green-500/50" />
         <div className="ml-4 text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
-          SYSTEM_PORTAL // BONELLI.ALPHA_01
+          Bonelli Production
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export default function Hero() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white uppercase italic text-glow"
           >
             We are a production company <br /> 
-            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Making Software, Media, and Art</span>
+            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Making Software and Media</span>
           </motion.h1>
 
           <motion.p
@@ -58,7 +58,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-zinc-500 font-mono text-xs md:text-sm tracking-widest uppercase py-4"
           >
-            [ CODE ] [ MEDIA ] [ ART ]
+            [ SOFTWARE ] [ MEDIA ]
           </motion.p>
         </div>
 
@@ -72,13 +72,13 @@ export default function Hero() {
             onClick={scrollToProjects}
             className="retro-button w-full text-sm group relative"
           >
-            <span className="relative z-10">EXPLORE_SYSTEM</span>
+            <span className="relative z-10">VIEW_PROJECTS</span>
           </button>
           <button
             onClick={() => document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full px-8 py-3 bg-transparent border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:bg-white hover:text-black transition-all"
           >
-            RESEARCH_DIR
+            RESEARCH
           </button>
         </motion.div>
       </div>

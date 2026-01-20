@@ -19,7 +19,7 @@ export default function Research() {
             viewport={{ once: true }}
             className="inline-block px-3 py-1 border border-retro-blue/30 bg-retro-blue/5 text-retro-blue text-[10px] font-mono uppercase tracking-[0.3em]"
           >
-            RESEARCH_DATABASE
+            RESEARCH
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-bold text-white uppercase italic tracking-tighter">
             Technical Exploration

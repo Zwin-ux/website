@@ -15,7 +15,7 @@ export default function CreatorInvestment() {
             className="text-center space-y-4"
           >
             <div className="inline-block px-3 py-1 border border-retro-green/30 bg-retro-green/5 text-retro-green text-[10px] font-mono uppercase tracking-[0.3em]">
-              INVESTMENT_LOG
+              INVESTMENT
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white uppercase italic tracking-tighter">
               Creator Commitment
