@@ -56,8 +56,8 @@ export default function CreatorInvestment() {
           >
             <p className="text-lg md:text-xl text-zinc-400 font-mono uppercase tracking-tight leading-relaxed italic">
               "Working with <span className="text-white">artists</span>, 
-              <span className="text-white"> server architects</span>, and 
-              <span className="text-white"> creators</span> to build the future."
+              <span className="text-white"> engineers</span>, and 
+              <span className="text-white"> creators</span> to make things real."
             </p>
           </motion.div>
         </div>

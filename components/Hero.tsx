@@ -48,8 +48,8 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white uppercase italic text-glow"
           >
-            Investing in the <br /> 
-            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Future of Culture</span>
+            We are a production company <br /> 
+            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Making Software, Media, and Art</span>
           </motion.h1>
 
           <motion.p
@@ -58,7 +58,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-zinc-500 font-mono text-xs md:text-sm tracking-widest uppercase py-4"
           >
-            [ BUILD ] [ INVEST ] [ REPEAT ]
+            [ CODE ] [ MEDIA ] [ ART ]
           </motion.p>
         </div>
 
