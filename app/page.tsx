@@ -8,7 +8,6 @@ import Hackathons from "../components/Hackathons";
 import Footer from "../components/Footer";
 import ChatGPTLink from "../components/ChatGPTLink";
 import CreatorInvestment from "../components/CreatorInvestment";
-import MazenComeback from "../components/MazenComeback";
 import CompactShowcase from "../components/CompactShowcase";
 import HexologyProject from "../components/HexologyProject";
 import VisitorTicker from "../components/VisitorTicker";
@@ -57,10 +56,6 @@ export default function Home() {
             <CreatorInvestment />
           </section>
 
-          {/* Secondary content */}
-          <section id="vision">
-            <MazenComeback />
-          </section>
 
           <section id="hackathons">
             <Hackathons />
