@@ -3,21 +3,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const projects = [
-  {
-    name: "NIMBUS_8",
-    status: "ALPHA",
-    desc: "Unified community toolkit for Twitch/Discord mapping. Integrated moderation & analytics.",
-    link: "https://github.com/Zwin-ux/DarkNimbus",
-    color: "text-retro-blue"
-  },
-  {
-    name: "ECHO_MARKETS",
-    status: "DEV",
-    desc: "Chaotic web-based economy simulator.",
-    link: "https://github.com/Zwin-ux/Rubrix",
-    color: "text-[#ff3e3e]"
-  }
+const projects: Array<{
+  name: string;
+  status: string;
+  desc: string;
+  link: string;
+  color: string;
+}> = [
+  // {
+  //   name: "NIMBUS_8",
+  //   status: "ALPHA",
+  //   desc: "Unified community toolkit for Twitch/Discord mapping. Integrated moderation & analytics.",
+  //   link: "https://github.com/Zwin-ux/DarkNimbus",
+  //   color: "text-retro-blue"
+  // },
+  // {
+  //   name: "ECHO_MARKETS",
+  //   status: "DEV",
+  //   desc: "Chaotic web-based economy simulator.",
+  //   link: "https://github.com/Zwin-ux/Rubrix",
+  //   color: "text-[#ff3e3e]"
+  // }
 ];
 
 export default function CompactShowcase() {
