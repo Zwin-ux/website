@@ -29,9 +29,9 @@ export default function CreatorInvestment() {
               viewport={{ once: true }}
               className="bg-black p-8 md:p-12 space-y-4"
             >
-              <div className="text-4xl font-bold text-retro-green">$700+</div>
+              <div className="text-4xl font-bold text-retro-green">$700 Given to Artists</div>
               <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-widest leading-relaxed">
-                We provide the money to help ideas grow. We don't take credit. We just want to fuel the work.
+                Direct funding to creators. No strings attached. Just money to make things happen.
               </p>
             </motion.div>
 
@@ -41,9 +41,9 @@ export default function CreatorInvestment() {
               viewport={{ once: true }}
               className="bg-black p-8 md:p-12 space-y-4"
             >
-              <div className="text-4xl font-bold text-retro-green">0% Ownership</div>
+              <div className="text-4xl font-bold text-retro-green">Zero Equity Taken</div>
               <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-widest leading-relaxed">
-                ZERO equity. ZERO oversight. We provide the fuel; you provide the vision.
+                We don't own your work. We don't control your vision. You keep everything.
               </p>
             </motion.div>
           </div>
@@ -55,9 +55,9 @@ export default function CreatorInvestment() {
             className="border-l-2 border-white/10 pl-8 py-4"
           >
             <p className="text-lg md:text-xl text-zinc-400 font-mono uppercase tracking-tight leading-relaxed italic">
-              "Working with <span className="text-white">artists</span>, 
-              <span className="text-white"> engineers</span>, and 
-              <span className="text-white"> creators</span> to make things real."
+              "A <span className="text-white">non-profit production company</span> working with <span className="text-white">artists</span>, 
+              <span className="text-white">engineers</span>, and 
+              <span className="text-white">creators</span> to make things real."
             </p>
           </motion.div>
         </div>
