@@ -3,46 +3,105 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Cute heart mascot matching the hex mascot style
+// Cute heart mascot - matching the hex mascot quality exactly
 const HeartMascot = () => (
-  <svg viewBox="0 0 120 120" className="w-20 h-20 md:w-24 md:h-24">
+  <svg viewBox="0 0 120 140" className="w-24 h-28 md:w-32 md:h-36">
+    <defs>
+      <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
     {/* Main heart body */}
     <motion.path
-      d="M60 25 C60 12, 82 12, 82 32 C82 50, 60 72, 60 72 C60 72, 38 50, 38 32 C38 12, 60 12, 60 25"
+      d="M60 15 C60 0, 95 0, 95 30 C95 55, 60 90, 60 90 C60 90, 25 55, 25 30 C25 0, 60 0, 60 15"
       fill="#1a1a2e"
       stroke="#ff6b9d"
       strokeWidth="3"
+      filter="url(#glow-pink)"
       initial={{ scale: 1 }}
-      animate={{ scale: [1, 1.03, 1] }}
+      animate={{ scale: [1, 1.02, 1] }}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      style={{ filter: "drop-shadow(0 0 8px rgba(255, 107, 157, 0.5))", transformOrigin: "center" }}
+      style={{ transformOrigin: "60px 50px" }}
     />
 
     {/* Left pixel eye */}
-    <rect x="47" y="35" width="8" height="8" fill="#ff6b9d" shapeRendering="crispEdges" />
-    <rect x="49" y="37" width="3" height="3" fill="#ffffff" shapeRendering="crispEdges" />
+    <rect x="42" y="35" width="12" height="12" fill="#ff6b9d" shapeRendering="crispEdges" />
+    <rect x="45" y="38" width="4" height="4" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Right pixel eye */}
-    <rect x="65" y="35" width="8" height="8" fill="#ff6b9d" shapeRendering="crispEdges" />
-    <rect x="67" y="37" width="3" height="3" fill="#ffffff" shapeRendering="crispEdges" />
+    <rect x="66" y="35" width="12" height="12" fill="#ff6b9d" shapeRendering="crispEdges" />
+    <rect x="69" y="38" width="4" height="4" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Cute smile */}
     <motion.path
-      d="M 52 50 Q 60 58 68 50"
+      d="M 48 58 Q 60 72 72 58"
       fill="none"
       stroke="#ff6b9d"
-      strokeWidth="2.5"
+      strokeWidth="3"
       strokeLinecap="round"
+      initial={{ pathLength: 0.8 }}
+      animate={{ pathLength: [0.8, 1, 0.8] }}
+      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
     />
 
     {/* Blush marks */}
-    <rect x="38" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" shapeRendering="crispEdges" />
-    <rect x="76" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" shapeRendering="crispEdges" />
+    <rect x="28" y="48" width="8" height="5" fill="#00ff41" opacity="0.7" rx="1" shapeRendering="crispEdges" />
+    <rect x="84" y="48" width="8" height="5" fill="#00ff41" opacity="0.7" rx="1" shapeRendering="crispEdges" />
 
-    {/* Sparkles */}
-    <motion.text x="25" y="22" fill="#ffd93d" fontSize="12" initial={{ opacity: 0.4 }} animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1, repeat: Infinity }}>*</motion.text>
-    <motion.text x="90" y="18" fill="#00e5ff" fontSize="10" initial={{ opacity: 0.4 }} animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.2, repeat: Infinity, delay: 0.3 }}>+</motion.text>
-    <motion.text x="88" y="65" fill="#ff6b9d" fontSize="10" initial={{ opacity: 0.4 }} animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.1, repeat: Infinity, delay: 0.7 }}>*</motion.text>
+    {/* Sparkle decorations */}
+    <motion.text
+      x="8"
+      y="20"
+      fill="#ffd93d"
+      fontSize="14"
+      fontWeight="bold"
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1, repeat: Infinity }}
+    >
+      ✦
+    </motion.text>
+    <motion.text
+      x="102"
+      y="15"
+      fill="#00e5ff"
+      fontSize="12"
+      fontWeight="bold"
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.2, repeat: Infinity, delay: 0.3 }}
+    >
+      +
+    </motion.text>
+    <motion.text
+      x="100"
+      y="100"
+      fill="#ff6b9d"
+      fontSize="10"
+      fontWeight="bold"
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 0.8, repeat: Infinity, delay: 0.6 }}
+    >
+      ✦
+    </motion.text>
+    <motion.text
+      x="5"
+      y="85"
+      fill="#00e5ff"
+      fontSize="10"
+      fontWeight="bold"
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.1, repeat: Infinity, delay: 0.9 }}
+    >
+      +
+    </motion.text>
   </svg>
 );
 

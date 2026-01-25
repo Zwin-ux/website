@@ -2,28 +2,39 @@
 
 import { motion } from "framer-motion";
 
-// Cute pixelated hexagon mascot
+// Cute pixelated hexagon mascot - high quality with proper glow
 const HexMascot = () => (
   <svg viewBox="0 0 120 140" className="w-24 h-28 md:w-32 md:h-36">
+    <defs>
+      <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
     {/* Main hexagon body */}
     <motion.polygon
       points="60,10 110,35 110,85 60,110 10,85 10,35"
       fill="#1a1a2e"
       stroke="#00ff41"
       strokeWidth="3"
+      filter="url(#glow-green)"
       initial={{ scale: 1 }}
       animate={{ scale: [1, 1.02, 1] }}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      style={{ filter: "drop-shadow(0 0 8px rgba(0, 255, 65, 0.5))" }}
+      style={{ transformOrigin: "60px 60px" }}
     />
 
     {/* Left eye */}
-    <rect x="35" y="45" width="12" height="12" fill="#00ff41" />
-    <rect x="38" y="48" width="4" height="4" fill="#ffffff" />
+    <rect x="35" y="45" width="12" height="12" fill="#00ff41" shapeRendering="crispEdges" />
+    <rect x="38" y="48" width="4" height="4" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Right eye */}
-    <rect x="73" y="45" width="12" height="12" fill="#00ff41" />
-    <rect x="76" y="48" width="4" height="4" fill="#ffffff" />
+    <rect x="73" y="45" width="12" height="12" fill="#00ff41" shapeRendering="crispEdges" />
+    <rect x="76" y="48" width="4" height="4" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Smile */}
     <motion.path
@@ -38,8 +49,8 @@ const HexMascot = () => (
     />
 
     {/* Blush marks */}
-    <rect x="22" y="60" width="8" height="5" fill="#ff6b9d" opacity="0.7" rx="2" />
-    <rect x="90" y="60" width="8" height="5" fill="#ff6b9d" opacity="0.7" rx="2" />
+    <rect x="22" y="60" width="8" height="5" fill="#ff6b9d" opacity="0.7" shapeRendering="crispEdges" />
+    <rect x="90" y="60" width="8" height="5" fill="#ff6b9d" opacity="0.7" shapeRendering="crispEdges" />
 
     {/* Sparkle decorations */}
     <motion.text
@@ -47,17 +58,19 @@ const HexMascot = () => (
       y="25"
       fill="#ffd93d"
       fontSize="14"
+      fontWeight="bold"
       initial={{ opacity: 0.5 }}
       animate={{ opacity: [0.5, 1, 0.5] }}
       transition={{ duration: 1, repeat: Infinity }}
     >
-      *
+      ✦
     </motion.text>
     <motion.text
       x="105"
       y="20"
       fill="#00e5ff"
       fontSize="12"
+      fontWeight="bold"
       initial={{ opacity: 0.5 }}
       animate={{ opacity: [0.5, 1, 0.5] }}
       transition={{ duration: 1.2, repeat: Infinity, delay: 0.3 }}
@@ -69,11 +82,24 @@ const HexMascot = () => (
       y="105"
       fill="#ff6b9d"
       fontSize="10"
+      fontWeight="bold"
       initial={{ opacity: 0.5 }}
       animate={{ opacity: [0.5, 1, 0.5] }}
       transition={{ duration: 0.8, repeat: Infinity, delay: 0.6 }}
     >
-      *
+      ✦
+    </motion.text>
+    <motion.text
+      x="2"
+      y="100"
+      fill="#00e5ff"
+      fontSize="10"
+      fontWeight="bold"
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1.1, repeat: Infinity, delay: 0.9 }}
+    >
+      +
     </motion.text>
   </svg>
 );
