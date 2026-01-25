@@ -172,7 +172,7 @@ export default function HexologyHiring() {
           </p>
 
           <a
-            href="https://discord.gg/hexology"
+            href="https://discord.gg/STzaHyn4W9"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-retro-green hover:text-black transition-all hover:shadow-[4px_4px_0px_#00ff41] hover:-translate-x-0.5 hover:-translate-y-0.5"
