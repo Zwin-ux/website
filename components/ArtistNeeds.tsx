@@ -19,12 +19,12 @@ const HeartMascot = () => (
     />
 
     {/* Left pixel eye */}
-    <rect x="47" y="35" width="8" height="8" fill="#ff6b9d" />
-    <rect x="49" y="37" width="3" height="3" fill="#ffffff" />
+    <rect x="47" y="35" width="8" height="8" fill="#ff6b9d" shapeRendering="crispEdges" />
+    <rect x="49" y="37" width="3" height="3" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Right pixel eye */}
-    <rect x="65" y="35" width="8" height="8" fill="#ff6b9d" />
-    <rect x="67" y="37" width="3" height="3" fill="#ffffff" />
+    <rect x="65" y="35" width="8" height="8" fill="#ff6b9d" shapeRendering="crispEdges" />
+    <rect x="67" y="37" width="3" height="3" fill="#ffffff" shapeRendering="crispEdges" />
 
     {/* Cute smile */}
     <motion.path
@@ -36,8 +36,8 @@ const HeartMascot = () => (
     />
 
     {/* Blush marks */}
-    <rect x="38" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" />
-    <rect x="76" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" />
+    <rect x="38" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" shapeRendering="crispEdges" />
+    <rect x="76" y="43" width="6" height="4" fill="#00ff41" opacity="0.7" shapeRendering="crispEdges" />
 
     {/* Sparkles */}
     <motion.text x="25" y="22" fill="#ffd93d" fontSize="12" initial={{ opacity: 0.4 }} animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1, repeat: Infinity }}>*</motion.text>
@@ -72,7 +72,15 @@ export default function ArtistNeeds() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim() || selectedSuggestions.length > 0) {
-      console.log({ message, selectedSuggestions });
+      // Construct the email body
+      const subject = encodeURIComponent("Artist Needs / Feedback from Website");
+      const body = encodeURIComponent(
+        `Selected Needs/Suggestions:\n${selectedSuggestions.join(", ") || "None selected"}\n\nMessage:\n${message}`
+      );
+      
+      // Open email client
+      window.open(`mailto:mzwin3545@gmail.com?subject=${subject}&body=${body}`);
+      
       setSubmitted(true);
     }
   };
