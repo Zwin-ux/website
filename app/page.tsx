@@ -10,6 +10,8 @@ import ChatGPTLink from "../components/ChatGPTLink";
 import CreatorInvestment from "../components/CreatorInvestment";
 import CompactShowcase from "../components/CompactShowcase";
 import HexologyProject from "../components/HexologyProject";
+import HexologyHiring from "../components/HexologyHiring";
+import ArtistNeeds from "../components/ArtistNeeds";
 import VisitorTicker from "../components/VisitorTicker";
 
 export default function Home() {
@@ -46,6 +48,9 @@ export default function Home() {
           {/* Featured Highlight: Hexology */}
           <HexologyProject />
 
+          {/* Hexology Community & Hiring */}
+          <HexologyHiring />
+
           {/* Research & Theory */}
           <section id="research">
             <Research />
@@ -56,6 +61,8 @@ export default function Home() {
             <CreatorInvestment />
           </section>
 
+          {/* Artist feedback form */}
+          <ArtistNeeds />
 
           <section id="hackathons">
             <Hackathons />
