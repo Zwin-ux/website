@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-// Using countapi.xyz for persistent tracking
-const NAMESPACE = 'groupbonelli.com';
+// Using counterapi.dev for persistent tracking (countapi.xyz is deprecated)
+const NAMESPACE = 'groupbonelli';
 const KEY = 'visits';
 
 export const useVisitorTracker = () => {
@@ -29,21 +29,18 @@ export const useVisitorTracker = () => {
         // Fetch/Update global count
         const updateCount = async () => {
              try {
-                 // For new visitors, we 'hit' (increment). For returning, we just 'get'.
-                 // Note: If the key doesn't exist yet, 'hit' creates it. 'get' might fail if not created.
-                 // Since we want this to work "actually", we'll risk one extra count if 'get' fails 
-                 // to ensure the counter initializes.
+                 // counterapi.dev: '/up' to increment, '/' to just get
+                 const endpoint = isNewVisitor 
+                    ? `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`
+                    : `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`;
                  
-                 const action = isNewVisitor ? 'hit' : 'get';
-                 const res = await fetch(`https://api.countapi.xyz/${action}/${NAMESPACE}/${KEY}`);
+                 const res = await fetch(endpoint);
                  
                  if (res.ok) {
                      const data = await res.json();
-                     setVisitorCount(data.value);
+                     // counterapi.dev returns { count: number }
+                     setVisitorCount(data.count);
                  } else {
-                     // If 'get' fails (maybe key missing), try to initialize with a 'hit' (or just info)
-                     // But we only want to do this if we really think we should have data.
-                     // Fallback silently to mock if API is down.
                      console.warn('Tracking server response:', res.status);
                  }
              } catch (err) {
