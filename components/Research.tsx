@@ -24,8 +24,8 @@ export default function Research() {
           <h2 className="text-3xl md:text-5xl font-bold text-white uppercase italic tracking-tighter">
             Technical Exploration
           </h2>
-          <p className="max-w-2xl mx-auto text-zinc-500 font-mono text-xs uppercase tracking-widest">
-            We aim to start an R&D lab focused on teaching and expanding on new concepts.
+          <p className="max-w-3xl mx-auto text-zinc-500 font-mono text-xs uppercase tracking-widest leading-relaxed">
+            An R&D lab dedicated to experimental research and the freedom to play. We champion <span className="text-zinc-300">positive open source</span>—building, teaching, and sharing new concepts with the world.
           </p>
         </div>
 
