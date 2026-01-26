@@ -31,26 +31,34 @@ export default function Research() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ResearchCard
-            title="Parabola"
-            description="A research initiative exploring mathematical modeling and data visualization through parabolic functions."
+            title="PARABOLIC ENV_01"
+            tag="MATH_VIS"
+            linkText="RUN_SIMULATION"
+            description="Interactive environment for visualizing quadratic transformations on chaotic datasets. Features real-time parameter shifting."
             href="https://parabola-sand.vercel.app/"
             icon={<ParabolaIcon />}
           />
           <ResearchCard
-            title="Gödel's Mirror"
-            description="An interactive exploration of formal logic and incompleteness through reflective prompt-based constructions."
+            title="GÖDEL'S MIRROR"
+            tag="LOGIC_LOOP"
+            linkText="INIT_REFLECTION"
+            description="Experimental interface demonstrating self-referential logic loops and incompleteness theorems via reflective prompting."
             href="https://zwin-ux.github.io/godel/"
             icon={<GodelIcon />}
           />
           <ResearchCard
-            title="Quantum Signals"
-            description="Exploring quantum computing principles and their practical applications in signal processing."
+            title="Q-SIGNAL PROC"
+            tag="AUDIO_Q"
+            linkText="SYNTHESIZE"
+            description="Browser-based simulation of qubit superposition applied to digital signal processing frequencies."
             href="https://quantum-five-topaz.vercel.app/"
             icon={<QuantumIcon />}
           />
           <ResearchCard
-            title="Funny Cam"
-            description="Real-time browser-based computer vision experiments and distortion effects."
+            title="CV_DISTORTION"
+            tag="GLSL_EXP"
+            linkText="OPEN_LENS"
+            description="Real-time GLSL pipeline experiments for facial mesh deformation and computer vision artifact generation."
             href="https://quick-jw3c.onrender.com/"
             icon={<FunnyCamIcon />}
           />
