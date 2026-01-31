@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,52 +16,62 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bonellilabs.com"),
-  title: "Bonelli Labs — Production Company",
+  metadataBase: new URL("https://bonelli.dev"),
+  title: "Bonelli.dev — Software Engineer",
   description:
-    "Bonelli Labs is a production company. We launch experimental tools, games, and weird ideas fast. Portfolio, projects, and contact info.",
+    "Software engineering portfolio. Full-stack development, AI/ML projects, and systems engineering. TypeScript, React, Next.js, Python, Docker.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
     apple: "/transparent.png",
   },
   openGraph: {
-    title: "Bonelli Labs — Production Company",
-    images: [
-      {
-        url: "/stylized-tree-logo.png",
-        width: 256,
-        height: 256,
-        alt: "Bonelli Labs Logo",
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Bonelli Labs',
-    description: 'Affordable, futuristic web and marketing services',
+    title: "Bonelli.dev — Software Engineer",
+    description:
+      "Software engineering portfolio. Full-stack development, AI/ML, and systems engineering.",
+    url: "https://bonelli.dev",
+    siteName: "Bonelli.dev",
+    type: "website",
   },
   robots: {
     index: true,
     follow: true,
-  }
-}
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-[#121317] text-neutral-100 antialiased`} suppressHydrationWarning>
-        <div className="grain-overlay" />
-        <Header />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Bonelli",
+              url: "https://bonelli.dev",
+              jobTitle: "Software Engineer",
+              sameAs: ["https://github.com/Zwin-ux"],
+            }),
+          }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-background text-foreground antialiased`}
+        suppressHydrationWarning
+      >
         <div className="flex flex-col min-h-screen">
-          {children}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </div>
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

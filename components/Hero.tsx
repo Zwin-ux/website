@@ -1,95 +1,65 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("showcase");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section className="relative min-h-[70vh] flex flex-col items-center justify-center bg-black py-20 overflow-hidden">
-      {/* Terminal Header Decoration */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-zinc-900 flex items-center px-4 gap-2 border-b border-white/10">
-        <div className="w-2 h-2 rounded-full bg-red-500/50" />
-        <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-        <div className="w-2 h-2 rounded-full bg-green-500/50" />
-        <div className="ml-4 text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
-          Bonelli Production
-        </div>
-      </div>
-
-      <div className="relative z-10 w-full max-w-5xl px-6 mx-auto flex flex-col items-center">
+    <section className="py-24 md:py-32 px-6">
+      <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 border border-white/10 p-4 bg-zinc-950/50 backdrop-blur-sm animate-float"
-        >
-          <Image
-            src="/stylized-tree-logo.png"
-            alt="Bonelli Logo"
-            width={120}
-            height={120}
-            className="w-24 h-24 md:w-32 md:h-32 object-contain grayscale invert opacity-60"
-            priority
-          />
-        </motion.div>
-
-        <div className="text-center space-y-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white uppercase italic text-glow"
-          >
-            We are a production company <br /> 
-            <span className="text-retro-blue drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">Making Software and Media</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-zinc-500 font-mono text-xs md:text-sm tracking-widest uppercase py-4"
-          >
-            [ SOFTWARE ] [ MEDIA ]
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-6 mt-12 w-full max-w-md"
+          transition={{ duration: 0.4 }}
         >
-          <button
-            onClick={scrollToProjects}
-            className="retro-button w-full text-sm group relative"
-          >
-            <span className="relative z-10">VIEW_PROJECTS</span>
-          </button>
-          <button
-            onClick={() => document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full px-8 py-3 bg-transparent border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:bg-white hover:text-black transition-all"
-          >
-            RESEARCH
-          </button>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Bonelli
+          </h1>
+          <p className="mt-2 text-xl md:text-2xl text-zinc-400">
+            Software Engineer
+          </p>
+          <p className="mt-4 text-zinc-400 max-w-xl leading-relaxed">
+            Building full-stack applications, AI/ML systems, and developer tools.
+            Focused on shipping working software with clean architecture.
+          </p>
         </motion.div>
-      </div>
 
-      {/* Decorative Matrix-style background numbers (Static/Subtle) */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none font-mono text-[10px] leading-none overflow-hidden select-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className="whitespace-nowrap">
-            {Array.from({ length: 50 }).map(() => Math.random() > 0.5 ? '1' : '0').join(' ')}
-          </div>
-        ))}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+          className="mt-8 flex flex-wrap items-center gap-4 text-sm"
+        >
+          <a
+            href="https://github.com/Zwin-ux"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 border border-zinc-700 text-zinc-300 hover:text-foreground hover:border-zinc-500 transition-colors rounded"
+          >
+            GitHub
+          </a>
+          <a
+            href="mailto:groupbonelli@gmail.com"
+            className="px-4 py-2 border border-zinc-700 text-zinc-300 hover:text-foreground hover:border-zinc-500 transition-colors rounded"
+          >
+            Email
+          </a>
+          <a
+            href="/resume"
+            className="px-4 py-2 bg-accent text-white hover:bg-blue-600 transition-colors rounded"
+          >
+            Resume
+          </a>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+          className="mt-6 text-xs text-zinc-500"
+        >
+          U.S. Citizen &middot; Clearance Eligible
+        </motion.p>
       </div>
     </section>
   );

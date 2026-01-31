@@ -1,163 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --retro-green: #00ff41;
-  --retro-blue: #00e5ff;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --accent: #3b82f6;
+  --secondary: #a1a1aa;
+  --border: #27272a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-retro-green: var(--retro-green);
-  --color-retro-blue: var(--retro-blue);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-mono), monospace;
-  position: relative;
-  overflow-x: hidden;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* CRT Scanline Effect */
-body::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  ),
-  linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.06),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.06)
-  );
-  z-index: 9999;
-  background-size: 100% 4px, 3px 100%;
-  pointer-events: none;
-  opacity: 0.15;
-}
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
 
-/* Retro CRT Flicker */
-@keyframes flicker {
-  0% { opacity: 0.99; }
-  5% { opacity: 0.95; }
-  10% { opacity: 0.99; }
-  15% { opacity: 0.91; }
-  20% { opacity: 0.99; }
-  25% { opacity: 0.95; }
-  30% { opacity: 0.99; }
-  100% { opacity: 1; }
-}
+  body {
+    background: white;
+    color: black;
+  }
 
-.crt-flicker {
-  animation: flicker 0.1s infinite;
+  a {
+    color: black;
+    text-decoration: underline;
+  }
 }
-
-/* Retro Terminal Borders */
-.retro-border {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-}
-
-.retro-border::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  pointer-events: none;
-}
-
-/* Pixel-style sharp buttons */
-.retro-button {
-  background: #ffffff;
-  color: #000000;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: 2px solid transparent;
-  transition: all 0.2s;
-}
-
-.retro-button:hover {
-  background: #000000;
-  color: #ffffff;
-  border-color: #ffffff;
-  box-shadow: 4px 4px 0px #ffffff;
-  transform: translate(-2px, -2px);
-}
-
-/* Glitch Utility */
-.glitch-hover:hover {
-  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Grain Overlay */
-.grain-overlay {
-  position: fixed;
-  top: -150%;
-  left: -150%;
-  width: 300%;
-  height: 300%;
-  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 10000;
-  animation: grain 8s steps(10) infinite;
-}
-
-@keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.text-glow {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-

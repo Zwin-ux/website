@@ -1,83 +1,44 @@
-"use client";
-
-import { useEffect } from "react";
 import Hero from "../components/Hero";
-import Research from "../components/Research";
-import AboutSection from "../components/AboutSection";
-import Hackathons from "../components/Hackathons";
-import Footer from "../components/Footer";
-import ChatGPTLink from "../components/ChatGPTLink";
-import CreatorInvestment from "../components/CreatorInvestment";
-import CompactShowcase from "../components/CompactShowcase";
-import HexologyProject from "../components/HexologyProject";
-import HexologyHiring from "../components/HexologyHiring";
-import ArtistNeeds from "../components/ArtistNeeds";
-import VisitorTicker from "../components/VisitorTicker";
+import ProjectCard from "../components/ProjectCard";
+import SkillsSection from "../components/SkillsSection";
+import ContactSection from "../components/ContactSection";
+import { getFeaturedProjects } from "../data/projects";
 
 export default function Home() {
-  useEffect(() => {
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.closest('a[href^="#"]')) {
-        const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
-        const id = anchor.getAttribute('href');
-        if (id && id !== '#') {
-          const element = document.querySelector(id);
-          if (element) {
-            e.preventDefault();
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
+  const featured = getFeaturedProjects();
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-retro-blue/30 scroll-smooth">
-      <main className="crt-flicker">
-        <VisitorTicker />
-        <Hero />
-        
-        <div className="space-y-4 pb-32">
-          {/* Main Showcase: Nimbus & Echo */}
-          <CompactShowcase />
+    <div>
+      <Hero />
 
-          {/* Featured Highlight: Hexology */}
-          <HexologyProject />
-
-          {/* Hexology Community & Hiring */}
-          <HexologyHiring />
-
-          {/* Research & Theory */}
-          <section id="research">
-            <Research />
-          </section>
-
-          {/* Creator commitment */}
-          <section id="investment">
-            <CreatorInvestment />
-          </section>
-
-          {/* Artist feedback form */}
-          <ArtistNeeds />
-
-          <section id="hackathons">
-            <Hackathons />
-          </section>
-
-          <section id="about">
-            <AboutSection />
-          </section>
-
-          <div className="flex justify-center py-20 border-t border-white/5 bg-zinc-950/50">
-            <ChatGPTLink />
+      {/* Featured Projects */}
+      <section className="py-16 px-6">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold mb-8">Featured Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {featured.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
           </div>
         </div>
-      </main>
-      <Footer />
+      </section>
+
+      <SkillsSection />
+
+      {/* Assisted Funding */}
+      <section className="py-16 px-6 border-t border-zinc-800">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold mb-4">Assisted Funding</h2>
+          <p className="text-zinc-400 leading-relaxed max-w-2xl">
+            Provided operational and technical assistance to independent creators
+            shipping software and media projects. This includes infrastructure
+            setup, deployment pipelines, and technical advising for early-stage
+            products across web, games, and AI tooling.
+          </p>
+        </div>
+      </section>
+
+      <ContactSection />
     </div>
   );
 }
