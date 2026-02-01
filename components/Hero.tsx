@@ -16,7 +16,7 @@ export default function Hero() {
             Bonelli.Dev
           </h1>
           <p className="mt-4 text-zinc-400 max-w-xl text-lg leading-relaxed">
-            Making software and helping creators.
+            We build software to help others and make products that matter.
           </p>
         </motion.div>
       </div>

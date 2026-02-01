@@ -12,7 +12,12 @@
       "Bash(git commit:*)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Bash(git stash pop:*)"
+      "Bash(git stash pop:*)",
+      "WebFetch(domain:www.bonelli.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(tree:*)",
+      "Bash(dir /s \"C:\\\\Users\\\\mzwin\\\\website-1\")",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

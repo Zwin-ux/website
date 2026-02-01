@@ -5,7 +5,7 @@ Software engineering portfolio built with Next.js, TypeScript, and Tailwind CSS.
 ## Structure
 
 ```
-app/           — Pages (/, /projects, /resume, /about)
+app/           — Pages (/)
 components/    — Shared UI components
 data/          — Project and skill data (single source of truth)
 public/        — Static assets
