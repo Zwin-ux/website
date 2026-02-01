@@ -19,7 +19,7 @@ export default function Header() {
       <nav className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-foreground font-semibold text-lg hover:text-accent transition-colors"
+          className="text-foreground text-lg font-bold tracking-tight hover:text-accent transition-colors"
         >
           Bonelli.dev
         </Link>
