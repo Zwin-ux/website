@@ -142,14 +142,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
       
-      {/* Click target wrapper for full card feeling */}
-      <a 
-         href={project.live || project.github} 
-         target="_blank" 
-         rel="noopener noreferrer"
-         className="absolute inset-0 z-0"
-         aria-label={`View ${project.title}`}
-      />
     </motion.div>
   );
 }

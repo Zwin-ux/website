@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCanvas from "../components/ProjectCanvas";
 import ContactSection from "../components/ContactSection";
 import SpotifyEmbed from "../components/SpotifyEmbed";
 import { getFeaturedProjects } from "../data/projects";
@@ -26,18 +26,14 @@ export default function Home() {
 
       {/* Featured Projects */}
       <section id="projects" className="px-6">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-2">Projects</h2>
             <p className="text-zinc-400">
               A selection of shipped projects across AI/ML, web, and systems.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {featured.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
+          <ProjectCanvas projects={featured} />
         </div>
       </section>
 
