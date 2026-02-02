@@ -125,7 +125,7 @@ export default function ProjectCanvas({ projects }: ProjectCanvasProps) {
     return (
       <div className="grid grid-cols-1 gap-4">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     );
@@ -177,7 +177,7 @@ export default function ProjectCanvas({ projects }: ProjectCanvasProps) {
           {hydrated &&
             projects.map((project, i) => (
               <DraggableCard
-                key={project.slug}
+                key={project.id}
                 project={project}
                 x={positions[i].x}
                 y={positions[i].y}

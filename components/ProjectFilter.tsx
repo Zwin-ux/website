@@ -1,49 +1,77 @@
 "use client";
 
 import React, { useState } from "react";
-import type { ProjectCategory } from "../data/projects";
-import { projects, categories } from "../data/projects";
+import type { ProjectStatus } from "../data/projects";
+import { projects, statuses, tags } from "../data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectFilter() {
-  const [active, setActive] = useState<ProjectCategory | "All">("All");
+  const [activeStatus, setActiveStatus] = useState<ProjectStatus | "All">("All");
+  const [activeTag, setActiveTag] = useState<string | "All">("All");
 
-  const filtered =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active);
+  const filtered = projects.filter((project) => {
+    const statusMatch = activeStatus === "All" || project.status === activeStatus;
+    const tagMatch = activeTag === "All" || project.tags.includes(activeTag);
+    return statusMatch && tagMatch;
+  });
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2 mb-4">
         <button
-          onClick={() => setActive("All")}
+          onClick={() => setActiveStatus("All")}
           className={`text-sm px-3 py-1.5 rounded transition-colors ${
-            active === "All"
+            activeStatus === "All"
               ? "bg-accent text-white"
               : "bg-zinc-800 text-zinc-400 hover:text-foreground"
           }`}
         >
           All
         </button>
-        {categories.map((cat) => (
+        {statuses.map((status) => (
           <button
-            key={cat}
-            onClick={() => setActive(cat)}
+            key={status}
+            onClick={() => setActiveStatus(status)}
             className={`text-sm px-3 py-1.5 rounded transition-colors ${
-              active === cat
+              activeStatus === status
                 ? "bg-accent text-white"
                 : "bg-zinc-800 text-zinc-400 hover:text-foreground"
             }`}
           >
-            {cat}
+            {status}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-8">
+        <button
+          onClick={() => setActiveTag("All")}
+          className={`text-xs px-2.5 py-1 rounded-full transition-colors ${
+            activeTag === "All"
+              ? "bg-zinc-100 text-zinc-900"
+              : "bg-zinc-900 text-zinc-400 hover:text-foreground"
+          }`}
+        >
+          All tags
+        </button>
+        {tags.map((tag) => (
+          <button
+            key={tag}
+            onClick={() => setActiveTag(tag)}
+            className={`text-xs px-2.5 py-1 rounded-full transition-colors ${
+              activeTag === tag
+                ? "bg-zinc-100 text-zinc-900"
+                : "bg-zinc-900 text-zinc-400 hover:text-foreground"
+            }`}
+          >
+            {tag}
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </div>
