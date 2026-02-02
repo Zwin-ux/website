@@ -57,6 +57,19 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "keegan",
+    title: "Keegan",
+    summary: "Alpha-stage product spec generator for turning ideas into structured requirements.",
+    category: "AI/ML",
+    tags: ["TypeScript", "Next.js", "OpenAI"],
+    github: "https://github.com/Zwin-ux/Keegan",
+    featured: true,
+    highlights: [
+      "Specs out product ideas into detailed requirements",
+      "Currently in alpha",
+    ],
+  },
+  {
     slug: "botbot",
     title: "BotBot",
     summary: "AI agent framework for orchestrating multi-step tasks with tool use and memory.",
