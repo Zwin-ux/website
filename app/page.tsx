@@ -1,6 +1,5 @@
 import Hero from "../components/Hero";
 import ProjectCanvas from "../components/ProjectCanvas";
-import ContactSection from "../components/ContactSection";
 import SpotifyEmbed from "../components/SpotifyEmbed";
 import { getFeaturedProjects } from "../data/projects";
 
@@ -39,10 +38,6 @@ export default function Home() {
 
       {/* Music / Vibe Check */}
       <SpotifyEmbed />
-
-      <section id="contact">
-        <ContactSection />
-      </section>
     </div>
   );
 }
