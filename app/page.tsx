@@ -10,17 +10,16 @@ export default function Home() {
             Bonelli Labs
           </p>
           <h1 className="homepage-title mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
-            Two tools. One split view.
+            Production software for detection and arbitrage.
           </h1>
           <p className="homepage-summary mt-5 text-base sm:text-lg">
-            ScriptLens keeps AI script detection clean and browser-native.
-            Arbitrage Engine turns market scanning into a live neon console.
+            ScriptLens identifies AI-written scripts inside Chrome. Arbitrage
+            Engine monitors markets and surfaces live arbitrage opportunities.
           </p>
           <div className="homepage-contrast-note mt-8">
             <span className="contrast-chip contrast-chip-light">ScriptLens</span>
             <span className="contrast-copy">
-              Clean browser workflow on one side. Live arbitrage scanner on the
-              other.
+              AI script detection. Live arbitrage intelligence.
             </span>
             <span className="contrast-chip contrast-chip-dark">
               Arbitrage Engine
@@ -36,7 +35,7 @@ export default function Home() {
                   <img
                     src="/logos/scriptlens.svg"
                     alt="ScriptLens logo"
-                    className="h-20 w-auto"
+                    className="scriptlens-mark h-20 w-auto"
                   />
                   <div className="space-y-3">
                     <p className="text-sm font-semibold uppercase tracking-[0.32em] text-blue-600">
@@ -68,7 +67,7 @@ export default function Home() {
                   <img
                     src="/logos/superior.svg"
                     alt="Arbitrage Engine pixel logo"
-                    className="h-20 w-auto"
+                    className="arbitrage-mark h-20 w-auto"
                   />
                   <div className="space-y-3">
                     <p className="pixel-label text-sm uppercase tracking-[0.32em] text-cyan-300">
