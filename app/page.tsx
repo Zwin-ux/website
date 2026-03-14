@@ -25,15 +25,21 @@ export default function Home() {
 
         <div className="homepage-intro">
           <div className="homepage-lockup" aria-label="Synergy and Superior">
-            <span className="homepage-lockup-name homepage-lockup-name-left">
-              Synergy
+            <span className="homepage-lockup-panel homepage-lockup-panel-left">
+              <span className="homepage-lockup-name homepage-lockup-name-left">
+                Synergy
+              </span>
             </span>
             <span className="homepage-lockup-join" aria-hidden>
               <span className="homepage-lockup-join-halo" />
               <span className="homepage-lockup-join-glyph">+</span>
             </span>
-            <span className="homepage-lockup-name homepage-lockup-name-right">
-              Superior
+            <span className="homepage-lockup-panel homepage-lockup-panel-right">
+              <img
+                src="/logos/superior.svg"
+                alt="Superior logo"
+                className="homepage-superior-lockup-mark"
+              />
             </span>
           </div>
         </div>
@@ -76,30 +82,55 @@ export default function Home() {
             </article>
 
             <article className="product-shell product-shell-dark">
-              <Link href="/superior" className="product-card superior-card group">
-                <div className="product-card-body superior-card-body flex h-full flex-col gap-10">
+              <a
+                href={PRODUCT_LINKS.superiorApp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Superior live app"
+                className="product-card superior-card group"
+              >
+                <div className="product-card-body superior-card-body flex h-full flex-col justify-between gap-8">
                   <img
                     src="/logos/superior.svg"
                     alt="Superior pixel logo"
-                    className="superior-mark h-20 w-auto"
+                    className="superior-mark superior-mark-large h-24 w-auto"
                   />
-                  <div className="product-card-copy space-y-3">
+                  <div className="product-card-copy superior-card-copy">
                     <p className="product-card-path superior-card-path">
-                      /superior
+                      Live app
                     </p>
-                    <h2 className="pixel-title superior-card-title">
-                      Superior
-                    </h2>
                   </div>
-                  <div className="superior-card-sigils" aria-hidden>
-                    <span />
-                    <span />
-                    <span />
+
+                  <div className="superior-card-machine" aria-hidden>
+                    <div className="superior-card-machine-header">
+                      <span className="superior-card-machine-light superior-card-machine-light-cyan" />
+                      <span className="superior-card-machine-marquee">
+                        Market Scan Active
+                      </span>
+                      <span className="superior-card-machine-light superior-card-machine-light-magenta" />
+                    </div>
+
+                    <div className="superior-card-machine-screen">
+                      <div className="superior-card-machine-readouts">
+                        <span>Signals: 3</span>
+                        <span>Spread: 4.2%</span>
+                        <span>Markets: 17</span>
+                      </div>
+
+                      <div className="superior-card-radar">
+                        <span className="superior-card-radar-ring superior-card-radar-ring-a" />
+                        <span className="superior-card-radar-ring superior-card-radar-ring-b" />
+                        <span className="superior-card-radar-sweep" />
+                        <span className="superior-card-radar-dot superior-card-radar-dot-a" />
+                        <span className="superior-card-radar-dot superior-card-radar-dot-b" />
+                        <span className="superior-card-radar-dot superior-card-radar-dot-c" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </Link>
+              </a>
               <div className="product-link-row">
-                <span className="product-hint product-hint-dark">Product page</span>
+                <span className="product-hint product-hint-dark">Live app</span>
                 <a
                   href={PRODUCT_LINKS.superiorRepo}
                   target="_blank"
