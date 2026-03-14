@@ -12,6 +12,9 @@ export default function Home() {
           <span className="homepage-memphis-tiles" />
           <span className="homepage-memphis-arch" />
           <span className="homepage-memphis-beam" />
+          <span className="homepage-memphis-dots" />
+          <span className="homepage-memphis-triangle" />
+          <span className="homepage-memphis-squiggle" />
           <span className="homepage-glitch-frame" />
           <span className="homepage-glitch-ladder" />
           <span className="homepage-glitch-bands" />
@@ -51,10 +54,11 @@ export default function Home() {
                     </p>
                     <h2 className="synergy-card-title">Synergy</h2>
                   </div>
-                  <div className="synergy-card-sigils" aria-hidden>
-                    <span />
-                    <span />
-                    <span />
+                  <div className="synergy-card-figure" aria-hidden>
+                    <span className="synergy-figure-browser" />
+                    <span className="synergy-figure-document" />
+                    <span className="synergy-figure-lens" />
+                    <span className="synergy-figure-grid" />
                   </div>
                 </div>
               </Link>
