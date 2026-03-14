@@ -5,6 +5,14 @@ export default function Home() {
   return (
     <div className="homepage-shell">
       <section className="homepage-hero mx-auto flex min-h-[calc(100svh-5rem)] max-w-[76rem] flex-col items-center justify-center px-6 py-16 sm:py-20">
+        <div
+          className="homepage-cursor-zone homepage-cursor-zone-left"
+          aria-hidden
+        />
+        <div
+          className="homepage-cursor-zone homepage-cursor-zone-right"
+          aria-hidden
+        />
         <div className="homepage-atmosphere" aria-hidden>
           <span className="homepage-aura homepage-aura-left" />
           <span className="homepage-aura homepage-aura-right" />
@@ -125,6 +133,24 @@ export default function Home() {
                         <span className="superior-card-radar-dot superior-card-radar-dot-b" />
                         <span className="superior-card-radar-dot superior-card-radar-dot-c" />
                       </div>
+                    </div>
+
+                    <div className="superior-card-console">
+                      <span className="superior-card-console-dpad" aria-hidden>
+                        <span className="superior-card-console-dpad-arm superior-card-console-dpad-arm-horizontal" />
+                        <span className="superior-card-console-dpad-arm superior-card-console-dpad-arm-vertical" />
+                        <span className="superior-card-console-dpad-core" />
+                      </span>
+                      <span className="superior-card-console-status">
+                        1UP READY
+                      </span>
+                      <span
+                        className="superior-card-console-buttons"
+                        aria-hidden
+                      >
+                        <span className="superior-card-console-button superior-card-console-button-b" />
+                        <span className="superior-card-console-button superior-card-console-button-a" />
+                      </span>
                     </div>
                   </div>
                 </div>
