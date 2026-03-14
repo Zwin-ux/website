@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PRODUCT_LINKS } from "../../lib/productLinks";
 
 const signals = [
   "STATUS: ONLINE",
@@ -37,12 +38,12 @@ export default function SuperiorPage() {
               </p>
             </div>
             <a
-              href="https://github.com/Zwin-ux"
+              href={PRODUCT_LINKS.superiorRepo}
               target="_blank"
               rel="noreferrer"
               className="retro-button"
             >
-              Download EXE
+              View Arbitrage on GitHub
             </a>
 
             <div className="grid gap-4 sm:grid-cols-3">

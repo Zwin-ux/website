@@ -3,11 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PRODUCT_LINKS } from "../lib/productLinks";
 
 const navLinks = [
   { href: "/synergy", label: "Synergy" },
   { href: "/superior", label: "Superior" },
-  { href: "https://github.com/Zwin-ux", label: "GitHub", external: true },
+  { href: PRODUCT_LINKS.githubProfile, label: "GitHub", external: true },
 ];
 
 export default function Header() {

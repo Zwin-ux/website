@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { PRODUCT_LINKS } from "../../lib/productLinks";
 
 const features = [
   {
@@ -55,12 +56,12 @@ export default function SynergyPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://github.com/Zwin-ux"
+                href={PRODUCT_LINKS.synergyRepo}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(47,124,246,0.28)] hover:-translate-y-0.5 hover:bg-blue-500"
               >
-                Install Chrome Extension
+                View Synergy on GitHub
               </a>
               <div className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm text-slate-600">
                 Browser-native analysis with instant inline checks

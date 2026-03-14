@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import { PRODUCT_LINKS } from "../lib/productLinks";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -22,7 +23,7 @@ export default function Footer() {
       >
         <span>Bonelli Labs</span>
         <a
-          href="https://github.com/Zwin-ux"
+          href={PRODUCT_LINKS.githubProfile}
           target="_blank"
           rel="noopener noreferrer"
           className={isSuperior ? "hover:text-white" : "hover:text-slate-950"}
