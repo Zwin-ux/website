@@ -10,17 +10,10 @@ export default function Home() {
             Bonelli Labs
           </p>
           <h1 className="homepage-title mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
-            Production software for detection and arbitrage.
+            ScriptLens + Arbitrage Engine
           </h1>
-          <p className="homepage-summary mt-5 text-base sm:text-lg">
-            ScriptLens identifies AI-written scripts inside Chrome. Arbitrage
-            Engine monitors markets and surfaces live arbitrage opportunities.
-          </p>
           <div className="homepage-contrast-note mt-8">
             <span className="contrast-chip contrast-chip-light">ScriptLens</span>
-            <span className="contrast-copy">
-              AI script detection. Live arbitrage intelligence.
-            </span>
             <span className="contrast-chip contrast-chip-dark">
               Arbitrage Engine
             </span>
