@@ -1,0 +1,47 @@
+<svg width="720" height="260" viewBox="0 0 720 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="visor" x1="221" y1="52" x2="345" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BF8FF"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="orb" x1="104" y1="86" x2="594" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42F5C8"/>
+      <stop offset="0.48" stop-color="#3FA9FF"/>
+      <stop offset="1" stop-color="#F357F8"/>
+    </linearGradient>
+    <filter id="glow" x="39" y="0" width="644" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#47E4FF" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#D946EF" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <path d="M110 176C164 126 243 104 356 105C467 106 545 130 601 184" stroke="url(#orb)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M143 206C235 221 345 223 495 211C548 206 585 194 623 169" stroke="url(#orb)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M157 89C212 44 285 31 366 33C437 35 500 54 556 103" stroke="url(#orb)" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 9"/>
+
+    <rect x="235" y="38" width="114" height="86" rx="18" fill="#13254F" stroke="#7DD3FC" stroke-width="6"/>
+    <rect x="246" y="56" width="92" height="30" rx="8" fill="url(#visor)"/>
+    <rect x="261" y="70" width="20" height="10" fill="#E0FBFF"/>
+    <rect x="301" y="70" width="20" height="10" fill="#E0FBFF"/>
+    <rect x="257" y="95" width="70" height="8" rx="4" fill="#38548C"/>
+    <rect x="218" y="47" width="10" height="44" rx="4" fill="#FACC15"/>
+    <rect x="356" y="47" width="10" height="44" rx="4" fill="#FACC15"/>
+
+    <rect x="154" y="112" width="420" height="86" rx="18" fill="#081126" stroke="#4CC9F0" stroke-width="4"/>
+    <rect x="168" y="126" width="392" height="58" rx="12" fill="#13254F"/>
+    <text x="196" y="168" fill="#F8FAFC" font-family="monospace" font-size="56" font-weight="700" letter-spacing="4">SUPERIOR</text>
+
+    <path d="M170 180L198 189" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M532 180L560 189" stroke="#D946EF" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="187" y="205" width="10" height="18" fill="#22C55E"/>
+    <rect x="204" y="199" width="10" height="24" fill="#22C55E"/>
+    <rect x="221" y="212" width="10" height="11" fill="#F97316"/>
+    <rect x="238" y="196" width="10" height="27" fill="#3B82F6"/>
+    <rect x="255" y="190" width="10" height="33" fill="#38BDF8"/>
+    <rect x="272" y="201" width="10" height="22" fill="#A855F7"/>
+    <rect x="289" y="185" width="10" height="38" fill="#22D3EE"/>
+    <rect x="306" y="194" width="10" height="29" fill="#E879F9"/>
+  </g>
+</svg>

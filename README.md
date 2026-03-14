@@ -1,19 +1,17 @@
-# Bonelli.dev
+# Bonelli Labs
 
-Software engineering portfolio built with Next.js, TypeScript, and Tailwind CSS.
+Marketing site for two Bonelli Labs products:
 
-## Structure
+- Synergy / ScriptLens
+- Superior
 
-```
-app/           — Pages (/)
-components/    — Shared UI components
-data/          — Project and skill data (single source of truth)
-public/        — Static assets
-```
+Built with Next.js, React, TypeScript, and Tailwind CSS.
 
-## Adding a Project
+## Routes
 
-Edit `data/projects.ts` and add an entry to the `projects` array. Set `featured: true` to show it on the home page.
+- `/`
+- `/synergy`
+- `/superior`
 
 ## Development
 
@@ -22,10 +20,13 @@ npm install
 npm run dev
 ```
 
-## Deploy
+## Production
 
 ```bash
-npm run build && npm start
+npm run build
+npm start
 ```
 
-Or deploy to Vercel with zero config.
+## Deploy
+
+Railway can deploy this as a standard Next.js app from Git with no app-specific config required.

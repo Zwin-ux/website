@@ -1,36 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Press_Start_2P } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const pressStart = Press_Start_2P({
+  variable: "--font-press-start",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bonelli.dev"),
-  title: "Bonelli.dev — Software Engineer",
+  title: {
+    default: "Bonelli Labs",
+    template: "%s | Bonelli Labs",
+  },
   description:
-    "Software engineering portfolio. Full-stack development, AI/ML projects, and systems engineering. TypeScript, React, Next.js, Python, Docker.",
+    "Bonelli Labs builds Synergy for AI script detection and Superior for market scanning.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
     apple: "/transparent.png",
   },
   openGraph: {
-    title: "Bonelli.dev — Software Engineer",
+    title: "Bonelli Labs",
     description:
-      "Software engineering portfolio. Full-stack development, AI/ML, and systems engineering.",
+      "Two tools from Bonelli Labs: Synergy for AI script detection and Superior for market scanning.",
     url: "https://bonelli.dev",
-    siteName: "Bonelli.dev",
+    siteName: "Bonelli Labs",
     type: "website",
   },
   robots: {
@@ -41,9 +45,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
       <head>
@@ -52,22 +56,37 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Bonelli",
+              "@type": "Organization",
+              name: "Bonelli Labs",
               url: "https://bonelli.dev",
-              jobTitle: "Software Engineer",
               sameAs: ["https://github.com/Zwin-ux"],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Bonelli Labs products",
+                itemListElement: [
+                  {
+                    "@type": "SoftwareApplication",
+                    name: "Synergy",
+                    applicationCategory: "BrowserApplication",
+                  },
+                  {
+                    "@type": "SoftwareApplication",
+                    name: "Superior",
+                    applicationCategory: "BusinessApplication",
+                  },
+                ],
+              },
             }),
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-background text-foreground antialiased`}
+        className={`${inter.variable} ${pressStart.variable} min-h-full antialiased`}
         suppressHydrationWarning
       >
-        <div className="flex flex-col min-h-screen">
+        <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-20">{children}</main>
           <Footer />
         </div>
         <Analytics />
