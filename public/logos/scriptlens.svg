@@ -30,7 +30,7 @@
     <rect x="196" y="147" width="44" height="20" rx="10" transform="rotate(42 196 147)" fill="#99C5FF" fill-opacity="0.45"/>
   </g>
 
-  <text x="292" y="154" fill="#334767" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.8">
-    ScriptLens
+  <text x="292" y="154" fill="#334767" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="700" letter-spacing="-1.2">
+    Synergy
   </text>
 </svg>

@@ -9,12 +9,12 @@ const signals = [
 ];
 
 export const metadata: Metadata = {
-  title: "Arbitrage Engine",
+  title: "Superior",
   description:
-    "Arbitrage Engine by Bonelli Labs is a retro-styled market scanner for arbitrage opportunities.",
+    "Superior by Bonelli Labs is a retro-styled market scanner for arbitrage opportunities.",
 };
 
-export default function ArbitrageEnginePage() {
+export default function SuperiorPage() {
   return (
     <div className="superior-page">
       <section className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24">
@@ -22,7 +22,7 @@ export default function ArbitrageEnginePage() {
           <div className="space-y-8 text-[#e8f9ff]">
             <Image
               src="/logos/superior.svg"
-              alt="Arbitrage Engine logo"
+              alt="Superior logo"
               width={360}
               height={130}
               priority
@@ -30,7 +30,7 @@ export default function ArbitrageEnginePage() {
             />
             <div className="space-y-5">
               <h1 className="font-pixel text-4xl leading-tight text-white sm:text-5xl">
-                Arbitrage Engine
+                Superior
               </h1>
               <p className="max-w-xl text-base leading-8 text-cyan-100/78">
                 Track arbitrage opportunities inside a neon interface built
@@ -43,7 +43,7 @@ export default function ArbitrageEnginePage() {
               rel="noreferrer"
               className="retro-button"
             >
-              View Arbitrage Engine on GitHub
+              View Superior on GitHub
             </a>
 
             <div className="grid gap-4 sm:grid-cols-3">
@@ -56,10 +56,10 @@ export default function ArbitrageEnginePage() {
           </div>
 
           <div className="retro-panel">
-            <div className="retro-panel-header">ARBITRAGE ENGINE</div>
+            <div className="retro-panel-header">SUPERIOR</div>
             <pre className="arcade-frame">
 {`+------------------------------+
-| ARBITRAGE ENGINE             |
+| SUPERIOR                     |
 |------------------------------|
 | STATUS: ONLINE               |
 | SIGNALS FOUND: 3             |

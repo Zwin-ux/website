@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Bonelli Labs",
   },
   description:
-    "Bonelli Labs builds Synergy for AI script detection and Arbitrage Engine for market scanning.",
+    "Bonelli Labs builds Synergy for AI script detection and Superior for market scanning.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bonelli Labs",
     description:
-      "Two tools from Bonelli Labs: Synergy for AI script detection and Arbitrage Engine for market scanning.",
+      "Two tools from Bonelli Labs: Synergy for AI script detection and Superior for market scanning.",
     url: "https://bonelli.dev",
     siteName: "Bonelli Labs",
     type: "website",
@@ -59,7 +59,7 @@ export default function RootLayout({
                   },
                   {
                     "@type": "SoftwareApplication",
-                    name: "Arbitrage Engine",
+                    name: "Superior",
                     applicationCategory: "BusinessApplication",
                   },
                 ],

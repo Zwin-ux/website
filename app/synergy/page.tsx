@@ -28,7 +28,7 @@ const features = [
 export const metadata: Metadata = {
   title: "Synergy",
   description:
-    "Synergy by Bonelli Labs brings ScriptLens AI script detection into a clean browser workflow.",
+    "Synergy by Bonelli Labs brings AI script detection into a clean browser workflow.",
 };
 
 export default function SynergyPage() {
@@ -39,7 +39,7 @@ export default function SynergyPage() {
           <div className="space-y-8">
             <Image
               src="/logos/scriptlens.svg"
-              alt="ScriptLens logo"
+              alt="Synergy logo"
               width={340}
               height={112}
               priority
@@ -77,7 +77,7 @@ export default function SynergyPage() {
                     Live document
                   </p>
                   <h2 className="mt-2 text-lg font-semibold text-slate-950">
-                    ScriptLens panel
+                    Synergy panel
                   </h2>
                 </div>
                 <div className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">

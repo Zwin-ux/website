@@ -10,13 +10,11 @@ export default function Home() {
             Bonelli Labs
           </p>
           <h1 className="homepage-title mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
-            ScriptLens + Arbitrage Engine
+            Synergy + Superior
           </h1>
           <div className="homepage-contrast-note mt-8">
-            <span className="contrast-chip contrast-chip-light">ScriptLens</span>
-            <span className="contrast-chip contrast-chip-dark">
-              Arbitrage Engine
-            </span>
+            <span className="contrast-chip contrast-chip-light">Synergy</span>
+            <span className="contrast-chip contrast-chip-dark">Superior</span>
           </div>
         </div>
 
@@ -27,8 +25,8 @@ export default function Home() {
                 <div className="flex flex-col gap-10">
                   <img
                     src="/logos/scriptlens.svg"
-                    alt="ScriptLens logo"
-                    className="scriptlens-mark h-20 w-auto"
+                    alt="Synergy logo"
+                    className="synergy-mark h-20 w-auto"
                   />
                   <div className="space-y-3">
                     <p className="text-sm font-semibold uppercase tracking-[0.32em] text-blue-600">
@@ -59,18 +57,18 @@ export default function Home() {
                 <div className="relative flex h-full flex-col gap-10">
                   <img
                     src="/logos/superior.svg"
-                    alt="Arbitrage Engine pixel logo"
-                    className="arbitrage-mark h-20 w-auto"
+                    alt="Superior pixel logo"
+                    className="superior-mark h-20 w-auto"
                   />
                   <div className="space-y-3">
                     <p className="pixel-label text-sm uppercase tracking-[0.32em] text-cyan-300">
-                      Arbitrage Engine
+                      Superior
                     </p>
                     <h2 className="pixel-title text-3xl text-white">
-                      Live Market Scanner
+                      8-Bit Market Scanner
                     </h2>
                     <p className="text-base text-cyan-100/78">
-                      Neon arbitrage tracking
+                      Arbitrage tracking
                     </p>
                   </div>
                 </div>
