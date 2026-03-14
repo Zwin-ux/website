@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PRODUCT_LINKS } from "../lib/productLinks";
 
 export default function Home() {
@@ -55,7 +54,13 @@ export default function Home() {
         <div className="homepage-showcase mt-12 w-full">
           <div className="homepage-showcase-grid">
             <article className="product-shell product-shell-light">
-              <Link href="/synergy" className="product-card synergy-card group">
+              <a
+                href={PRODUCT_LINKS.synergyApp}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Synergy live app"
+                className="product-card synergy-card group"
+              >
                 <div className="product-card-body synergy-card-body flex h-full flex-col justify-between gap-10">
                   <img
                     src="/logos/scriptlens.svg"
@@ -64,7 +69,7 @@ export default function Home() {
                   />
                   <div className="product-card-copy space-y-3">
                     <p className="product-card-path synergy-card-path">
-                      /synergy
+                      Live app
                     </p>
                     <h2 className="synergy-card-title">Synergy</h2>
                   </div>
@@ -75,9 +80,9 @@ export default function Home() {
                     <span className="synergy-figure-grid" />
                   </div>
                 </div>
-              </Link>
+              </a>
               <div className="product-link-row">
-                <span className="product-hint product-hint-light">Product page</span>
+                <span className="product-hint product-hint-light">Live app</span>
                 <a
                   href={PRODUCT_LINKS.synergyRepo}
                   target="_blank"
