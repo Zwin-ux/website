@@ -4,38 +4,57 @@ import { PRODUCT_LINKS } from "../lib/productLinks";
 export default function Home() {
   return (
     <div className="homepage-shell">
-      <section className="homepage-hero mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl flex-col items-center justify-center px-6 py-16 sm:py-20">
-        <div className="homepage-intro max-w-3xl text-center">
-          <p className="homepage-kicker text-xs font-semibold uppercase tracking-[0.4em]">
-            Bonelli Labs
-          </p>
-          <h1 className="homepage-title mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
-            Synergy + Superior
-          </h1>
-          <div className="homepage-contrast-note mt-8">
-            <span className="contrast-chip contrast-chip-light">Synergy</span>
-            <span className="contrast-chip contrast-chip-dark">Superior</span>
+      <section className="homepage-hero mx-auto flex min-h-[calc(100svh-5rem)] max-w-[76rem] flex-col items-center justify-center px-6 py-16 sm:py-20">
+        <div className="homepage-atmosphere" aria-hidden>
+          <span className="homepage-aura homepage-aura-left" />
+          <span className="homepage-aura homepage-aura-right" />
+          <span className="homepage-memphis-orbit" />
+          <span className="homepage-memphis-tiles" />
+          <span className="homepage-memphis-arch" />
+          <span className="homepage-memphis-beam" />
+          <span className="homepage-glitch-frame" />
+          <span className="homepage-glitch-ladder" />
+          <span className="homepage-glitch-bands" />
+          <span className="homepage-glitch-column" />
+          <span className="homepage-glitch-noise" />
+        </div>
+        <div className="homepage-seam" aria-hidden />
+
+        <div className="homepage-intro">
+          <div className="homepage-lockup" aria-label="Synergy and Superior">
+            <span className="homepage-lockup-name homepage-lockup-name-left">
+              Synergy
+            </span>
+            <span className="homepage-lockup-join" aria-hidden>
+              <span className="homepage-lockup-join-halo" />
+              <span className="homepage-lockup-join-glyph">+</span>
+            </span>
+            <span className="homepage-lockup-name homepage-lockup-name-right">
+              Superior
+            </span>
           </div>
         </div>
 
-        <div className="homepage-showcase mt-10 w-full">
+        <div className="homepage-showcase mt-12 w-full">
           <div className="homepage-showcase-grid">
             <article className="product-shell product-shell-light">
               <Link href="/synergy" className="product-card synergy-card group">
-                <div className="flex flex-col gap-10">
+                <div className="product-card-body synergy-card-body flex h-full flex-col justify-between gap-10">
                   <img
                     src="/logos/scriptlens.svg"
                     alt="Synergy logo"
                     className="synergy-mark h-20 w-auto"
                   />
-                  <div className="space-y-3">
-                    <p className="text-sm font-semibold uppercase tracking-[0.32em] text-blue-600">
-                      Synergy
+                  <div className="product-card-copy space-y-3">
+                    <p className="product-card-path synergy-card-path">
+                      /synergy
                     </p>
-                    <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                      AI Script Detection
-                    </h2>
-                    <p className="text-base text-slate-600">Chrome Extension</p>
+                    <h2 className="synergy-card-title">Synergy</h2>
+                  </div>
+                  <div className="synergy-card-sigils" aria-hidden>
+                    <span />
+                    <span />
+                    <span />
                   </div>
                 </div>
               </Link>
@@ -54,22 +73,24 @@ export default function Home() {
 
             <article className="product-shell product-shell-dark">
               <Link href="/superior" className="product-card superior-card group">
-                <div className="relative flex h-full flex-col gap-10">
+                <div className="product-card-body superior-card-body flex h-full flex-col gap-10">
                   <img
                     src="/logos/superior.svg"
                     alt="Superior pixel logo"
                     className="superior-mark h-20 w-auto"
                   />
-                  <div className="space-y-3">
-                    <p className="pixel-label text-sm uppercase tracking-[0.32em] text-cyan-300">
+                  <div className="product-card-copy space-y-3">
+                    <p className="product-card-path superior-card-path">
+                      /superior
+                    </p>
+                    <h2 className="pixel-title superior-card-title">
                       Superior
-                    </p>
-                    <h2 className="pixel-title text-3xl text-white">
-                      8-Bit Market Scanner
                     </h2>
-                    <p className="text-base text-cyan-100/78">
-                      Arbitrage tracking
-                    </p>
+                  </div>
+                  <div className="superior-card-sigils" aria-hidden>
+                    <span />
+                    <span />
+                    <span />
                   </div>
                 </div>
               </Link>
