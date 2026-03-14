@@ -1,7 +1,11 @@
+@import "@fontsource/inter/latin.css";
+@import "@fontsource/press-start-2p";
 @import "tailwindcss";
 @import "../styles/site.css";
 
 :root {
+  --font-inter: "Inter";
+  --font-press-start: "Press Start 2P";
   --page-background: #eef3fb;
   --page-foreground: #0f172a;
   --surface: rgba(255, 255, 255, 0.72);

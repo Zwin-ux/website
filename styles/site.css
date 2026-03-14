@@ -1,5 +1,70 @@
 .homepage-shell {
-  background: linear-gradient(180deg, #edf3fb 0%, #f8fafc 48%, #eef3fb 100%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(90deg, #eef4fb 0 50%, #030712 50% 100%);
+}
+
+.homepage-shell::before,
+.homepage-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  pointer-events: none;
+}
+
+.homepage-shell::before {
+  left: 0;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(147, 197, 253, 0.52), transparent 24%),
+    radial-gradient(circle at 70% 80%, rgba(191, 219, 254, 0.35), transparent 28%),
+    linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+    linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
+  background-size: auto, auto, 100% 2.6rem, auto;
+}
+
+.homepage-shell::after {
+  right: 0;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(56, 189, 248, 0.25), transparent 22%),
+    radial-gradient(circle at 78% 68%, rgba(217, 70, 239, 0.2), transparent 28%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, #081021 0%, #03040a 100%);
+  background-size: auto, auto, 100% 2.6rem, 2.6rem 100%, auto;
+}
+
+.homepage-hero {
+  position: relative;
+  z-index: 1;
+}
+
+.homepage-intro {
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 2.75rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.66));
+  box-shadow:
+    0 24px 80px rgba(15, 23, 42, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(18px);
+}
+
+.homepage-kicker {
+  color: #526277;
+}
+
+.homepage-title {
+  color: #0f172a;
+}
+
+.homepage-summary {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42rem;
+  color: #475569;
 }
 
 .homepage-contrast-note {
@@ -45,11 +110,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 2.75rem;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: linear-gradient(90deg, #eef4fb 0 50%, #050913 50% 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(
+    90deg,
+    rgba(239, 244, 251, 0.78) 0 50%,
+    rgba(5, 9, 19, 0.88) 50% 100%
+  );
   box-shadow:
-    0 36px 120px rgba(15, 23, 42, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 36px 120px rgba(15, 23, 42, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
 }
 
 .homepage-showcase::before,
@@ -65,20 +135,21 @@
 .homepage-showcase::before {
   left: 0;
   background:
-    radial-gradient(circle at 22% 16%, rgba(147, 197, 253, 0.45), transparent 32%),
-    linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(219, 234, 254, 0.5) 0%, rgba(255, 255, 255, 0.92) 58%);
-  background-size: auto, 100% 2.2rem, auto;
+    radial-gradient(circle at 22% 16%, rgba(147, 197, 253, 0.55), transparent 30%),
+    radial-gradient(circle at 76% 82%, rgba(96, 165, 250, 0.16), transparent 24%),
+    linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(238, 244, 251, 0.96) 100%);
+  background-size: auto, auto, 100% 2.2rem, auto;
 }
 
 .homepage-showcase::after {
   right: 0;
   background:
-    radial-gradient(circle at 20% 18%, rgba(59, 130, 246, 0.22), transparent 26%),
-    radial-gradient(circle at 74% 68%, rgba(217, 70, 239, 0.22), transparent 28%),
+    radial-gradient(circle at 20% 18%, rgba(59, 130, 246, 0.28), transparent 24%),
+    radial-gradient(circle at 74% 68%, rgba(217, 70, 239, 0.24), transparent 28%),
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, #071021 0%, #04060d 100%);
+    linear-gradient(180deg, rgba(7, 16, 33, 0.98) 0%, rgba(3, 4, 10, 0.98) 100%);
   background-size: auto, auto, 100% 2rem, 2rem 100%, auto;
 }
 
@@ -386,6 +457,10 @@
     flex-wrap: nowrap;
   }
 
+  .homepage-intro {
+    padding: 2.75rem 3rem;
+  }
+
   .homepage-showcase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 2.75rem;
@@ -393,8 +468,33 @@
 }
 
 @media (max-width: 1023px) {
+  .homepage-shell {
+    background: linear-gradient(180deg, #eef4fb 0 50%, #030712 50% 100%);
+  }
+
+  .homepage-shell::before,
+  .homepage-shell::after {
+    width: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .homepage-shell::before {
+    top: 0;
+    bottom: 50%;
+  }
+
+  .homepage-shell::after {
+    top: 50%;
+    bottom: 0;
+  }
+
   .homepage-showcase {
-    background: linear-gradient(180deg, #eef4fb 0 50%, #050913 50% 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(239, 244, 251, 0.78) 0 50%,
+      rgba(5, 9, 19, 0.88) 50% 100%
+    );
   }
 
   .homepage-showcase::before,
@@ -426,6 +526,11 @@
 }
 
 @media (max-width: 640px) {
+  .homepage-intro {
+    border-radius: 2rem;
+    padding: 2rem 1.25rem;
+  }
+
   .contrast-copy {
     font-size: 0.8rem;
     width: 100%;

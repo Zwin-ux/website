@@ -7,7 +7,7 @@ import { PRODUCT_LINKS } from "../lib/productLinks";
 
 const navLinks = [
   { href: "/synergy", label: "Synergy" },
-  { href: "/superior", label: "Superior" },
+  { href: "/superior", label: "Arbitrage Engine" },
   { href: PRODUCT_LINKS.githubProfile, label: "GitHub", external: true },
 ];
 

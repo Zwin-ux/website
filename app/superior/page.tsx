@@ -9,12 +9,12 @@ const signals = [
 ];
 
 export const metadata: Metadata = {
-  title: "Superior",
+  title: "Arbitrage Engine",
   description:
-    "Superior by Bonelli Labs is a retro-styled market signal scanner for arbitrage opportunities.",
+    "Arbitrage Engine by Bonelli Labs is a retro-styled market scanner for arbitrage opportunities.",
 };
 
-export default function SuperiorPage() {
+export default function ArbitrageEnginePage() {
   return (
     <div className="superior-page">
       <section className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24">
@@ -22,7 +22,7 @@ export default function SuperiorPage() {
           <div className="space-y-8 text-[#e8f9ff]">
             <Image
               src="/logos/superior.svg"
-              alt="Superior logo"
+              alt="Arbitrage Engine logo"
               width={360}
               height={130}
               priority
@@ -30,10 +30,10 @@ export default function SuperiorPage() {
             />
             <div className="space-y-5">
               <h1 className="font-pixel text-4xl leading-tight text-white sm:text-5xl">
-                Market Signal Scanner
+                Arbitrage Engine
               </h1>
               <p className="max-w-xl text-base leading-8 text-cyan-100/78">
-                Detect arbitrage opportunities inside a neon interface built
+                Track arbitrage opportunities inside a neon interface built
                 like a live arcade console.
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function SuperiorPage() {
               rel="noreferrer"
               className="retro-button"
             >
-              View Arbitrage on GitHub
+              View Arbitrage Engine on GitHub
             </a>
 
             <div className="grid gap-4 sm:grid-cols-3">
@@ -56,10 +56,10 @@ export default function SuperiorPage() {
           </div>
 
           <div className="retro-panel">
-            <div className="retro-panel-header">SUPERIOR SIGNAL SCANNER</div>
+            <div className="retro-panel-header">ARBITRAGE ENGINE</div>
             <pre className="arcade-frame">
 {`+------------------------------+
-| SUPERIOR SIGNAL SCANNER      |
+| ARBITRAGE ENGINE             |
 |------------------------------|
 | STATUS: ONLINE               |
 | SIGNALS FOUND: 3             |

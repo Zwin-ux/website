@@ -4,24 +4,27 @@ import { PRODUCT_LINKS } from "../lib/productLinks";
 export default function Home() {
   return (
     <div className="homepage-shell">
-      <section className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl flex-col items-center justify-center px-6 py-16 sm:py-20">
-        <div className="max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+      <section className="homepage-hero mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl flex-col items-center justify-center px-6 py-16 sm:py-20">
+        <div className="homepage-intro max-w-3xl text-center">
+          <p className="homepage-kicker text-xs font-semibold uppercase tracking-[0.4em]">
             Bonelli Labs
           </p>
-          <h1 className="mt-6 text-5xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
-            Two tools.
+          <h1 className="homepage-title mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
+            Two tools. One split view.
           </h1>
-          <p className="mt-5 text-base text-slate-600 sm:text-lg">
-            One clean interface for AI script detection. One neon console for
-            market scanning.
+          <p className="homepage-summary mt-5 text-base sm:text-lg">
+            ScriptLens keeps AI script detection clean and browser-native.
+            Arbitrage Engine turns market scanning into a live neon console.
           </p>
           <div className="homepage-contrast-note mt-8">
             <span className="contrast-chip contrast-chip-light">ScriptLens</span>
             <span className="contrast-copy">
-              Corporate left. Arcade right.
+              Clean browser workflow on one side. Live arbitrage scanner on the
+              other.
             </span>
-            <span className="contrast-chip contrast-chip-dark">Superior</span>
+            <span className="contrast-chip contrast-chip-dark">
+              Arbitrage Engine
+            </span>
           </div>
         </div>
 
@@ -64,17 +67,19 @@ export default function Home() {
                 <div className="relative flex h-full flex-col gap-10">
                   <img
                     src="/logos/superior.svg"
-                    alt="Superior pixel logo"
+                    alt="Arbitrage Engine pixel logo"
                     className="h-20 w-auto"
                   />
                   <div className="space-y-3">
                     <p className="pixel-label text-sm uppercase tracking-[0.32em] text-cyan-300">
-                      Superior
+                      Arbitrage Engine
                     </p>
                     <h2 className="pixel-title text-3xl text-white">
-                      Market Scanner
+                      Live Market Scanner
                     </h2>
-                    <p className="text-base text-cyan-100/78">Arbitrage Bot</p>
+                    <p className="text-base text-cyan-100/78">
+                      Neon arbitrage tracking
+                    </p>
                   </div>
                 </div>
               </Link>

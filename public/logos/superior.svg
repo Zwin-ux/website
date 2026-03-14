@@ -30,7 +30,7 @@
 
     <rect x="154" y="112" width="420" height="86" rx="18" fill="#081126" stroke="#4CC9F0" stroke-width="4"/>
     <rect x="168" y="126" width="392" height="58" rx="12" fill="#13254F"/>
-    <text x="196" y="168" fill="#F8FAFC" font-family="monospace" font-size="56" font-weight="700" letter-spacing="4">SUPERIOR</text>
+    <text x="184" y="164" fill="#F8FAFC" font-family="monospace" font-size="34" font-weight="700" letter-spacing="2">ARBITRAGE ENGINE</text>
 
     <path d="M170 180L198 189" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
     <path d="M532 180L560 189" stroke="#D946EF" stroke-width="4" stroke-linecap="round"/>
