@@ -218,27 +218,18 @@ export default function Home() {
                       </span>
                       <span className="superior-card-brand-copy">
                         <span className="superior-card-brand-name">Superior</span>
-                        <span className="superior-card-brand-tag">
-                          Paper-first arbitrage bot
-                        </span>
+                        <span className="superior-card-brand-tag">Arbitrage bot</span>
                       </span>
                     </div>
                     <div className="superior-card-nav">
                       <span>Scanner</span>
-                      <span>Session</span>
                       <span>Loadout</span>
                       <span>Download</span>
                     </div>
                   </div>
 
-                  <div className="superior-card-statusrail" aria-hidden>
-                    <span>Open-source Windows build</span>
-                    <span>Paper-first by default</span>
-                  </div>
-
                   <div className="superior-card-stage">
                     <div className="superior-card-artframe" aria-hidden>
-                      <p className="superior-card-art-label">Bot cabinet</p>
                       <div className="superior-card-art-window pixel-art">
                         <img
                           src="/logos/superior.svg"
@@ -249,21 +240,13 @@ export default function Home() {
                     </div>
 
                     <div className="product-card-copy superior-card-copy">
-                      <p className="superior-card-kicker">
-                        Paper-first arbitrage bot
-                      </p>
+                      <p className="superior-card-kicker">Paper-first</p>
                       <h2 className="superior-card-title">
-                        <span>Build bots.</span>
-                        <span>Bank score.</span>
+                        <span>Superior</span>
                       </h2>
                       <p className="superior-card-subtitle">
-                        Stage routes, run paper sessions, unlock deeper controls.
+                        Track arbitrage gaps in paper mode.
                       </p>
-                      <div className="superior-card-loop" aria-hidden>
-                        <span>Build bots</span>
-                        <span>Stage routes</span>
-                        <span>Bank score</span>
-                      </div>
                     </div>
 
                     <div className="superior-card-scoreboard" aria-hidden>
