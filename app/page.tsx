@@ -8,6 +8,7 @@ import {
   type CSSProperties,
 } from "react";
 
+import { ScriptLensIllustration } from "../components/ScriptLensIllustration";
 import { PRODUCT_LINKS } from "../lib/productLinks";
 
 type World = "synergy" | "superior";
@@ -173,12 +174,11 @@ export default function Home() {
                     </p>
                     <h2 className="synergy-card-title">Synergy</h2>
                   </div>
-                  <div className="synergy-card-figure" aria-hidden>
-                    <span className="synergy-figure-browser" />
-                    <span className="synergy-figure-document" />
-                    <span className="synergy-figure-lens" />
-                    <span className="synergy-figure-grid" />
-                  </div>
+                  <ScriptLensIllustration
+                    scene="inspection"
+                    compact
+                    className="synergy-card-figure"
+                  />
                 </div>
               </a>
               <div className="product-link-row">
