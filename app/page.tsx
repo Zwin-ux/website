@@ -102,60 +102,73 @@ export default function Home() {
                 aria-label="Open Superior live app"
                 className="product-card superior-card group"
               >
-                <div className="product-card-body superior-card-body flex h-full flex-col justify-between gap-8">
-                  <img
-                    src="/logos/superior.svg"
-                    alt="Superior pixel logo"
-                    className="superior-mark superior-mark-large h-24 w-auto"
-                  />
-                  <div className="product-card-copy superior-card-copy">
-                    <p className="product-card-path superior-card-path">
-                      Live app
-                    </p>
+                <div className="product-card-body superior-card-body">
+                  <div className="superior-card-headerband" aria-hidden>
+                    <div className="superior-card-brand">
+                      <span className="superior-card-brand-icon">
+                        <span className="superior-card-brand-orb superior-card-brand-orb-outer" />
+                        <span className="superior-card-brand-orb superior-card-brand-orb-middle" />
+                        <span className="superior-card-brand-orb superior-card-brand-orb-core" />
+                      </span>
+                      <span className="superior-card-brand-copy">
+                        <span className="superior-card-brand-name">Superior</span>
+                        <span className="superior-card-brand-tag">
+                          Paper-first bot cabinet
+                        </span>
+                      </span>
+                    </div>
+                    <div className="superior-card-nav">
+                      <span>Features</span>
+                      <span>Product</span>
+                      <span>Docs</span>
+                      <span>Download</span>
+                    </div>
                   </div>
 
-                  <div className="superior-card-machine" aria-hidden>
-                    <div className="superior-card-machine-header">
-                      <span className="superior-card-machine-light superior-card-machine-light-cyan" />
-                      <span className="superior-card-machine-marquee">
-                        Market Scan Active
-                      </span>
-                      <span className="superior-card-machine-light superior-card-machine-light-magenta" />
-                    </div>
-
-                    <div className="superior-card-machine-screen">
-                      <div className="superior-card-machine-readouts">
-                        <span>Signals: 3</span>
-                        <span>Spread: 4.2%</span>
-                        <span>Markets: 17</span>
-                      </div>
-
-                      <div className="superior-card-radar">
-                        <span className="superior-card-radar-ring superior-card-radar-ring-a" />
-                        <span className="superior-card-radar-ring superior-card-radar-ring-b" />
-                        <span className="superior-card-radar-sweep" />
-                        <span className="superior-card-radar-dot superior-card-radar-dot-a" />
-                        <span className="superior-card-radar-dot superior-card-radar-dot-b" />
-                        <span className="superior-card-radar-dot superior-card-radar-dot-c" />
+                  <div className="superior-card-stage">
+                    <div className="superior-card-artframe" aria-hidden>
+                      <p className="superior-card-art-label">
+                        Superior cartridge art
+                      </p>
+                      <div className="superior-card-art-window">
+                        <img
+                          src="/logos/superior.svg"
+                          alt="Superior pixel logo"
+                          className="superior-mark superior-mark-large"
+                        />
                       </div>
                     </div>
 
-                    <div className="superior-card-console">
-                      <span className="superior-card-console-dpad" aria-hidden>
-                        <span className="superior-card-console-dpad-arm superior-card-console-dpad-arm-horizontal" />
-                        <span className="superior-card-console-dpad-arm superior-card-console-dpad-arm-vertical" />
-                        <span className="superior-card-console-dpad-core" />
-                      </span>
-                      <span className="superior-card-console-status">
-                        1UP READY
-                      </span>
-                      <span
-                        className="superior-card-console-buttons"
-                        aria-hidden
-                      >
-                        <span className="superior-card-console-button superior-card-console-button-b" />
-                        <span className="superior-card-console-button superior-card-console-button-a" />
-                      </span>
+                    <div className="product-card-copy superior-card-copy">
+                      <p className="superior-card-kicker">
+                        Open-source prediction-market desktop app
+                      </p>
+                      <h2 className="superior-card-title">
+                        <span>Equip</span>
+                        <span>Polymarket.</span>
+                      </h2>
+                      <p className="superior-card-subtitle">
+                        Record books. Build a paper score.
+                      </p>
+                    </div>
+
+                    <div className="superior-card-scoreboard" aria-hidden>
+                      <div className="superior-card-score-item">
+                        <span className="superior-card-score-label">
+                          Paper score
+                        </span>
+                        <strong>Active</strong>
+                      </div>
+                      <div className="superior-card-score-item">
+                        <span className="superior-card-score-label">
+                          Live score
+                        </span>
+                        <strong>Reserved</strong>
+                      </div>
+                      <div className="superior-card-score-item">
+                        <span className="superior-card-score-label">Loadout</span>
+                        <strong>Equipped</strong>
+                      </div>
                     </div>
                   </div>
                 </div>
