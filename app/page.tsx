@@ -323,6 +323,10 @@ export default function Home() {
               </div>
             </article>
           </div>
+          <div className="homepage-hiring-strip">
+            <span className="homepage-hiring-pill">Hiring</span>
+            <p className="homepage-hiring-text">We are hiring testers for $10.</p>
+          </div>
         </div>
       </section>
     </div>
