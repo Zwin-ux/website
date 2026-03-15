@@ -1,8 +1,98 @@
+"use client";
+
+import {
+  startTransition,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
+
 import { PRODUCT_LINKS } from "../lib/productLinks";
 
+type World = "synergy" | "superior";
+
+const INITIAL_SIGNAL_BARS = [
+  34, 42, 56, 48, 66, 58, 72, 64, 54, 68, 80, 74, 62, 70, 84, 76,
+];
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function nextSignalBars(current: number[]) {
+  const previous = current.at(-1) ?? 58;
+  const drift = [-16, -10, -4, 6, 12, 18][Math.floor(Math.random() * 6)];
+  const nextValue = clamp(previous + drift, 26, 92);
+
+  return [...current.slice(1), nextValue];
+}
+
 export default function Home() {
+  const [world, setWorld] = useState<World>("synergy");
+  const [signalBars, setSignalBars] = useState(INITIAL_SIGNAL_BARS);
+  const superiorCardRef = useRef<HTMLAnchorElement | null>(null);
+
+  const setWorldMode = (nextWorld: World) => {
+    startTransition(() => {
+      setWorld((current) => (current === nextWorld ? current : nextWorld));
+    });
+  };
+
+  useEffect(() => {
+    document.body.dataset.world = world;
+
+    return () => {
+      delete document.body.dataset.world;
+    };
+  }, [world]);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      startTransition(() => {
+        setSignalBars((current) => nextSignalBars(current));
+      });
+    }, world === "superior" ? 240 : 420);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [world]);
+
+  useEffect(() => {
+    const syncWorldToScroll = () => {
+      if (window.innerWidth >= 1024) {
+        return;
+      }
+
+      const superiorTop =
+        superiorCardRef.current?.getBoundingClientRect().top ??
+        Number.POSITIVE_INFINITY;
+      const switchLine = window.innerHeight * 0.68;
+      const nextWorld = superiorTop <= switchLine ? "superior" : "synergy";
+
+      startTransition(() => {
+        setWorld((current) => (current === nextWorld ? current : nextWorld));
+      });
+    };
+
+    syncWorldToScroll();
+
+    const handleViewport = () => {
+      syncWorldToScroll();
+    };
+
+    window.addEventListener("scroll", handleViewport, { passive: true });
+    window.addEventListener("resize", handleViewport);
+
+    return () => {
+      window.removeEventListener("scroll", handleViewport);
+      window.removeEventListener("resize", handleViewport);
+    };
+  }, []);
+
   return (
-    <div className="homepage-shell">
+    <div className="homepage-shell" data-world={world}>
       <section className="homepage-hero mx-auto flex min-h-[calc(100svh-5rem)] max-w-[76rem] flex-col items-center justify-center px-6 py-16 sm:py-20">
         <div
           className="homepage-cursor-zone homepage-cursor-zone-left"
@@ -32,7 +122,10 @@ export default function Home() {
 
         <div className="homepage-intro">
           <div className="homepage-lockup" aria-label="Synergy and Superior">
-            <span className="homepage-lockup-panel homepage-lockup-panel-left">
+            <span
+              className="homepage-lockup-panel homepage-lockup-panel-left"
+              onMouseEnter={() => setWorldMode("synergy")}
+            >
               <span className="homepage-lockup-name homepage-lockup-name-left">
                 Synergy
               </span>
@@ -41,7 +134,10 @@ export default function Home() {
               <span className="homepage-lockup-join-halo" />
               <span className="homepage-lockup-join-glyph">+</span>
             </span>
-            <span className="homepage-lockup-panel homepage-lockup-panel-right">
+            <span
+              className="homepage-lockup-panel homepage-lockup-panel-right"
+              onMouseEnter={() => setWorldMode("superior")}
+            >
               <img
                 src="/logos/superior.svg"
                 alt="Superior logo"
@@ -53,13 +149,17 @@ export default function Home() {
 
         <div className="homepage-showcase mt-12 w-full">
           <div className="homepage-showcase-grid">
-            <article className="product-shell product-shell-light">
+            <article
+              className="product-shell product-shell-light"
+              onMouseEnter={() => setWorldMode("synergy")}
+            >
               <a
                 href={PRODUCT_LINKS.synergyApp}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open Synergy live app"
                 className="product-card synergy-card group"
+                onFocus={() => setWorldMode("synergy")}
               >
                 <div className="product-card-body synergy-card-body flex h-full flex-col justify-between gap-10">
                   <img
@@ -88,19 +188,25 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   className="product-repo-link product-repo-link-light"
+                  onFocus={() => setWorldMode("synergy")}
                 >
                   GitHub repo
                 </a>
               </div>
             </article>
 
-            <article className="product-shell product-shell-dark">
+            <article
+              className="product-shell product-shell-dark"
+              onMouseEnter={() => setWorldMode("superior")}
+            >
               <a
                 href={PRODUCT_LINKS.superiorApp}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open Superior live app"
                 className="product-card superior-card group"
+                onFocus={() => setWorldMode("superior")}
+                ref={superiorCardRef}
               >
                 <div className="product-card-body superior-card-body">
                   <div className="superior-card-headerband" aria-hidden>
@@ -130,11 +236,11 @@ export default function Home() {
                       <p className="superior-card-art-label">
                         Superior cartridge art
                       </p>
-                      <div className="superior-card-art-window">
+                      <div className="superior-card-art-window pixel-art">
                         <img
                           src="/logos/superior.svg"
                           alt="Superior pixel logo"
-                          className="superior-mark superior-mark-large"
+                          className="superior-mark superior-mark-large pixel-art"
                         />
                       </div>
                     </div>
@@ -170,6 +276,36 @@ export default function Home() {
                         <strong>Equipped</strong>
                       </div>
                     </div>
+
+                    <div
+                      className="superior-card-signal-panel"
+                      aria-hidden
+                      data-live={world === "superior"}
+                    >
+                      <div className="superior-card-signal-meta">
+                        <span className="superior-card-signal-label">
+                          Signal stream
+                        </span>
+                        <span className="superior-card-signal-status">
+                          {world === "superior" ? "Live" : "Standby"}
+                        </span>
+                      </div>
+                      <div className="superior-card-signal-track">
+                        {signalBars.map((bar, index) => (
+                          <span
+                            key={`signal-${index}`}
+                            className="superior-card-signal-bar"
+                            style={
+                              {
+                                "--bar-height": `${bar}%`,
+                                "--bar-delay": `${index * 45}ms`,
+                              } as CSSProperties
+                            }
+                          />
+                        ))}
+                      </div>
+                      <span className="superior-card-scanline" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -180,6 +316,7 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   className="product-repo-link product-repo-link-dark"
+                  onFocus={() => setWorldMode("superior")}
                 >
                   GitHub repo
                 </a>
