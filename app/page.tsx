@@ -219,21 +219,26 @@ export default function Home() {
                       <span className="superior-card-brand-copy">
                         <span className="superior-card-brand-name">Superior</span>
                         <span className="superior-card-brand-tag">
-                          Prediction-market arbitrage bot
+                          Paper-first arbitrage bot
                         </span>
                       </span>
                     </div>
                     <div className="superior-card-nav">
-                      <span>Features</span>
-                      <span>Product</span>
-                      <span>Docs</span>
+                      <span>Scanner</span>
+                      <span>Session</span>
+                      <span>Loadout</span>
                       <span>Download</span>
                     </div>
                   </div>
 
+                  <div className="superior-card-statusrail" aria-hidden>
+                    <span>Open-source Windows build</span>
+                    <span>Paper-first by default</span>
+                  </div>
+
                   <div className="superior-card-stage">
                     <div className="superior-card-artframe" aria-hidden>
-                      <p className="superior-card-art-label">Arbitrage bot</p>
+                      <p className="superior-card-art-label">Bot cabinet</p>
                       <div className="superior-card-art-window pixel-art">
                         <img
                           src="/logos/superior.svg"
@@ -245,33 +250,38 @@ export default function Home() {
 
                     <div className="product-card-copy superior-card-copy">
                       <p className="superior-card-kicker">
-                        Prediction-market arbitrage bot
+                        Paper-first arbitrage bot
                       </p>
                       <h2 className="superior-card-title">
-                        <span>Scan books.</span>
-                        <span>Spot gaps.</span>
+                        <span>Build bots.</span>
+                        <span>Bank score.</span>
                       </h2>
                       <p className="superior-card-subtitle">
-                        Paper-first bot for tracking arbitrage across markets.
+                        Stage routes, run paper sessions, unlock deeper controls.
                       </p>
+                      <div className="superior-card-loop" aria-hidden>
+                        <span>Build bots</span>
+                        <span>Stage routes</span>
+                        <span>Bank score</span>
+                      </div>
                     </div>
 
                     <div className="superior-card-scoreboard" aria-hidden>
                       <div className="superior-card-score-item">
                         <span className="superior-card-score-label">
-                          Paper score
+                          Bot slots
                         </span>
-                        <strong>Active</strong>
+                        <strong>03 armed</strong>
                       </div>
                       <div className="superior-card-score-item">
                         <span className="superior-card-score-label">
-                          Live score
+                          Paper score
                         </span>
-                        <strong>Reserved</strong>
+                        <strong>Climbing</strong>
                       </div>
                       <div className="superior-card-score-item">
-                        <span className="superior-card-score-label">Loadout</span>
-                        <strong>Equipped</strong>
+                        <span className="superior-card-score-label">Live gate</span>
+                        <strong>Locked</strong>
                       </div>
                     </div>
 
@@ -282,10 +292,10 @@ export default function Home() {
                     >
                       <div className="superior-card-signal-meta">
                         <span className="superior-card-signal-label">
-                          Signal stream
+                          Session feed
                         </span>
                         <span className="superior-card-signal-status">
-                          {world === "superior" ? "Live" : "Standby"}
+                          {world === "superior" ? "Tracking" : "Standby"}
                         </span>
                       </div>
                       <div className="superior-card-signal-track">
