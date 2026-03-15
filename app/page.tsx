@@ -218,7 +218,9 @@ export default function Home() {
                       </span>
                       <span className="superior-card-brand-copy">
                         <span className="superior-card-brand-name">Superior</span>
-                        <span className="superior-card-brand-tag">Bot emulator</span>
+                        <span className="superior-card-brand-tag">
+                          Arbitrage emulator
+                        </span>
                       </span>
                     </div>
                     <div className="superior-card-nav">
@@ -240,21 +242,22 @@ export default function Home() {
                     </div>
 
                     <div className="product-card-copy superior-card-copy">
-                      <p className="superior-card-kicker">
-                        Arbitrage trading bot emulator
-                      </p>
+                      <p className="superior-card-kicker">Superior</p>
                       <h2 className="superior-card-title">
-                        <span>Superior</span>
+                        <span>Arbitrage bot</span>
+                        <span>emulator</span>
                       </h2>
                       <p className="superior-card-subtitle">
-                        Paper-trade arbitrage bots on live books.
+                        Paper-trade bots on live order books.
                       </p>
                     </div>
 
                     <div className="superior-card-scoreboard" aria-hidden>
                       <div className="superior-card-score-item">
-                        <span className="superior-card-score-label">Emulator</span>
-                        <strong>Active</strong>
+                        <span className="superior-card-score-label">
+                          Order books
+                        </span>
+                        <strong>Live</strong>
                       </div>
                       <div className="superior-card-score-item">
                         <span className="superior-card-score-label">Paper mode</span>
@@ -272,9 +275,9 @@ export default function Home() {
                       data-live={world === "superior"}
                     >
                       <div className="superior-card-signal-meta">
-                        <span className="superior-card-signal-label">Market feed</span>
+                        <span className="superior-card-signal-label">Bot feed</span>
                         <span className="superior-card-signal-status">
-                          {world === "superior" ? "Simulating" : "Standby"}
+                          {world === "superior" ? "Paper run" : "Standby"}
                         </span>
                       </div>
                       <div className="superior-card-signal-track">
