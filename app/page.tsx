@@ -219,7 +219,7 @@ export default function Home() {
                       <span className="superior-card-brand-copy">
                         <span className="superior-card-brand-name">Superior</span>
                         <span className="superior-card-brand-tag">
-                          Paper-first bot cabinet
+                          Prediction-market arbitrage bot
                         </span>
                       </span>
                     </div>
@@ -233,9 +233,7 @@ export default function Home() {
 
                   <div className="superior-card-stage">
                     <div className="superior-card-artframe" aria-hidden>
-                      <p className="superior-card-art-label">
-                        Superior cartridge art
-                      </p>
+                      <p className="superior-card-art-label">Arbitrage bot</p>
                       <div className="superior-card-art-window pixel-art">
                         <img
                           src="/logos/superior.svg"
@@ -247,14 +245,14 @@ export default function Home() {
 
                     <div className="product-card-copy superior-card-copy">
                       <p className="superior-card-kicker">
-                        Open-source prediction-market desktop app
+                        Prediction-market arbitrage bot
                       </p>
                       <h2 className="superior-card-title">
-                        <span>Equip</span>
-                        <span>Polymarket.</span>
+                        <span>Scan books.</span>
+                        <span>Spot gaps.</span>
                       </h2>
                       <p className="superior-card-subtitle">
-                        Record books. Build a paper score.
+                        Paper-first bot for tracking arbitrage across markets.
                       </p>
                     </div>
 
