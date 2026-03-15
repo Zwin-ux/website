@@ -659,21 +659,19 @@
   z-index: 2;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.85rem;
-  width: min(100%, 38rem);
+  width: fit-content;
+  max-width: min(100%, 38rem);
   margin: 2.2rem auto 0;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.65rem 0.85rem 0.65rem 0.65rem;
+  border: 1px solid rgba(125, 211, 252, 0.24);
   border-radius: 999px;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.94) 0 52%,
-      rgba(11, 15, 42, 0.92) 52% 100%
-    );
+  background: rgba(11, 15, 42, 0.94);
   box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 16px 30px rgba(4, 8, 20, 0.18),
+    0 0 0 1px rgba(248, 250, 252, 0.05) inset;
   transition:
     transform 320ms ease,
     box-shadow 320ms ease,
@@ -705,14 +703,11 @@
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  line-height: 1.3;
 }
 
 .homepage-shell[data-world="synergy"] .homepage-hiring-strip {
   border-color: rgba(74, 138, 244, 0.24);
-}
-
-.homepage-shell[data-world="synergy"] .homepage-hiring-text {
-  color: #dff9ff;
 }
 
 .homepage-shell[data-world="superior"] .homepage-hiring-strip {
@@ -729,9 +724,7 @@
 
 .homepage-shell[data-world="superior"] .homepage-hiring-text {
   color: #f8fafc;
-  font-family: "Pixel Operator", var(--font-press-start), "Courier New", monospace;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .product-shell {
@@ -2394,7 +2387,7 @@
   }
 
   .homepage-hiring-strip {
-    width: min(100%, 30rem);
+    max-width: min(100%, 30rem);
     margin-top: 1.8rem;
   }
 
@@ -2512,18 +2505,12 @@
   }
 
   .homepage-hiring-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
+    justify-content: flex-start;
     width: 100%;
+    max-width: 100%;
     margin-top: 1.5rem;
     padding: 0.85rem 0.95rem;
     border-radius: 1.35rem;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.96) 0 42%,
-      rgba(11, 15, 42, 0.94) 42% 100%
-    );
   }
 
   .homepage-hiring-pill {
