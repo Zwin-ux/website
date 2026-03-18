@@ -51,9 +51,6 @@ export function ScriptLensIllustration({
   compact = false,
 }: ScriptLensIllustrationProps) {
   const activeScene = SCENES.find((item) => item.key === scene) ?? SCENES[0];
-  const visibleScenes = compact
-    ? [activeScene, ...SCENES.filter((item) => item.key !== scene).slice(0, 2)]
-    : SCENES;
   const rootClassName = [
     "scriptlens-system",
     compact ? "scriptlens-system-compact" : "",
@@ -85,15 +82,19 @@ export function ScriptLensIllustration({
           <span className="scriptlens-line scriptlens-line-d" />
         </div>
 
-        <div className="scriptlens-document scriptlens-document-secondary">
-          <span className="scriptlens-line scriptlens-line-title" />
-          <span className="scriptlens-line scriptlens-line-a" />
-          <span className="scriptlens-line scriptlens-line-b" />
-          <span className="scriptlens-line scriptlens-line-c scriptlens-line-highlight-secondary" />
-        </div>
+        {!compact ? (
+          <div className="scriptlens-document scriptlens-document-secondary">
+            <span className="scriptlens-line scriptlens-line-title" />
+            <span className="scriptlens-line scriptlens-line-a" />
+            <span className="scriptlens-line scriptlens-line-b" />
+            <span className="scriptlens-line scriptlens-line-c scriptlens-line-highlight-secondary" />
+          </div>
+        ) : null}
 
         <span className="scriptlens-connector scriptlens-connector-a" />
-        <span className="scriptlens-connector scriptlens-connector-b" />
+        {!compact ? (
+          <span className="scriptlens-connector scriptlens-connector-b" />
+        ) : null}
 
         <span className="scriptlens-inspection-ring scriptlens-inspection-ring-a" />
         <span className="scriptlens-inspection-ring scriptlens-inspection-ring-b" />
@@ -103,17 +104,21 @@ export function ScriptLensIllustration({
         </span>
 
         <span className="scriptlens-highlight scriptlens-highlight-a" />
-        <span className="scriptlens-highlight scriptlens-highlight-b" />
+        {!compact ? (
+          <span className="scriptlens-highlight scriptlens-highlight-b" />
+        ) : null}
         <span className="scriptlens-scanline" />
 
-        <div className="scriptlens-node-cluster">
-          <span className="scriptlens-node scriptlens-node-a" />
-          <span className="scriptlens-node scriptlens-node-b" />
-          <span className="scriptlens-node scriptlens-node-c" />
-          <span className="scriptlens-node scriptlens-node-d" />
-          <span className="scriptlens-node-link scriptlens-node-link-a" />
-          <span className="scriptlens-node-link scriptlens-node-link-b" />
-        </div>
+        {!compact ? (
+          <div className="scriptlens-node-cluster">
+            <span className="scriptlens-node scriptlens-node-a" />
+            <span className="scriptlens-node scriptlens-node-b" />
+            <span className="scriptlens-node scriptlens-node-c" />
+            <span className="scriptlens-node scriptlens-node-d" />
+            <span className="scriptlens-node-link scriptlens-node-link-a" />
+            <span className="scriptlens-node-link scriptlens-node-link-b" />
+          </div>
+        ) : null}
 
         <div className="scriptlens-insight-card">
           <span className="scriptlens-insight-kicker">Detected</span>
@@ -122,17 +127,19 @@ export function ScriptLensIllustration({
         </div>
       </div>
 
-      <div className="scriptlens-scene-rail">
-        {visibleScenes.map((item) => (
-          <span
-            key={item.key}
-            className="scriptlens-scene-chip"
-            data-active={item.key === scene}
-          >
-            {item.label}
-          </span>
-        ))}
-      </div>
+      {!compact ? (
+        <div className="scriptlens-scene-rail">
+          {SCENES.map((item) => (
+            <span
+              key={item.key}
+              className="scriptlens-scene-chip"
+              data-active={item.key === scene}
+            >
+              {item.label}
+            </span>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

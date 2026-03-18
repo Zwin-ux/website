@@ -127,9 +127,11 @@ export default function Home() {
               className="homepage-lockup-panel homepage-lockup-panel-left"
               onMouseEnter={() => setWorldMode("synergy")}
             >
-              <span className="homepage-lockup-name homepage-lockup-name-left">
-                Synergy
-              </span>
+              <img
+                src="/logos/scriptlens.svg"
+                alt="Synergy logo"
+                className="homepage-synergy-lockup-mark"
+              />
             </span>
             <span className="homepage-lockup-join" aria-hidden>
               <span className="homepage-lockup-join-halo" />
@@ -173,6 +175,9 @@ export default function Home() {
                       Live app
                     </p>
                     <h2 className="synergy-card-title">Synergy</h2>
+                    <p className="synergy-card-subtitle">
+                      Script analysis and document inspection.
+                    </p>
                   </div>
                   <ScriptLensIllustration
                     scene="inspection"
@@ -209,93 +214,69 @@ export default function Home() {
                 ref={superiorCardRef}
               >
                 <div className="product-card-body superior-card-body">
-                  <div className="superior-card-headerband" aria-hidden>
-                    <div className="superior-card-brand">
-                      <span className="superior-card-brand-icon">
-                        <span className="superior-card-brand-orb superior-card-brand-orb-outer" />
-                        <span className="superior-card-brand-orb superior-card-brand-orb-middle" />
-                        <span className="superior-card-brand-orb superior-card-brand-orb-core" />
-                      </span>
-                      <span className="superior-card-brand-copy">
-                        <span className="superior-card-brand-name">Superior</span>
-                        <span className="superior-card-brand-tag">
-                          Arbitrage emulator
-                        </span>
-                      </span>
-                    </div>
-                    <div className="superior-card-nav">
-                      <span>Scanner</span>
-                      <span>Loadout</span>
-                      <span>Download</span>
+                  <div className="superior-card-marquee" aria-hidden>
+                    <div className="superior-card-marquee-frame pixel-art">
+                      <img
+                        src="/logos/superior.svg"
+                        alt="Superior pixel logo"
+                        className="superior-mark superior-mark-large pixel-art superior-card-marquee-mark"
+                      />
                     </div>
                   </div>
 
-                  <div className="superior-card-stage">
-                    <div className="superior-card-artframe" aria-hidden>
-                      <div className="superior-card-art-window pixel-art">
-                        <img
-                          src="/logos/superior.svg"
-                          alt="Superior pixel logo"
-                          className="superior-mark superior-mark-large pixel-art"
+                  <div className="product-card-copy superior-card-copy">
+                    <p className="product-card-path superior-card-path">
+                      Paper-first bot
+                    </p>
+                    <h2 className="superior-card-title">Superior</h2>
+                    <p className="superior-card-subtitle">
+                      Arbitrage bot emulator for live order books.
+                    </p>
+                  </div>
+
+                  <div className="superior-card-scoreboard" aria-hidden>
+                    <div className="superior-card-score-item">
+                      <span className="superior-card-score-label">Books</span>
+                      <strong>Tracking</strong>
+                    </div>
+                    <div className="superior-card-score-item">
+                      <span className="superior-card-score-label">Paper</span>
+                      <strong>Active</strong>
+                    </div>
+                    <div className="superior-card-score-item">
+                      <span className="superior-card-score-label">Live gate</span>
+                      <strong>Locked</strong>
+                    </div>
+                  </div>
+
+                  <div
+                    className="superior-card-signal-panel"
+                    aria-hidden
+                    data-live={world === "superior"}
+                  >
+                    <div className="superior-card-signal-meta">
+                      <span className="superior-card-signal-label">
+                        Session feed
+                      </span>
+                      <span className="superior-card-signal-status">
+                        {world === "superior" ? "Running" : "Standby"}
+                      </span>
+                    </div>
+                    <div className="superior-card-signal-track">
+                      {signalBars.map((bar, index) => (
+                        <span
+                          key={`signal-${index}`}
+                          className="superior-card-signal-bar"
+                          style={
+                            {
+                              "--bar-height": `${bar}%`,
+                              "--bar-delay": `${index * 45}ms`,
+                            } as CSSProperties
+                          }
                         />
-                      </div>
+                      ))}
                     </div>
-
-                    <div className="product-card-copy superior-card-copy">
-                      <p className="superior-card-kicker">Superior</p>
-                      <h2 className="superior-card-title">
-                        <span>Arbitrage bot</span>
-                        <span>emulator</span>
-                      </h2>
-                      <p className="superior-card-subtitle">
-                        Paper-trade bots on live order books.
-                      </p>
-                    </div>
-
-                    <div className="superior-card-scoreboard" aria-hidden>
-                      <div className="superior-card-score-item">
-                        <span className="superior-card-score-label">
-                          Order books
-                        </span>
-                        <strong>Live</strong>
-                      </div>
-                      <div className="superior-card-score-item">
-                        <span className="superior-card-score-label">Paper mode</span>
-                        <strong>Active</strong>
-                      </div>
-                      <div className="superior-card-score-item">
-                        <span className="superior-card-score-label">Live gate</span>
-                        <strong>Locked</strong>
-                      </div>
-                    </div>
-
-                    <div
-                      className="superior-card-signal-panel"
-                      aria-hidden
-                      data-live={world === "superior"}
-                    >
-                      <div className="superior-card-signal-meta">
-                        <span className="superior-card-signal-label">Bot feed</span>
-                        <span className="superior-card-signal-status">
-                          {world === "superior" ? "Paper run" : "Standby"}
-                        </span>
-                      </div>
-                      <div className="superior-card-signal-track">
-                        {signalBars.map((bar, index) => (
-                          <span
-                            key={`signal-${index}`}
-                            className="superior-card-signal-bar"
-                            style={
-                              {
-                                "--bar-height": `${bar}%`,
-                                "--bar-delay": `${index * 45}ms`,
-                              } as CSSProperties
-                            }
-                          />
-                        ))}
-                      </div>
-                      <span className="superior-card-scanline" />
-                    </div>
+                    <span className="superior-card-scanline" />
                   </div>
                 </div>
               </a>
