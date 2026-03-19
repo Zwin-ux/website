@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: "Bonelli Labs",
     template: "%s | Bonelli Labs",
   },
-  description: "Bonelli Labs is currently working on the site.",
+  description: "Bonelli Labs is on hiatus.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bonelli Labs",
-    description: "Bonelli Labs is currently working on the site.",
+    description: "Bonelli Labs is on hiatus.",
     url: "https://bonelli.dev",
     siteName: "Bonelli Labs",
     type: "website",

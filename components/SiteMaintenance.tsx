@@ -21,10 +21,10 @@ export default function SiteMaintenance({
           {label}
         </p>
         <h1 className="text-4xl font-semibold tracking-[-0.06em] text-white sm:text-6xl">
-          Currently working.
+          Hiatus.
         </h1>
         <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-slate-300 sm:text-base">
-          The site is temporarily hidden while updates are in progress.
+          The site is temporarily hidden while the project is on hiatus.
         </p>
       </div>
     </section>
