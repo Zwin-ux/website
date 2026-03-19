@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bonelli.dev"),
@@ -10,8 +8,7 @@ export const metadata: Metadata = {
     default: "Bonelli Labs",
     template: "%s | Bonelli Labs",
   },
-  description:
-    "Bonelli Labs builds Synergy for AI script detection and Superior for market scanning.",
+  description: "Bonelli Labs is currently working on the site.",
   icons: {
     icon: "/transparent.png",
     shortcut: "/transparent.png",
@@ -19,15 +16,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bonelli Labs",
-    description:
-      "Two tools from Bonelli Labs: Synergy for AI script detection and Superior for market scanning.",
+    description: "Bonelli Labs is currently working on the site.",
     url: "https://bonelli.dev",
     siteName: "Bonelli Labs",
     type: "website",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 
@@ -69,11 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full antialiased" suppressHydrationWarning>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1 pt-20">{children}</main>
-          <Footer />
-        </div>
+        <main>{children}</main>
         <Analytics />
       </body>
     </html>

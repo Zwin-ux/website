@@ -1,6 +1,5 @@
-import { permanentRedirect } from "next/navigation";
-import { PRODUCT_LINKS } from "../../lib/productLinks";
+import SiteMaintenance from "../../components/SiteMaintenance";
 
 export default function SynergyPage() {
-  permanentRedirect(PRODUCT_LINKS.synergyApp);
+  return <SiteMaintenance label="Synergy" />;
 }
